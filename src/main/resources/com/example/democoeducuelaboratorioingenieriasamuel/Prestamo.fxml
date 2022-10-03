@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="788.0" style="-fx-background-color: #3A5067;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controler.PrestamoController">
+   <left>
+      <VBox prefHeight="591.0" prefWidth="112.0" style="-fx-background-color: #0D1824;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#btnPadrePrestamo" prefHeight="70.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="HOME" textFill="#f4f2f2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <Bloom threshold="0.45" />
+               </effect>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="MONITORES" textFill="#fcf8f8">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <Bloom threshold="0.45" />
+               </effect>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="ESTUDIANTES" textFill="#fcfafa">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <Bloom threshold="0.45" />
+               </effect>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="PRESTAMO" textFill="#f4f2f2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <Bloom threshold="0.45" />
+               </effect>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="29.0" layoutY="48.0" text="FECHA FINAL PRESTAMO" textFill="#faf7f7" />
+            <TextField layoutX="172.0" layoutY="44.0" />
+            <Button layoutX="236.0" layoutY="126.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="CREAR PRESTAMO" textFill="#faf8f8">
+               <effect>
+                  <Blend />
+               </effect>
+            </Button>
+            <TableView layoutY="213.0" prefHeight="200.0" prefWidth="674.0">
+              <columns>
+                <TableColumn prefWidth="207.20003509521484" text="FECHA FINAL PRESTAMO" />
+                <TableColumn prefWidth="99.199951171875" text="CODIGO:" />
+              </columns>
+            </TableView>
+            <Label layoutX="338.0" layoutY="48.0" text="CODIGO:" textFill="#faf7f7" />
+            <TextField layoutX="399.0" layoutY="44.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

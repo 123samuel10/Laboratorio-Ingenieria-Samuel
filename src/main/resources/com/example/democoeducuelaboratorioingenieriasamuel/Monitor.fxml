@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="788.0" style="-fx-background-color: #3A5067;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controler.MonitorController">
+   <left>
+      <VBox prefHeight="591.0" prefWidth="112.0" style="-fx-background-color: #0D1824;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#botonPadreMonitores" prefHeight="70.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="HOME" textFill="#f4f2f2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <Bloom threshold="0.45" />
+               </effect>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="MONITORES" textFill="#fcf8f8">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <Bloom threshold="0.45" />
+               </effect>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="ESTUDIANTES" textFill="#fcfafa">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <Bloom threshold="0.45" />
+               </effect>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="PRESTAMO" textFill="#f4f2f2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <Bloom threshold="0.45" />
+               </effect>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="41.0" layoutY="32.0" text="NOMBRE:" textFill="#f7f5f5" />
+            <TextField fx:id="nombreEscribir" layoutX="112.0" layoutY="28.0" />
+            <Label layoutX="41.0" layoutY="70.0" text="CODIGO:" textFill="#fcfafa" />
+            <TextField fx:id="codigoEscribir" layoutX="112.0" layoutY="66.0" />
+            <Label layoutX="41.0" layoutY="109.0" text="CARRERA:" textFill="#faf7f7" />
+            <TextField fx:id="carreraEscribir" layoutX="113.0" layoutY="105.0" />
+            <Label layoutX="327.0" layoutY="32.0" text="CANTIDAD:" textFill="#f7f3f3" />
+            <TextField fx:id="cantidadEscribir" layoutX="408.0" layoutY="28.0" />
+            <Label layoutX="327.0" layoutY="70.0" text="PRECIO:" textFill="#f4f2f2" />
+            <TextField fx:id="precioEscribir" layoutX="408.0" layoutY="66.0" />
+            <Button layoutX="216.0" layoutY="210.0" mnemonicParsing="false" onAction="#buscar" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="BUSCAR" textFill="#faf8f8">
+               <effect>
+                  <Blend />
+               </effect>
+            </Button>
+            <Button layoutX="357.0" layoutY="210.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="ElLIMINAR" textFill="#faf8f8">
+               <effect>
+                  <Blend />
+               </effect>
+            </Button>
+            <Button layoutX="77.0" layoutY="210.0" mnemonicParsing="false" onAction="#añadir" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="AGREGAR" textFill="#faf8f8">
+               <effect>
+                  <Blend />
+               </effect>
+            </Button>
+            <Label layoutX="280.0" layoutY="110.0" text="AÑOS DE ANTIGUEDAD:" textFill="#faf4f4">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <TextField fx:id="antiguedadEscribir" layoutX="408.0" layoutY="105.0" />
+            <TableView layoutY="277.0" prefHeight="313.0" prefWidth="678.0">
+              <columns>
+                <TableColumn fx:id="nombreMostrar" prefWidth="110.39996641874313" text="NOMBRE:" />
+                <TableColumn fx:id="codigoMostrar" prefWidth="97.60003662109375" text="CODIGO:" />
+                  <TableColumn fx:id="carreraMostrar" prefWidth="107.19999694824219" text="CARRERA:" />
+                  <TableColumn fx:id="cantidadMostrar" prefWidth="110.4000244140625" text="CANTIDAD:" />
+                  <TableColumn fx:id="precioMostrar" prefWidth="116.0" text="PRECIO:" />
+                  <TableColumn fx:id="antiguedadMostrar" prefWidth="138.4000244140625" text="AÑOS ANTIGUEDAD:" />
+              </columns>
+            </TableView>
+            <Button layoutX="494.0" layoutY="210.0" mnemonicParsing="false" onAction="#modificar" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="MODIFICAR" textFill="#faf8f8">
+               <effect>
+                  <Blend />
+               </effect>
+            </Button>
+            <ImageView fitHeight="107.0" fitWidth="62.0" layoutX="615.0" layoutY="4.0" opacity="0.37" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../Downloads/monito.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
