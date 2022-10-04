@@ -76,7 +76,7 @@
                </fill></Text>
             <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="248.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../Downloads/home.jpg" />
+                  <Image url="@../../../../java/Imagenes/imagenHome.png" />
                </image>
             </ImageView>
          </children>

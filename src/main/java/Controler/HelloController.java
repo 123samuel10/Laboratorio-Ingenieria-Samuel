@@ -21,7 +21,7 @@ public class HelloController {
         Stage stage1=new Stage();
         stage1.setScene(scene);
         stage1.show();
-        this.stage.close();
+
     }
 
     @FXML
@@ -33,7 +33,7 @@ public class HelloController {
         Stage stage2=new Stage();
         stage2.setScene(scene);
         stage2.show();
-        this.stage.close();
+
     }
     @FXML
     void btnIrPrestamo(ActionEvent event) throws IOException {
@@ -43,15 +43,12 @@ public class HelloController {
         Stage stage3=new Stage();
         stage3.setScene(scene);
         stage3.show();
-        this.stage.close();
+
 
     }
 
 
 
-    public void setStage(Stage Pstage) {
-        stage=Pstage;
-    }
 }
 
 

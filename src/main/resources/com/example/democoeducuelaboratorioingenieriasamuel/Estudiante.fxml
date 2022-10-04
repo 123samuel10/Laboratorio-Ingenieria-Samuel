@@ -54,14 +54,14 @@
          <children>
             <Label layoutX="41.0" layoutY="32.0" text="NOMBRE:" textFill="#f7f5f5" />
             <TextField fx:id="nombreEscribir" layoutX="112.0" layoutY="28.0" />
-            <Label layoutX="41.0" layoutY="70.0" text="CODIGO:" textFill="#fcfafa" />
-            <TextField fx:id="codigoEscribir" layoutX="112.0" layoutY="66.0" />
+            <Label layoutX="41.0" layoutY="70.0" text="ID" textFill="#fcfafa" />
+            <TextField fx:id="idEscribir" layoutX="112.0" layoutY="66.0" />
             <Label layoutX="41.0" layoutY="109.0" text="CARRERA:" textFill="#faf7f7" />
             <TextField fx:id="carreraEscribir" layoutX="113.0" layoutY="105.0" />
-            <Label layoutX="302.0" layoutY="32.0" text="CANTIDAD:" textFill="#f7f3f3" />
-            <TextField fx:id="cantidadEscribir" layoutX="389.0" layoutY="28.0" />
-            <Label layoutX="311.0" layoutY="70.0" text="PRECIO:" textFill="#f4f2f2" />
-            <TextField fx:id="precioEscribir" layoutX="389.0" layoutY="66.0" />
+            <Label layoutX="302.0" layoutY="32.0" text="CORREO:" textFill="#f7f3f3" />
+            <TextField fx:id="correoEscribir" layoutX="389.0" layoutY="28.0" />
+            <Label layoutX="311.0" layoutY="70.0" text="TELEFONO:" textFill="#f4f2f2" />
+            <TextField fx:id="telefonoEscribir" layoutX="389.0" layoutY="66.0" />
             <Button layoutX="138.0" layoutY="165.0" mnemonicParsing="false" onAction="#buscar" prefHeight="46.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="BUSCAR" textFill="#faf8f8">
                <effect>
                   <Blend />
@@ -80,10 +80,10 @@
             <TableView fx:id="tablaEstudiante" layoutX="3.0" layoutY="252.0" prefHeight="338.0" prefWidth="675.0">
               <columns>
                 <TableColumn fx:id="nombreMostrar" prefWidth="167.19997715950012" text="NOMBRE:" />
-                <TableColumn fx:id="codigoMostrar" prefWidth="123.19999694824219" text="CODIGO:" />
-                  <TableColumn fx:id="carreraMostrar" prefWidth="132.80001831054688" text="CARRERA:" />
-                  <TableColumn fx:id="cantidadMostrar" minWidth="0.0" prefWidth="132.7999267578125" text="CANTIDAD:" />
-                  <TableColumn fx:id="precioMostrar" prefWidth="127.20013427734375" text="PRECIO:" />
+                <TableColumn fx:id="idMostrar" prefWidth="123.19999694824219" text="ID:" />
+                  <TableColumn fx:id="carreraMostrar" prefWidth="132.80001831054688" text="CARRERA" />
+                  <TableColumn fx:id="correoMostrar" minWidth="0.0" prefWidth="132.7999267578125" text="CORREO" />
+                  <TableColumn fx:id="telefonoMostrar" prefWidth="127.20013427734375" text="TELEFONO" />
               </columns>
             </TableView>
             <Button fx:id="modificarBTN" layoutX="402.0" layoutY="163.0" mnemonicParsing="false" onAction="#modificar" prefHeight="49.0" prefWidth="122.0" style="-fx-background-color: #212528;" text="MODIFICAR" textFill="#faf8f8">
@@ -99,7 +99,7 @@
             <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="202.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="150.0" fitWidth="104.0" layoutX="574.0" layoutY="7.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../Downloads/estudiante.jpg" />
+                  <Image url="@../../../../java/Imagenes/imagenEstudiante.png" />
                </image>
             </ImageView>
             <TextField fx:id="escribirBuscar" layoutX="347.0" layoutY="118.0" />

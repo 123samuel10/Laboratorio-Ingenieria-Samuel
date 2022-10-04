@@ -2,44 +2,19 @@ package Model;
 
 import javafx.beans.property.SimpleStringProperty;
 
-public class Estudiante {
+public class Estudiante extends Persona{
 
-    private String nombre;
-    private String  codigo;
+
     private String carrera;
-    private int cantidad;
-    private int precio;
+    private String telefono;
+    private String correoElectronico;
 
-    public Estudiante(String nombre, String codigo, String carrera, int cantidad, int precio) {
-        this.nombre=nombre;
-        this.codigo=codigo;
+
+    public Estudiante(String nombre, String id,String carrera,String telefono,String correoElectronico) {
+        super(nombre, id);
         this.carrera=carrera;
-        this.cantidad=cantidad;
-        this.precio=precio;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
+        this.telefono=telefono;
+        this.correoElectronico=correoElectronico;
     }
 
     public String getCarrera() {
@@ -50,13 +25,19 @@ public class Estudiante {
         this.carrera = carrera;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public String getCorreoElectronico() {
+        return correoElectronico;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
 
+    public String getTelefono() {
+        return telefono;
+    }
 
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 }

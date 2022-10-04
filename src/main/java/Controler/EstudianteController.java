@@ -27,37 +27,39 @@ public class EstudianteController implements Initializable {
     @FXML
     private TableColumn<Model.Estudiante,String> nombreMostrar;
     @FXML
-    private TableColumn<Model.Estudiante,String> codigoMostrar;
+    private TableColumn<Model.Estudiante,String> idMostrar;
     @FXML
     private TableColumn<Model.Estudiante,String> carreraMostrar;
     @FXML
-    private TableColumn<Model.Estudiante,Integer> cantidadMostrar;
+    private TableColumn<Model.Estudiante,String > correoMostrar;
+
     @FXML
-    private TableColumn<Model.Estudiante,Integer> precioMostrar;
+    private TableColumn<Model.Estudiante,String >telefonoMostrar;
     @FXML
     private TableView<Model.Estudiante> tablaEstudiante;
 
     //texfield
     @FXML
-    private TextField precioEscribir;
+    private TextField telefonoEscribir;
     @FXML
     private TextField nombreEscribir;
     @FXML
-    private TextField codigoEscribir;
+    private TextField idEscribir;
     @FXML
     private TextField carreraEscribir;
     @FXML
-    private TextField cantidadEscribir;
+    private TextField correoEscribir;
     private ObservableList<Estudiante> estudiantes;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         estudiantes=FXCollections.observableArrayList();
         this.nombreMostrar.setCellValueFactory(new PropertyValueFactory("nombre"));
-        this.codigoMostrar.setCellValueFactory(new PropertyValueFactory("codigo"));
+        this.idMostrar.setCellValueFactory(new PropertyValueFactory("id"));
         this.carreraMostrar.setCellValueFactory(new PropertyValueFactory("carrera"));
-       this.cantidadMostrar.setCellValueFactory(new PropertyValueFactory("cantidad"));
-        this.precioMostrar.setCellValueFactory(new PropertyValueFactory("precio"));
+        this.telefonoMostrar.setCellValueFactory(new PropertyValueFactory("telefono"));
+       this.correoMostrar.setCellValueFactory(new PropertyValueFactory("correoElectronico"));
+
 
     }
     //botones
@@ -66,19 +68,20 @@ public class EstudianteController implements Initializable {
 
         try {
             String nombre = this.nombreEscribir.getText();
-            String codigo = this.codigoEscribir.getText();
+            String id = this.idEscribir.getText();
             String carrera = this.carreraEscribir.getText();
-            int cantidad = Integer.parseInt(this.cantidadEscribir.getText());
-            int precio = Integer.parseInt(this.precioEscribir.getText());
+            String correo=this.correoEscribir.getText();
+            String telefono=this.telefonoEscribir.getText();
+
             if (""!=nombreEscribir.getText()){
-                estudiantes.add(new Estudiante(nombre,codigo, carrera,cantidad,precio));
+                estudiantes.add(new Estudiante(nombre,id, carrera,telefono,correo));
                 tablaEstudiante.setItems(estudiantes);
                 tablaEstudiante.refresh();
                 nombreEscribir.setText("");
-                codigoEscribir.setText("");
+                idEscribir.setText("");
+                correoEscribir.setText("");
                 carreraEscribir.setText("");
-                cantidadEscribir.setText("");
-                precioEscribir.setText("");
+                telefonoEscribir.setText("");
             }else {
                 Alert alert=new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText("MENSAJE DE INFORMACION");
@@ -114,10 +117,10 @@ public class EstudianteController implements Initializable {
         Estudiante estudiante=this.tablaEstudiante.getSelectionModel().getSelectedItem();//selecionar
         if (estudiante!=null){
             this.nombreEscribir.setText(estudiante.getNombre());
-            this.codigoEscribir.setText(estudiante.getCodigo());
+            this.idEscribir.setText(estudiante.getId());
             this.carreraEscribir.setText(estudiante.getCarrera());
-            this.cantidadEscribir.setText(estudiante.getCantidad()+"");
-            this.precioEscribir.setText(estudiante.getPrecio()+"");
+            this.correoEscribir.setText(estudiante.getCorreoElectronico());
+            this.telefonoEscribir.setText(estudiante.getTelefono());
         }
     }
     @FXML
@@ -131,17 +134,18 @@ public class EstudianteController implements Initializable {
             alert.showAndWait();
         }else {
             String nombre = this.nombreEscribir.getText();
-            String codigo = this.codigoEscribir.getText();
+            String id = this.idEscribir.getText();
             String carrera = this.carreraEscribir.getText();
-            int cantidad = Integer.parseInt(this.cantidadEscribir.getText());
-            int precio = Integer.parseInt(this.precioEscribir.getText());
-            Estudiante aux=new Estudiante(nombre,codigo,carrera,cantidad,precio);
+            String correo=this.correoEscribir.getText();
+            String telefono=this.telefonoEscribir.getText();
+            Estudiante aux=new Estudiante(nombre,id,carrera,telefono,correo);
 
             if (!this.estudiantes.contains(aux)){//si no contiene el aux
                 estudiante.setNombre(aux.getNombre());
-                estudiante.setCodigo(aux.getCodigo());
+                estudiante.setId(aux.getId());
                 estudiante.setCarrera(aux.getCarrera());
-                estudiante.setPrecio(aux.getPrecio());
+                estudiante.setCorreoElectronico(aux.getCorreoElectronico());
+                estudiante.setTelefono(aux.getTelefono());
                 this.tablaEstudiante.refresh();
             }
         }
