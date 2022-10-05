@@ -58,14 +58,14 @@
          <children>
             <Label layoutX="41.0" layoutY="32.0" text="NOMBRE:" textFill="#f7f5f5" />
             <TextField fx:id="nombreEscribir" layoutX="112.0" layoutY="28.0" />
-            <Label layoutX="41.0" layoutY="70.0" text="CODIGO:" textFill="#fcfafa" />
-            <TextField fx:id="codigoEscribir" layoutX="112.0" layoutY="66.0" />
+            <Label layoutX="41.0" layoutY="70.0" text="ID" textFill="#fcfafa" />
+            <TextField fx:id="idEscribir" layoutX="112.0" layoutY="66.0" />
             <Label layoutX="41.0" layoutY="109.0" text="CARRERA:" textFill="#faf7f7" />
             <TextField fx:id="carreraEscribir" layoutX="113.0" layoutY="105.0" />
-            <Label layoutX="327.0" layoutY="32.0" text="CANTIDAD:" textFill="#f7f3f3" />
-            <TextField fx:id="cantidadEscribir" layoutX="408.0" layoutY="28.0" />
-            <Label layoutX="327.0" layoutY="70.0" text="PRECIO:" textFill="#f4f2f2" />
-            <TextField fx:id="precioEscribir" layoutX="408.0" layoutY="66.0" />
+            <Label layoutX="327.0" layoutY="32.0" text="CORREO:" textFill="#f7f3f3" />
+            <TextField fx:id="correodEscribir" layoutX="408.0" layoutY="28.0" />
+            <Label layoutX="327.0" layoutY="70.0" text="TELEFONO:" textFill="#f4f2f2" />
+            <TextField fx:id="telefonoEscribir" layoutX="408.0" layoutY="66.0" />
             <Button layoutX="216.0" layoutY="210.0" mnemonicParsing="false" onAction="#buscar" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="BUSCAR" textFill="#faf8f8">
                <effect>
                   <Blend />
@@ -90,10 +90,10 @@
             <TableView layoutY="277.0" prefHeight="313.0" prefWidth="678.0">
               <columns>
                 <TableColumn fx:id="nombreMostrar" prefWidth="110.39996641874313" text="NOMBRE:" />
-                <TableColumn fx:id="codigoMostrar" prefWidth="97.60003662109375" text="CODIGO:" />
-                  <TableColumn fx:id="carreraMostrar" prefWidth="107.19999694824219" text="CARRERA:" />
-                  <TableColumn fx:id="cantidadMostrar" prefWidth="110.4000244140625" text="CANTIDAD:" />
-                  <TableColumn fx:id="precioMostrar" prefWidth="116.0" text="PRECIO:" />
+                <TableColumn fx:id="idMostrar" prefWidth="97.60003662109375" text="ID" />
+                  <TableColumn fx:id="carreraMostrar" prefWidth="107.19999694824219" text="CARRERA" />
+                  <TableColumn fx:id="correoMostrar" prefWidth="110.4000244140625" text="CORREO" />
+                  <TableColumn fx:id="telefonoMostrar" prefWidth="116.0" text="TELEFONO" />
                   <TableColumn fx:id="antiguedadMostrar" prefWidth="138.4000244140625" text="AÑOS ANTIGUEDAD:" />
               </columns>
             </TableView>

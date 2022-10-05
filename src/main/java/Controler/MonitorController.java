@@ -12,39 +12,46 @@ public class MonitorController {
     public void botonPadreMonitores(ActionEvent actionEvent) {
     }
 
-    //textos field
+//texfiel
     @FXML
     private TextField antiguedadEscribir;
-
-    @FXML
-    private TextField cantidadEscribir;
-
     @FXML
     private TextField carreraEscribir;
+    @FXML
+    private TextField correodEscribir;
 
     @FXML
-    private TextField codigoEscribir;
-
+    private TextField idEscribir;
     @FXML
     private TextField nombreEscribir;
-
     @FXML
-    private TextField precioEscribir;
+    private TextField telefonoEscribir;
 
-    //cuadros
+    //tablas
     @FXML
     private TableColumn<?, ?> antiguedadMostrar;
-    @FXML
-    private TableColumn<?, ?> cantidadMostrar;
+
+
+
     @FXML
     private TableColumn<?, ?> carreraMostrar;
 
     @FXML
-    private TableColumn<?, ?> codigoMostrar;
+    private TableColumn<?, ?> correoMostrar;
+
+
+    @FXML
+    private TableColumn<?, ?> idMostrar;
+
+
+
     @FXML
     private TableColumn<?, ?> nombreMostrar;
+
+
+
     @FXML
-    private TableColumn<?, ?> precioMostrar;
+    private TableColumn<?, ?> telefonoMostrar;
 
     //botones
 
