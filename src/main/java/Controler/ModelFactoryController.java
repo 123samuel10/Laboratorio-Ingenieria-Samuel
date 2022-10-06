@@ -1,6 +1,8 @@
 package Controler;
 
-public class ModelFactoryController {
+import service.ModelFactoryControllerService;
+
+public class ModelFactoryController implements ModelFactoryControllerService {
     private static class SingletonHolder {
         // El constructor de Singleton puede ser llamado desde aquí al ser protected
         private final static ModelFactoryController eINSTANCE = new ModelFactoryController();

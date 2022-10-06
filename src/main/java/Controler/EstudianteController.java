@@ -23,8 +23,6 @@ public class EstudianteController implements Initializable {
     public void btnPadre(ActionEvent actionEvent) {
     }
     EstudianteServiceImpl serviceEstudiante=new EstudianteServiceImpl();
-
-
 //tabla y columnas
     @FXML
     private TableColumn<Model.Estudiante,String> nombreMostrar;
@@ -96,8 +94,6 @@ public class EstudianteController implements Initializable {
         }
 
     }
-
-
     //botones
 //    @FXML
 //    void añadir(ActionEvent event) {
