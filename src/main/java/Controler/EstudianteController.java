@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import service.impl.EstudianteServiceImpl;
 
 
 import java.net.URL;
@@ -21,6 +22,7 @@ import java.util.ResourceBundle;
 public class EstudianteController implements Initializable {
     public void btnPadre(ActionEvent actionEvent) {
     }
+    EstudianteServiceImpl serviceEstudiante=new EstudianteServiceImpl();
 
 
 //tabla y columnas
@@ -62,10 +64,8 @@ public class EstudianteController implements Initializable {
 
 
     }
-    //botones
     @FXML
-    void añadir(ActionEvent event) {
-
+    void añadir(ActionEvent event){
         try {
             String nombre = this.nombreEscribir.getText();
             String id = this.idEscribir.getText();
@@ -73,15 +73,13 @@ public class EstudianteController implements Initializable {
             String correo=this.correoEscribir.getText();
             String telefono=this.telefonoEscribir.getText();
 
+            serviceEstudiante.agregarEstudiante(nombre,id,carrera,correo,telefono);
+
             if (""!=nombreEscribir.getText()){
                 estudiantes.add(new Estudiante(nombre,id, carrera,telefono,correo));
                 tablaEstudiante.setItems(estudiantes);
                 tablaEstudiante.refresh();
-                nombreEscribir.setText("");
-                idEscribir.setText("");
-                correoEscribir.setText("");
-                carreraEscribir.setText("");
-                telefonoEscribir.setText("");
+                refrescar();
             }else {
                 Alert alert=new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText("MENSAJE DE INFORMACION");
@@ -96,7 +94,45 @@ public class EstudianteController implements Initializable {
             alert.setContentText("NO SE HA CREADO EL ESTUDIANTE");
             alert.showAndWait();
         }
+
     }
+
+
+    //botones
+//    @FXML
+//    void añadir(ActionEvent event) {
+//
+//        try {
+//            String nombre = this.nombreEscribir.getText();
+//            String id = this.idEscribir.getText();
+//            String carrera = this.carreraEscribir.getText();
+//            String correo=this.correoEscribir.getText();
+//            String telefono=this.telefonoEscribir.getText();
+//
+//            if (""!=nombreEscribir.getText()){
+//                estudiantes.add(new Estudiante(nombre,id, carrera,telefono,correo));
+//                tablaEstudiante.setItems(estudiantes);
+//                tablaEstudiante.refresh();
+//                nombreEscribir.setText("");
+//                idEscribir.setText("");
+//                correoEscribir.setText("");
+//                carreraEscribir.setText("");
+//                telefonoEscribir.setText("");
+//            }else {
+//                Alert alert=new Alert(Alert.AlertType.INFORMATION);
+//                alert.setHeaderText("MENSAJE DE INFORMACION");
+//                alert.setTitle("Dialogo de advertencia");
+//                alert.setContentText("Es necesario llenar los campos");
+//                alert.showAndWait();
+//            }
+//           } catch (NumberFormatException e){
+//            Alert alert=new Alert(Alert.AlertType.ERROR);
+//            alert.setHeaderText(null);
+//            alert.setTitle("ERROR");
+//            alert.setContentText("NO SE HA CREADO EL ESTUDIANTE");
+//            alert.showAndWait();
+//        }
+//    }
     @FXML
     void eliminar(ActionEvent event) {
         Estudiante estudiante=this.tablaEstudiante.getSelectionModel().getSelectedItem();//selecionar
@@ -147,8 +183,16 @@ public class EstudianteController implements Initializable {
                 estudiante.setCorreoElectronico(aux.getCorreoElectronico());
                 estudiante.setTelefono(aux.getTelefono());
                 this.tablaEstudiante.refresh();
+                refrescar();
             }
         }
+    }
+    void refrescar(){
+        nombreEscribir.setText("");
+        idEscribir.setText("");
+        correoEscribir.setText("");
+        carreraEscribir.setText("");
+        telefonoEscribir.setText("");
     }
     @FXML
     private TextField escribirBuscar;
