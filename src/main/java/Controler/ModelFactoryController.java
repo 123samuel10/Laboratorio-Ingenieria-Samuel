@@ -1,10 +1,11 @@
 package Controler;
 
 import service.ModelFactoryControllerService;
+import service.impl.Laboratorio;
 
 public class ModelFactoryController implements ModelFactoryControllerService {
 
-
+    Laboratorio laboratorio;
     private static class SingletonHolder {
         // El constructor de Singleton puede ser llamado desde aquí al ser protected
         private final static ModelFactoryController eINSTANCE = new ModelFactoryController();
@@ -17,11 +18,19 @@ public class ModelFactoryController implements ModelFactoryControllerService {
 
     public ModelFactoryController() {
         System.out.println("invocación clase singleton");
-    //    laboratorio = new Laboratorio();
+        laboratorio = new Laboratorio();
     }
 
     @Override
-    public void agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo) {
+    public boolean agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo) {
+        return laboratorio.getEstudianteService().agregarEstudiante(nombre,id,carrera,telefono,correo);
 
     }
+
+    @Override
+    public boolean buscar(String nombre) {
+        return laboratorio.getEstudianteService().buscar(nombre);
+    }
+
+
 }

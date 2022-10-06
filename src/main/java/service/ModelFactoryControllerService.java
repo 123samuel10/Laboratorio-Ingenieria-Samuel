@@ -1,5 +1,9 @@
 package service;
 
 public interface ModelFactoryControllerService {
-    void agregarEstudiante(String nombre,String id,String carrera,String telefono,String correo);
+    boolean agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo);
+    boolean buscar(String nombre);
+
+
+
 }

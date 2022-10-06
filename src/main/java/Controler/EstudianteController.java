@@ -20,9 +20,10 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class EstudianteController implements Initializable {
+
+    ModelFactoryController mfc= ModelFactoryController.getInstance();
     public void btnPadre(ActionEvent actionEvent) {
     }
-    EstudianteServiceImpl serviceEstudiante=new EstudianteServiceImpl();
 //tabla y columnas
     @FXML
     private TableColumn<Model.Estudiante,String> nombreMostrar;
@@ -62,17 +63,20 @@ public class EstudianteController implements Initializable {
 
 
     }
+    //botones
     @FXML
     void añadir(ActionEvent event){
+        String nombre = null;
+        String id = null;
+        String carrera = null;
+        String correo = null;
+        String telefono = null;
         try {
-            String nombre = this.nombreEscribir.getText();
-            String id = this.idEscribir.getText();
-            String carrera = this.carreraEscribir.getText();
-            String correo=this.correoEscribir.getText();
-            String telefono=this.telefonoEscribir.getText();
-
-            serviceEstudiante.agregarEstudiante(nombre,id,carrera,correo,telefono);
-
+            nombre = this.nombreEscribir.getText();
+            id = this.idEscribir.getText();
+            carrera = this.carreraEscribir.getText();
+            correo=this.correoEscribir.getText();
+            telefono=this.telefonoEscribir.getText();
             if (""!=nombreEscribir.getText()){
                 estudiantes.add(new Estudiante(nombre,id, carrera,telefono,correo));
                 tablaEstudiante.setItems(estudiantes);
@@ -92,43 +96,8 @@ public class EstudianteController implements Initializable {
             alert.setContentText("NO SE HA CREADO EL ESTUDIANTE");
             alert.showAndWait();
         }
-
+        mfc.agregarEstudiante(nombre,id,carrera,telefono,correo);
     }
-    //botones
-//    @FXML
-//    void añadir(ActionEvent event) {
-//
-//        try {
-//            String nombre = this.nombreEscribir.getText();
-//            String id = this.idEscribir.getText();
-//            String carrera = this.carreraEscribir.getText();
-//            String correo=this.correoEscribir.getText();
-//            String telefono=this.telefonoEscribir.getText();
-//
-//            if (""!=nombreEscribir.getText()){
-//                estudiantes.add(new Estudiante(nombre,id, carrera,telefono,correo));
-//                tablaEstudiante.setItems(estudiantes);
-//                tablaEstudiante.refresh();
-//                nombreEscribir.setText("");
-//                idEscribir.setText("");
-//                correoEscribir.setText("");
-//                carreraEscribir.setText("");
-//                telefonoEscribir.setText("");
-//            }else {
-//                Alert alert=new Alert(Alert.AlertType.INFORMATION);
-//                alert.setHeaderText("MENSAJE DE INFORMACION");
-//                alert.setTitle("Dialogo de advertencia");
-//                alert.setContentText("Es necesario llenar los campos");
-//                alert.showAndWait();
-//            }
-//           } catch (NumberFormatException e){
-//            Alert alert=new Alert(Alert.AlertType.ERROR);
-//            alert.setHeaderText(null);
-//            alert.setTitle("ERROR");
-//            alert.setContentText("NO SE HA CREADO EL ESTUDIANTE");
-//            alert.showAndWait();
-//        }
-//    }
     @FXML
     void eliminar(ActionEvent event) {
         Estudiante estudiante=this.tablaEstudiante.getSelectionModel().getSelectedItem();//selecionar
@@ -196,23 +165,9 @@ public class EstudianteController implements Initializable {
 
    @FXML
    void buscar(ActionEvent actionEvent) {
-
-           if (tablaEstudiante!=null &&tablaEstudiante.getSelectionModel().getSelectedItem().equals(escribirBuscar.getText())){
-               Alert alert=new Alert(Alert.AlertType.INFORMATION);
-               alert.setTitle("encontrado");
-               alert.setContentText("ese estudiante y sus datos existen");
-               alert.showAndWait();
-           }else {
-               Alert alert=new Alert(Alert.AlertType.ERROR);
-               alert.setTitle("no enontrado");
-               alert.setContentText("no existe");
-               alert.showAndWait();
-           }
-
+       mfc.buscar(escribirBuscar.getText());
    }
-
-
-    }
+}
 
 
 
