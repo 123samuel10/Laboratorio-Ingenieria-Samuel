@@ -52,6 +52,7 @@ public class EstudianteController implements Initializable {
     private TextField correoEscribir;
     private ObservableList<Estudiante> estudiantes;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         estudiantes=FXCollections.observableArrayList();
@@ -158,6 +159,9 @@ public class EstudianteController implements Initializable {
         correoEscribir.setText("");
         carreraEscribir.setText("");
         telefonoEscribir.setText("");
+    }
+    void error(){
+
     }
     @FXML
     private TextField escribirBuscar;

@@ -32,5 +32,10 @@ public class ModelFactoryController implements ModelFactoryControllerService {
         return laboratorio.getEstudianteService().buscar(nombre);
     }
 
+    @Override
+    public boolean agregarMonitor(String nombre, String id, String carrera, String telefono, String correo, int añosCompañia) {
+        return laboratorio.getMonitorService().agregarMonitor(nombre,id,carrera,telefono,correo,añosCompañia);
+    }
+
 
 }
