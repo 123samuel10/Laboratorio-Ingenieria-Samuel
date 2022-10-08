@@ -99,7 +99,7 @@
             <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="202.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="109.0" fitWidth="104.0" layoutX="570.0" layoutY="7.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../java/Imagenes/imagenEstudiante.png" />
+                  <Image url="@Imagenes/imagenEstudiante.png" />
                </image>
             </ImageView>
             <TextField fx:id="escribirBuscar" layoutX="347.0" layoutY="118.0" />

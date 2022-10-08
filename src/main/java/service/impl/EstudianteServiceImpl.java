@@ -30,29 +30,26 @@ public class EstudianteServiceImpl implements EstudianteService {
 
 
     @Override
-    public boolean buscar(String nombre) {
+    public boolean buscar(String nombre,String tabla) {
 
-        System.out.println(estudiantes);
-        for (int i = 0; i < estudiantes.size(); i++) {
-            System.out.println(estudiantes.get(i).getNombre());
-            if (estudiantes.get(i) != null && estudiantes.get(i).getNombre().equals(nombre)) {
-                System.out.println("alerta");
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("ENCONTRADO");
-                alert.setContentText("CORREO:" + estudiantes.get(i).getCorreoElectronico() + " " + "TELEFONO: " + estudiantes.get(i).getTelefono() + " " + "CARRERA: " + estudiantes.get(i).getCarrera());
-                alert.showAndWait();
+            System.out.println(estudiantes);
+            for (int i = 0; i < estudiantes.size(); i++) {
 
-
-            } else if (estudiantes.get(i) == null) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle(" NO ENCONTRADO");
-                alert.setContentText("NO ENCONTRADO");
-                alert.showAndWait();
-
-            }
+                if (tabla!=null && nombre.equals(tabla)) {
+                    System.out.println("alerta");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("SE HA ENCONTRADO SUS DATOS SON:");
+                    alert.setContentText("TELEFONO: "+estudiantes.get(i).getTelefono()+" "+"EMAIL: "+estudiantes.get(i).getCorreoElectronico()+" "+"CARRERA: "+estudiantes.get(i).getCarrera());
+                    alert.showAndWait();
+                    alert.getAlertType();
+                    break;
+                } else if (tabla==null){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle(" NO ENCONTRADO");
+                    alert.setContentText("NO ENCONTRADO");
+                    alert.showAndWait();
+                }
         }
-
-
         return true;
     }
 

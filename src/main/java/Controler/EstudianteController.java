@@ -172,7 +172,10 @@ public class EstudianteController implements Initializable {
 
     @FXML
     void buscar(ActionEvent actionEvent) {
-        mfc.buscar(escribirBuscar.getText());
+        for (int i=0;i<estudiantes.size();i++){
+            mfc.buscar(escribirBuscar.getText(),estudiantes.get(i).getNombre());
+        }
+
     }
 }
 

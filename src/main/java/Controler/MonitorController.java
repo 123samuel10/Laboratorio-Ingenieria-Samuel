@@ -134,7 +134,10 @@ public class MonitorController implements Initializable {
 
     @FXML
     void buscar(ActionEvent event) {
-        mfc.buscarMonitor(buscarMonitor.getText());
+        for (int i=0;i<monitors.size();i++){
+            mfc.buscarMonitor(buscarMonitor.getText(),monitors.get(i).getNombre());
+        }
+
     }
 
     @FXML
@@ -185,6 +188,7 @@ public class MonitorController implements Initializable {
         correodEscribir.setText("");
         carreraEscribir.setText("");
         telefonoEscribir.setText("");
+        antiguedadEscribir.setText("");
 
     }
 }

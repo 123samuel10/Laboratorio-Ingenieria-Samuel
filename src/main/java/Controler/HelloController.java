@@ -6,16 +6,33 @@ import com.example.democoeducuelaboratorioingenieriasamuel.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class HelloController {
+public class HelloController{
     private Stage stage;
+    @FXML
+    private AnchorPane ap;
 
+    @FXML
+    private BorderPane bp;
+
+
+    @FXML
+    void btnIrHome(ActionEvent event) {
+
+    }
     @FXML
     void btnIrEstudiante(ActionEvent event) throws IOException {
 
@@ -51,6 +68,10 @@ public class HelloController {
 
 
     }
+
+
+
+
 
 
 }

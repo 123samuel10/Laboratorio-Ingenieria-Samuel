@@ -6,7 +6,6 @@ import service.impl.Laboratorio;
 public class ModelFactoryController implements ModelFactoryControllerService {
 
     Laboratorio laboratorio;
-
     private static class SingletonHolder {
         // El constructor de Singleton puede ser llamado desde aquí al ser protected
         private final static ModelFactoryController eINSTANCE = new ModelFactoryController();
@@ -24,7 +23,7 @@ public class ModelFactoryController implements ModelFactoryControllerService {
 
     @Override
     public boolean agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo) {
-        return laboratorio.getEstudianteService().agregarEstudiante(nombre, id, carrera, telefono, correo);
+        return laboratorio.getEstudianteService().agregarEstudiante(nombre,id,carrera,telefono,correo);
 
     }
 
@@ -34,15 +33,15 @@ public class ModelFactoryController implements ModelFactoryControllerService {
     }
 
     @Override
-    public boolean buscar(String nombre) {
-        return laboratorio.getEstudianteService().buscar(nombre);
+    public boolean buscar(String nombre,String tabla) {
+        return laboratorio.getEstudianteService().buscar(nombre,tabla);
     }
 
     //parte monitor
 
     @Override
     public boolean agregarMonitor(String nombre, String id, String carrera, String telefono, String correo, int añosCompañia) {
-        return laboratorio.getMonitorService().agregarMonitor(nombre, id, carrera, telefono, correo, añosCompañia);
+        return laboratorio.getMonitorService().agregarMonitor(nombre,id,carrera,telefono,correo,añosCompañia);
     }
 
     @Override
@@ -51,8 +50,8 @@ public class ModelFactoryController implements ModelFactoryControllerService {
     }
 
     @Override
-    public boolean buscarMonitor(String nombre) {
-        return laboratorio.getMonitorService().buscarMonitro(nombre);
+    public boolean buscarMonitor(String nombre,String tabla) {
+        return laboratorio.getMonitorService().buscarMonitro(nombre,tabla);
     }
 
 

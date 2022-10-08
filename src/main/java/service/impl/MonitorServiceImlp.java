@@ -29,15 +29,17 @@ public class MonitorServiceImlp implements MonitorService {
     }
 
     @Override
-    public boolean buscarMonitro(String nombre) {
+    public boolean buscarMonitro(String nombre,String tabla) {
         for (int i = 0; i < monitors.size(); i++) {
-            if (monitors.get(i).getNombre().equals(nombre)) {
+            if (tabla!=null && nombre.equals(tabla)) {
                 System.out.println("alerta");
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("ENCONTRADO");
-                alert.setContentText("ENCONTRADO");
+                alert.setTitle("SE HA ENCONTRADO SUS DATOS SON:");
+                alert.setContentText("TELEFONO: "+monitors.get(i).getTelefono()+" "+"EMAIL: "+monitors.get(i).getCorreo()+" "+"CARRERA: "+monitors.get(i).getCarrera());
                 alert.showAndWait();
-            } else {
+                alert.getAlertType();
+                break;
+            } else if (tabla==null){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(" NO ENCONTRADO");
                 alert.setContentText("NO ENCONTRADO");
