@@ -14,14 +14,18 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloController{
+public class HelloController implements Initializable{
     private Stage stage;
+
+    @FXML
+    private Text tituloPrincipal;
     @FXML
     private AnchorPane ap;
 
@@ -37,7 +41,7 @@ public class HelloController{
     void btnIrEstudiante(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Estudiante.fxml"));
-        Parent root = fxmlLoader.load();
+        Parent root=fxmlLoader.load();
         Scene scene = new Scene(root);
         Stage stage1 = new Stage();
         stage1.setScene(scene);
@@ -70,10 +74,10 @@ public class HelloController{
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
-
-
+    }
 }
 
 

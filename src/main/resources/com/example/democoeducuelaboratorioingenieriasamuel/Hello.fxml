@@ -51,7 +51,7 @@
    <center>
       <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Text layoutX="229.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOME" textAlignment="RIGHT">
+            <Text fx:id="tituloPrincipal" layoutX="229.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOME" textAlignment="RIGHT">
                <font>
                   <Font name="Arial Black" size="57.0" />
                </font>
