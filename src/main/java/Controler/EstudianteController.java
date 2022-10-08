@@ -21,21 +21,23 @@ import java.util.ResourceBundle;
 
 public class EstudianteController implements Initializable {
 
-    ModelFactoryController mfc= ModelFactoryController.getInstance();
+    ModelFactoryController mfc = ModelFactoryController.getInstance();
+
     public void btnPadre(ActionEvent actionEvent) {
     }
-//tabla y columnas
+
+    //tabla y columnas
     @FXML
-    private TableColumn<Model.Estudiante,String> nombreMostrar;
+    private TableColumn<Model.Estudiante, String> nombreMostrar;
     @FXML
-    private TableColumn<Model.Estudiante,String> idMostrar;
+    private TableColumn<Model.Estudiante, String> idMostrar;
     @FXML
-    private TableColumn<Model.Estudiante,String> carreraMostrar;
+    private TableColumn<Model.Estudiante, String> carreraMostrar;
     @FXML
-    private TableColumn<Model.Estudiante,String > correoMostrar;
+    private TableColumn<Model.Estudiante, String> correoMostrar;
 
     @FXML
-    private TableColumn<Model.Estudiante,String >telefonoMostrar;
+    private TableColumn<Model.Estudiante, String> telefonoMostrar;
     @FXML
     private TableView<Model.Estudiante> tablaEstudiante;
 
@@ -55,18 +57,19 @@ public class EstudianteController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        estudiantes=FXCollections.observableArrayList();
+        estudiantes = FXCollections.observableArrayList();
         this.nombreMostrar.setCellValueFactory(new PropertyValueFactory("nombre"));
         this.idMostrar.setCellValueFactory(new PropertyValueFactory("id"));
         this.carreraMostrar.setCellValueFactory(new PropertyValueFactory("carrera"));
         this.telefonoMostrar.setCellValueFactory(new PropertyValueFactory("telefono"));
-       this.correoMostrar.setCellValueFactory(new PropertyValueFactory("correoElectronico"));
+        this.correoMostrar.setCellValueFactory(new PropertyValueFactory("correoElectronico"));
 
 
     }
+
     //botones
     @FXML
-    void añadir(ActionEvent event){
+    void añadir(ActionEvent event) {
         String nombre = null;
         String id = null;
         String carrera = null;
@@ -76,48 +79,50 @@ public class EstudianteController implements Initializable {
             nombre = this.nombreEscribir.getText();
             id = this.idEscribir.getText();
             carrera = this.carreraEscribir.getText();
-            correo=this.correoEscribir.getText();
-            telefono=this.telefonoEscribir.getText();
-            if (""!=nombreEscribir.getText()){
-                estudiantes.add(new Estudiante(nombre,id, carrera,telefono,correo));
+            correo = this.correoEscribir.getText();
+            telefono = this.telefonoEscribir.getText();
+            if ("" != nombreEscribir.getText()) {
+                estudiantes.add(new Estudiante(nombre, id, carrera, telefono, correo));
                 tablaEstudiante.setItems(estudiantes);
                 tablaEstudiante.refresh();
                 refrescar();
-            }else {
-                Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText("MENSAJE DE INFORMACION");
                 alert.setTitle("Dialogo de advertencia");
                 alert.setContentText("Es necesario llenar los campos");
                 alert.showAndWait();
             }
-           } catch (NumberFormatException e){
-            Alert alert=new Alert(Alert.AlertType.ERROR);
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("ERROR");
             alert.setContentText("NO SE HA CREADO EL ESTUDIANTE");
             alert.showAndWait();
         }
-        mfc.agregarEstudiante(nombre,id,carrera,telefono,correo);
+        mfc.agregarEstudiante(nombre, id, carrera, telefono, correo);
     }
+
     @FXML
     void eliminar(ActionEvent event) {
-        Estudiante estudiante=this.tablaEstudiante.getSelectionModel().getSelectedItem();//selecionar
-
-        if (estudiante==null){
-            Alert alert=new Alert(Alert.AlertType.ERROR);
+        Estudiante estudiante = this.tablaEstudiante.getSelectionModel().getSelectedItem();//selecionar
+        if (estudiante == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("ERROR");
             alert.setContentText("Primero debes seleccinar un estudiante, Para poder eliminar");
             alert.showAndWait();
-        }else {
-            this.estudiantes.remove(estudiante);
-            this.tablaEstudiante.refresh();
+        } else {
+            // this.estudiantes.remove(estudiante);
+            //this.tablaEstudiante.refresh();
+            mfc.eliminar(String.valueOf(estudiantes.remove(estudiante)));
         }
     }
+
     @FXML
     void seleccionar(ActionEvent event) {
-        Estudiante estudiante=this.tablaEstudiante.getSelectionModel().getSelectedItem();//selecionar
-        if (estudiante!=null){
+        Estudiante estudiante = this.tablaEstudiante.getSelectionModel().getSelectedItem();//selecionar
+        if (estudiante != null) {
             this.nombreEscribir.setText(estudiante.getNombre());
             this.idEscribir.setText(estudiante.getId());
             this.carreraEscribir.setText(estudiante.getCarrera());
@@ -125,24 +130,24 @@ public class EstudianteController implements Initializable {
             this.telefonoEscribir.setText(estudiante.getTelefono());
         }
     }
+
     @FXML
     void modificar(ActionEvent event) {
-        Estudiante estudiante=this.tablaEstudiante.getSelectionModel().getSelectedItem();//selecionar
-        if (estudiante==null) {
+        Estudiante estudiante = this.tablaEstudiante.getSelectionModel().getSelectedItem();//selecionar
+        if (estudiante == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("ERROR");
             alert.setContentText("Primero debes seleccinar un estudiante, Para poder modificar");
             alert.showAndWait();
-        }else {
+        } else {
             String nombre = this.nombreEscribir.getText();
             String id = this.idEscribir.getText();
             String carrera = this.carreraEscribir.getText();
-            String correo=this.correoEscribir.getText();
-            String telefono=this.telefonoEscribir.getText();
-            Estudiante aux=new Estudiante(nombre,id,carrera,telefono,correo);
-
-            if (!this.estudiantes.contains(aux)){//si no contiene el aux
+            String correo = this.correoEscribir.getText();
+            String telefono = this.telefonoEscribir.getText();
+            Estudiante aux = new Estudiante(nombre, id, carrera, telefono, correo);
+            if (!this.estudiantes.contains(aux)) {//si no contiene el aux
                 estudiante.setNombre(aux.getNombre());
                 estudiante.setId(aux.getId());
                 estudiante.setCarrera(aux.getCarrera());
@@ -153,24 +158,22 @@ public class EstudianteController implements Initializable {
             }
         }
     }
-    void refrescar(){
+
+    void refrescar() {
         nombreEscribir.setText("");
         idEscribir.setText("");
         correoEscribir.setText("");
         carreraEscribir.setText("");
         telefonoEscribir.setText("");
     }
-    void error(){
 
-    }
     @FXML
     private TextField escribirBuscar;
 
-
-   @FXML
-   void buscar(ActionEvent actionEvent) {
-       mfc.buscar(escribirBuscar.getText());
-   }
+    @FXML
+    void buscar(ActionEvent actionEvent) {
+        mfc.buscar(escribirBuscar.getText());
+    }
 }
 
 

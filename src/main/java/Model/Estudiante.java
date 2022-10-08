@@ -2,7 +2,7 @@ package Model;
 
 import javafx.beans.property.SimpleStringProperty;
 
-public class Estudiante extends Persona{
+public class Estudiante extends Persona {
 
 
     private String carrera;
@@ -10,11 +10,11 @@ public class Estudiante extends Persona{
     private String correoElectronico;
 
 
-    public Estudiante(String nombre, String id,String carrera,String telefono,String correoElectronico) {
+    public Estudiante(String nombre, String id, String carrera, String telefono, String correoElectronico) {
         super(nombre, id);
-        this.carrera=carrera;
-        this.telefono=telefono;
-        this.correoElectronico=correoElectronico;
+        this.carrera = carrera;
+        this.telefono = telefono;
+        this.correoElectronico = correoElectronico;
     }
 
     public String getCarrera() {

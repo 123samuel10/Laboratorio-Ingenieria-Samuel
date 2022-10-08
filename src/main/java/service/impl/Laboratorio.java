@@ -2,12 +2,12 @@ package service.impl;
 
 public class Laboratorio {
 
-    private EstudianteServiceImpl  estudianteService;
+    private EstudianteServiceImpl estudianteService;
     private MonitorServiceImlp monitorService;
 
     public Laboratorio() {
         this.estudianteService = new EstudianteServiceImpl();
-        this.monitorService=new MonitorServiceImlp();
+        this.monitorService = new MonitorServiceImlp();
     }
 
     public EstudianteServiceImpl getEstudianteService() {

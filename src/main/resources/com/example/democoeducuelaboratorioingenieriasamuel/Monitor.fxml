@@ -66,17 +66,17 @@
             <TextField fx:id="correodEscribir" layoutX="408.0" layoutY="28.0" />
             <Label layoutX="327.0" layoutY="70.0" text="TELEFONO:" textFill="#f4f2f2" />
             <TextField fx:id="telefonoEscribir" layoutX="408.0" layoutY="66.0" />
-            <Button layoutX="216.0" layoutY="210.0" mnemonicParsing="false" onAction="#buscar" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="BUSCAR" textFill="#faf8f8">
+            <Button layoutX="143.0" layoutY="210.0" mnemonicParsing="false" onAction="#buscar" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="BUSCAR" textFill="#faf8f8">
                <effect>
                   <Blend />
                </effect>
             </Button>
-            <Button layoutX="357.0" layoutY="210.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="ElLIMINAR" textFill="#faf8f8">
+            <Button layoutX="275.0" layoutY="210.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="ElLIMINAR" textFill="#faf8f8">
                <effect>
                   <Blend />
                </effect>
             </Button>
-            <Button layoutX="77.0" layoutY="210.0" mnemonicParsing="false" onAction="#añadir" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="AGREGAR" textFill="#faf8f8">
+            <Button layoutX="8.0" layoutY="210.0" mnemonicParsing="false" onAction="#añadir" prefHeight="26.0" prefWidth="123.0" style="-fx-background-color: #212528;" text="AGREGAR" textFill="#faf8f8">
                <effect>
                   <Blend />
                </effect>
@@ -97,7 +97,7 @@
                   <TableColumn fx:id="antiguedadMostrar" prefWidth="138.4000244140625" text="AÑOS ANTIGUEDAD:" />
               </columns>
             </TableView>
-            <Button layoutX="494.0" layoutY="210.0" mnemonicParsing="false" onAction="#modificar" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="MODIFICAR" textFill="#faf8f8">
+            <Button layoutX="547.0" layoutY="210.0" mnemonicParsing="false" onAction="#modificar" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="MODIFICAR" textFill="#faf8f8">
                <effect>
                   <Blend />
                </effect>
@@ -107,6 +107,12 @@
                   <Image url="@../../../../java/Imagenes/imagenMonitor.png" />
                </image>
             </ImageView>
+            <Button layoutX="408.0" layoutY="210.0" mnemonicParsing="false" onAction="#seleccionar" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="SELECCIONAR" textFill="#faf8f8">
+               <effect>
+                  <Blend />
+               </effect>
+            </Button>
+            <TextField fx:id="buscarMonitor" layoutX="252.0" layoutY="140.0" />
          </children>
       </AnchorPane>
    </center>

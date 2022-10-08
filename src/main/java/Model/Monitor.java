@@ -1,18 +1,18 @@
 package Model;
 
-public class Monitor extends Persona{
+public class Monitor extends Persona {
     private String carrera;
     private String telefono;
     private String correo;
     private int añosCompañia;
 
 
-    public Monitor(String nombre, String id,String carrera,String telefono,String correo,int añosCompañia) {
+    public Monitor(String nombre, String id, String carrera, String telefono, String correo, int añosCompañia) {
         super(nombre, id);
-        this.carrera=carrera;
-        this.telefono=telefono;
-        this.correo=correo;
-        this.añosCompañia=añosCompañia;
+        this.carrera = carrera;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.añosCompañia = añosCompañia;
     }
 
     public String getTelefono() {
