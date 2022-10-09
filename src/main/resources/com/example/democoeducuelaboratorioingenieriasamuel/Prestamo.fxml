@@ -55,20 +55,27 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="29.0" layoutY="48.0" text="FECHA FINAL PRESTAMO" textFill="#faf7f7" />
-            <TextField layoutX="172.0" layoutY="44.0" />
-            <Button layoutX="236.0" layoutY="126.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="CREAR PRESTAMO" textFill="#faf8f8">
+            <TextField fx:id="fechaEscribir" layoutX="172.0" layoutY="44.0" />
+            <Button layoutX="378.0" layoutY="43.0" mnemonicParsing="false" onAction="#crearPrestamo" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="CREAR PRESTAMO" textFill="#faf8f8">
                <effect>
                   <Blend />
                </effect>
             </Button>
-            <TableView layoutY="213.0" prefHeight="200.0" prefWidth="674.0">
+            <TableView fx:id="tablaPrestamo" layoutY="213.0" prefHeight="200.0" prefWidth="674.0">
               <columns>
-                <TableColumn prefWidth="207.20003509521484" text="FECHA FINAL PRESTAMO" />
-                <TableColumn prefWidth="99.199951171875" text="CODIGO:" />
+                  <TableColumn fx:id="fechaPrestamo" prefWidth="127.1999740600586" text="FECHA PRESTAMO" />
+                  <TableColumn fx:id="nombrePersona" prefWidth="106.4000244140625" text="PERSONA" />
+                <TableColumn prefWidth="145.60003662109375" text="ESTUDIANTE" />
+                <TableColumn prefWidth="99.19998168945312" text="MONITOR" />
               </columns>
             </TableView>
-            <Label layoutX="338.0" layoutY="48.0" text="CODIGO:" textFill="#faf7f7" />
-            <TextField layoutX="399.0" layoutY="44.0" />
+            <Label layoutX="203.0" layoutY="115.0" text="CODIGO DE LA PERSONA A PRESTAR:" textFill="#faf7f7" />
+            <TextField fx:id="escribirCodigoPersona" layoutX="228.0" layoutY="140.0" />
+            <Button layoutX="239.0" layoutY="172.0" mnemonicParsing="false" onAction="#enviarCodigoPersona" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="ENVIAR" textFill="#faf8f8">
+               <effect>
+                  <Blend />
+               </effect>
+            </Button>
          </children>
       </AnchorPane>
    </center>

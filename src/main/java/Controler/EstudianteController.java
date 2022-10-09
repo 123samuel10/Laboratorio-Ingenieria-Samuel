@@ -61,7 +61,7 @@ public class EstudianteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         estudiantes = FXCollections.observableArrayList();
-        filtrarEstudiante=FXCollections.observableArrayList();
+        filtrarEstudiante = FXCollections.observableArrayList();
 
         this.nombreMostrar.setCellValueFactory(new PropertyValueFactory("nombre"));
         this.idMostrar.setCellValueFactory(new PropertyValueFactory("id"));
@@ -80,7 +80,6 @@ public class EstudianteController implements Initializable {
         String carrera = null;
         String correo = null;
         String telefono = null;
-
         try {
             nombre = this.nombreEscribir.getText();
             id = this.idEscribir.getText();
@@ -92,7 +91,6 @@ public class EstudianteController implements Initializable {
                 tablaEstudiante.setItems(estudiantes);
                 tablaEstudiante.refresh();
                 refrescar();
-
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText("MENSAJE DE INFORMACION");
@@ -181,18 +179,20 @@ public class EstudianteController implements Initializable {
 
     @FXML
     void buscar() {
-        mfc.buscar(filtrarCodigo.getText());
+
+  mfc.buscar(filtrarCodigo.getText());
+
     }
 
     @FXML
     void filtrarNombre(KeyEvent event) {
-        String filtroCodigo=this.filtrarCodigo.getText();
-        if (filtroCodigo.isEmpty()){
+        String filtroCodigo = this.filtrarCodigo.getText();
+        if (filtroCodigo.isEmpty()) {
             this.tablaEstudiante.setItems(estudiantes);
-        }else {
+        } else {
             this.filtrarEstudiante.clear();
-            for (Estudiante e:this.estudiantes){
-                if (e.getId().contains(filtroCodigo)){
+            for (Estudiante e : this.estudiantes) {
+                if (e.getId().contains(filtroCodigo)) {
                     this.filtrarEstudiante.add(e);
                 }
             }
@@ -200,6 +200,20 @@ public class EstudianteController implements Initializable {
         }
 
     }
+
+    public ObservableList<Estudiante> getEstudiantes() {
+        return estudiantes;
+    }
+
+    public TableColumn<Estudiante, String> getIdMostrar() {
+        return idMostrar;
+    }
+
+    public TableColumn<Estudiante, String> getNombreMostrar() {
+        return nombreMostrar;
+    }
+
+
 }
 
 

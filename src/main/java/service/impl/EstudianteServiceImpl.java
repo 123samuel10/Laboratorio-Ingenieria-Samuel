@@ -32,29 +32,26 @@ public class EstudianteServiceImpl implements EstudianteService {
     }
 
 
-
     @Override
     public boolean buscar(String codigo) {
         for (int i = 0; i < estudiantes.size(); i++) {
 
-                if (estudiantes != null && estudiantes.get(i).getId().equals(codigo)) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("SE HA ENCONTRADO SUS DATOS SON:");
-                    alert.setContentText("NOMBRE:" + " " + estudiantes.get(i).getNombre() + " " + "TELEFONO: " + estudiantes.get(i).getTelefono() + " " + "EMAIL: " + estudiantes.get(i).getCorreoElectronico() + " " + "CARRERA: " + estudiantes.get(i).getCarrera());
-                    alert.showAndWait();
-                    alert.getAlertType();
-                    break;
-                }
-                 else{
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("NO HAY NADA");
-                }
+            if (estudiantes != null && estudiantes.get(i).getId().equals(codigo)) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("SE HA ENCONTRADO SUS DATOS SON:");
+                alert.setContentText("NOMBRE:" + " " + estudiantes.get(i).getNombre() + " " + "TELEFONO: " + estudiantes.get(i).getTelefono() + " " + "EMAIL: " + estudiantes.get(i).getCorreoElectronico() + " " + "CARRERA: " + estudiantes.get(i).getCarrera());
+                alert.showAndWait();
+                alert.getAlertType();
+                break;
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("NO HAY NADA");
+            }
 
 
         }
         return true;
     }
-
 
 
 }

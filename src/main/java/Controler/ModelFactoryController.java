@@ -1,6 +1,7 @@
 package Controler;
 
 import Model.Estudiante;
+import Model.Monitor;
 import service.ModelFactoryControllerService;
 import service.impl.Laboratorio;
 
@@ -57,6 +58,12 @@ public class ModelFactoryController implements ModelFactoryControllerService {
     @Override
     public boolean buscarMonitor(String codigo) {
         return laboratorio.getMonitorService().buscarMonitro(codigo);
+    }
+
+    //prestamo
+    @Override
+    public boolean enviarCodigoPersona(String fecha) {
+        return laboratorio.getPrestamoService().enviarCodigoPersona(fecha);
     }
 
 

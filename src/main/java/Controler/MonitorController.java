@@ -207,4 +207,8 @@ public class MonitorController implements Initializable {
             this.tablaMonitor.setItems(filtrarMonitor);
         }
     }
+
+    public ObservableList<Monitor> getMonitors() {
+        return monitors;
+    }
 }
