@@ -29,21 +29,19 @@ public class MonitorServiceImlp implements MonitorService {
     }
 
     @Override
-    public boolean buscarMonitro(String nombre,String tabla) {
+    public boolean buscarMonitro(String codigo) {
         for (int i = 0; i < monitors.size(); i++) {
-            if (tabla!=null && nombre.equals(tabla)) {
-                System.out.println("alerta");
+            if (monitors != null && monitors.get(i).getId().equals(codigo)) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("SE HA ENCONTRADO SUS DATOS SON:");
-                alert.setContentText("TELEFONO: "+monitors.get(i).getTelefono()+" "+"EMAIL: "+monitors.get(i).getCorreo()+" "+"CARRERA: "+monitors.get(i).getCarrera());
+                alert.setContentText("NOMBRE:" + " " + monitors.get(i).getNombre() + " " + "TELEFONO: " + monitors.get(i).getTelefono() + " " + "EMAIL: " + monitors.get(i).getCorreo() + " " + "CARRERA: " +monitors.get(i).getCarrera());
                 alert.showAndWait();
                 alert.getAlertType();
                 break;
-            } else if (tabla==null){
+            }
+            else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle(" NO ENCONTRADO");
-                alert.setContentText("NO ENCONTRADO");
-                alert.showAndWait();
+                alert.setTitle("NO HAY NADA");
             }
         }
         return true;

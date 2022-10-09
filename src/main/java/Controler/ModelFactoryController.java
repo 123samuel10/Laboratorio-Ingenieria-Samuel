@@ -55,8 +55,8 @@ public class ModelFactoryController implements ModelFactoryControllerService {
     }
 
     @Override
-    public boolean buscarMonitor(String nombre,String tabla) {
-        return laboratorio.getMonitorService().buscarMonitro(nombre,tabla);
+    public boolean buscarMonitor(String codigo) {
+        return laboratorio.getMonitorService().buscarMonitro(codigo);
     }
 
 

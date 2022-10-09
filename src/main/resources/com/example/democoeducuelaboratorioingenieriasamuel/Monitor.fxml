@@ -112,7 +112,7 @@
                   <Blend />
                </effect>
             </Button>
-            <TextField fx:id="buscarMonitor" layoutX="252.0" layoutY="140.0" />
+            <TextField fx:id="buscarMonitor" layoutX="252.0" layoutY="140.0" onKeyReleased="#filtrarMonitor" />
          </children>
       </AnchorPane>
    </center>

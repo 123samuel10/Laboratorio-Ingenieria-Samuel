@@ -13,7 +13,7 @@ public interface ModelFactoryControllerService {
 
     boolean agregarMonitor(String nombre, String id, String carrera, String telefono, String correo, int añosCompañia);
     boolean eliminarMonitor(String nombre);
-    boolean buscarMonitor(String nombre,String tabla);
+    boolean buscarMonitor(String codigo);
 
 
 

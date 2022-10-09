@@ -12,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -62,10 +63,12 @@ public class MonitorController implements Initializable {
     @FXML
     private TableColumn<Model.Monitor, String> telefonoMostrar;
     private ObservableList<Monitor> monitors;
+    private ObservableList<Monitor> filtrarMonitor;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         monitors = FXCollections.observableArrayList();
+        filtrarMonitor=FXCollections.observableArrayList();
         this.nombreMostrar.setCellValueFactory(new PropertyValueFactory("nombre"));
         this.idMostrar.setCellValueFactory(new PropertyValueFactory("id"));
         this.carreraMostrar.setCellValueFactory(new PropertyValueFactory("carrera"));
@@ -134,10 +137,8 @@ public class MonitorController implements Initializable {
 
     @FXML
     void buscar(ActionEvent event) {
-        for (int i=0;i<monitors.size();i++){
-            mfc.buscarMonitor(buscarMonitor.getText(),monitors.get(i).getNombre());
-        }
 
+        mfc.buscarMonitor(buscarMonitor.getText());
     }
 
     @FXML
@@ -189,6 +190,21 @@ public class MonitorController implements Initializable {
         carreraEscribir.setText("");
         telefonoEscribir.setText("");
         antiguedadEscribir.setText("");
+    }
 
+    @FXML
+    void filtrarMonitor(KeyEvent event) {
+        String filtroCodigo=this.buscarMonitor.getText();
+        if (filtroCodigo.isEmpty()){
+            this.tablaMonitor.setItems(monitors);
+        }else {
+            this.filtrarMonitor.clear();
+            for (Monitor m:this.monitors){
+                if (m.getId().contains(filtroCodigo)){
+                    this.filtrarMonitor.add(m);
+                }
+            }
+            this.tablaMonitor.setItems(filtrarMonitor);
+        }
     }
 }
