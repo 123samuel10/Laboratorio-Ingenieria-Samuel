@@ -10,43 +10,110 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="788.0" style="-fx-background-color: #3A5067;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controler.PrestamoController">
    <left>
       <VBox prefHeight="591.0" prefWidth="112.0" style="-fx-background-color: #0D1824;" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#btnPadrePrestamo" prefHeight="90.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="HOME" textFill="#f4f2f2">
+            <Button mnemonicParsing="false" onAction="#btnPadrePrestamo" prefHeight="90.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="HOME">
                <font>
                   <Font size="14.0" />
                </font>
                <effect>
                   <Bloom threshold="0.45" />
                </effect>
+               <textFill>
+                  <LinearGradient endX="0.4621211981231516" endY="1.0" startX="0.7282196716828779" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.3118908405303955" green="0.4444444477558136" blue="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="86.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="MONITORES" textFill="#fcf8f8">
+            <Button mnemonicParsing="false" prefHeight="86.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="MONITORES">
                <font>
                   <Font size="14.0" />
                </font>
                <effect>
                   <Bloom threshold="0.45" />
                </effect>
+               <textFill>
+                  <LinearGradient endX="0.4621211981231516" endY="1.0" startX="0.7282196716828779" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.3118908405303955" green="0.4444444477558136" blue="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="ESTUDIANTES" textFill="#fcfafa">
+            <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="ESTUDIANTES">
                <font>
                   <Font size="14.0" />
                </font>
                <effect>
                   <Bloom threshold="0.45" />
                </effect>
+               <textFill>
+                  <LinearGradient endX="0.4621211981231516" endY="1.0" startX="0.7282196716828779" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.3118908405303955" green="0.4444444477558136" blue="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="82.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="PRESTAMO" textFill="#f4f2f2">
+            <Button mnemonicParsing="false" prefHeight="82.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="PRESTAMO">
                <font>
                   <Font size="14.0" />
                </font>
                <effect>
                   <Bloom threshold="0.45" />
                </effect>
+               <textFill>
+                  <LinearGradient endX="0.4621211981231516" endY="1.0" startX="0.7282196716828779" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.3118908405303955" green="0.4444444477558136" blue="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
          </children>
       </VBox>
