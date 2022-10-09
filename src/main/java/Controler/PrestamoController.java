@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import service.impl.EstudianteServiceImpl;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -50,14 +51,17 @@ public class PrestamoController implements Initializable {
     }
 
 
-    EstudianteController estudianteController=new EstudianteController();
+    EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
     @FXML
     void enviarCodigoPersona(ActionEvent event) {
             String fecha=null;
+            String estudiante=null;
             try {
                 fecha=this.fechaEscribir.getText();
+                estudiante=this.estudianteService.getEstudiantes().get(0).getNombre();
+
                 if (""!=fechaEscribir.getText()){
-                    prestamo.add(new Prestamo(fecha));
+                    prestamo.add(new Prestamo(fecha,estudiante));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
                 }else {
@@ -68,7 +72,7 @@ public class PrestamoController implements Initializable {
                 Alert alert=new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("quedd");
             }
-            mfc.enviarCodigoPersona(fecha);
+            mfc.enviarCodigoPersona(fecha,estudiante);
 
 
         }

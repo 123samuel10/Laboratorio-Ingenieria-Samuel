@@ -62,8 +62,8 @@ public class ModelFactoryController implements ModelFactoryControllerService {
 
     //prestamo
     @Override
-    public boolean enviarCodigoPersona(String fecha) {
-        return laboratorio.getPrestamoService().enviarCodigoPersona(fecha);
+    public boolean enviarCodigoPersona(String fecha,Estudiante estudiante) {
+        return laboratorio.getPrestamoService().enviarCodigoPersona(fecha,estudiante);
     }
 
 

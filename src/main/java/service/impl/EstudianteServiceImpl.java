@@ -53,5 +53,11 @@ public class EstudianteServiceImpl implements EstudianteService {
         return true;
     }
 
+    public ArrayList<Estudiante> getEstudiantes() {
+        return estudiantes;
+    }
 
+    public void setEstudiantes(ArrayList<Estudiante> estudiantes) {
+        this.estudiantes = estudiantes;
+    }
 }

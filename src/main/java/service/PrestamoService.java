@@ -4,7 +4,7 @@ import Model.Estudiante;
 import Model.Monitor;
 
 public interface PrestamoService {
-    boolean enviarCodigoPersona(String fecha);
+    boolean enviarCodigoPersona(String fecha,Estudiante estudiante);
 
 
 }
