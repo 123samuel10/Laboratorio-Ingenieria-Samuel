@@ -179,8 +179,7 @@ public class EstudianteController implements Initializable {
 
     @FXML
     void buscar() {
-
-  mfc.buscar(filtrarCodigo.getText());
+        mfc.buscar(filtrarCodigo.getText());
 
     }
 

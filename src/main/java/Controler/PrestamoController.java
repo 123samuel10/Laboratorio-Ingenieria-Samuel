@@ -62,7 +62,7 @@ public class PrestamoController implements Initializable {
               fecha = this.fechaEscribir.getText();
 
               for (int i=0;i<prestamo.size();i++){
-                  if (estudianteController.getIdMostrar().equals(escribirCodigoPersona.getText())){
+                  if (prestamo.get(i)!=null && estudianteController.getIdMostrar().equals(escribirCodigoPersona.getText())){
                       System.out.println("entro?");
                       prestamo.add(new Prestamo(fecha));
                       tablaPrestamo.setItems(prestamo);

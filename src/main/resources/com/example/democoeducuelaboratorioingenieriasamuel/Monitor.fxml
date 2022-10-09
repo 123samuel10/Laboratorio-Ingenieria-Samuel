@@ -18,7 +18,7 @@
    <left>
       <VBox prefHeight="591.0" prefWidth="112.0" style="-fx-background-color: #0D1824;" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#botonPadreMonitores" prefHeight="70.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="HOME" textFill="#f4f2f2">
+            <Button mnemonicParsing="false" onAction="#botonPadreMonitores" prefHeight="86.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="HOME" textFill="#f4f2f2">
                <font>
                   <Font size="14.0" />
                </font>
@@ -26,7 +26,7 @@
                   <Bloom threshold="0.45" />
                </effect>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="MONITORES" textFill="#fcf8f8">
+            <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="MONITORES" textFill="#fcf8f8">
                <font>
                   <Font size="14.0" />
                </font>
@@ -34,7 +34,7 @@
                   <Bloom threshold="0.45" />
                </effect>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="ESTUDIANTES" textFill="#fcfafa">
+            <Button mnemonicParsing="false" prefHeight="83.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="ESTUDIANTES" textFill="#fcfafa">
                <font>
                   <Font size="14.0" />
                </font>
@@ -42,7 +42,7 @@
                   <Bloom threshold="0.45" />
                </effect>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="PRESTAMO" textFill="#f4f2f2">
+            <Button mnemonicParsing="false" prefHeight="81.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="PRESTAMO" textFill="#f4f2f2">
                <font>
                   <Font size="14.0" />
                </font>
@@ -87,7 +87,7 @@
                </font>
             </Label>
             <TextField fx:id="antiguedadEscribir" layoutX="408.0" layoutY="105.0" />
-            <TableView fx:id="tablaMonitor" layoutY="277.0" prefHeight="313.0" prefWidth="678.0">
+            <TableView fx:id="tablaMonitor" layoutX="4.0" layoutY="277.0" prefHeight="314.0" prefWidth="674.0">
               <columns>
                 <TableColumn fx:id="nombreMostrar" prefWidth="110.39996641874313" text="NOMBRE:" />
                 <TableColumn fx:id="idMostrar" prefWidth="97.60003662109375" text="ID" />
@@ -112,7 +112,8 @@
                   <Blend />
                </effect>
             </Button>
-            <TextField fx:id="buscarMonitor" layoutX="252.0" layoutY="140.0" onKeyReleased="#filtrarMonitor" />
+            <TextField fx:id="buscarMonitor" layoutX="282.0" layoutY="157.0" onKeyReleased="#filtrarMonitor" />
+            <Label layoutX="223.0" layoutY="161.0" text="BUSCAR:" textFill="#faf7f7" />
          </children>
       </AnchorPane>
    </center>

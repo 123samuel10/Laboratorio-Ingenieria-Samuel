@@ -18,28 +18,28 @@
    <left>
       <VBox prefHeight="591.0" prefWidth="112.0" style="-fx-background-color: #0D1824;" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#btnPadre" prefHeight="99.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="HOME" textFill="#f4f2f2">
+            <Button mnemonicParsing="false" onAction="#btnPadre" prefHeight="83.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="HOME" textFill="#f4f2f2">
                <font>
                   <Font size="14.0" />
                </font>
                <effect>
                   <Bloom threshold="0.45" />
                </effect></Button>
-            <Button mnemonicParsing="false" prefHeight="109.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="MONITORES" textFill="#fcf8f8">
+            <Button mnemonicParsing="false" prefHeight="86.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="MONITORES" textFill="#fcf8f8">
                <font>
                   <Font size="14.0" />
                </font>
                <effect>
                   <Bloom threshold="0.45" />
                </effect></Button>
-            <Button mnemonicParsing="false" prefHeight="95.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="ESTUDIANTES" textFill="#fcfafa">
+            <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="ESTUDIANTES" textFill="#fcfafa">
                <font>
                   <Font size="14.0" />
                </font>
                <effect>
                   <Bloom threshold="0.45" />
                </effect></Button>
-            <Button mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" style="-fx-background-color: transparente;" text="PRESTAMO" textFill="#f4f2f2">
+            <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="123.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="PRESTAMO" textFill="#f4f2f2">
                <font>
                   <Font size="14.0" />
                </font>
@@ -77,7 +77,7 @@
                   <Blend />
                </effect>
             </Button>
-            <TableView fx:id="tablaEstudiante" layoutX="3.0" layoutY="252.0" prefHeight="338.0" prefWidth="675.0">
+            <TableView fx:id="tablaEstudiante" layoutX="2.0" layoutY="252.0" prefHeight="338.0" prefWidth="676.0">
               <columns>
                 <TableColumn fx:id="nombreMostrar" prefWidth="167.19997715950012" text="NOMBRE:" />
                 <TableColumn fx:id="idMostrar" prefWidth="123.19999694824219" text="ID:" />
@@ -102,7 +102,8 @@
                   <Image url="@Imagenes/imagenEstudiante.png" />
                </image>
             </ImageView>
-            <TextField fx:id="filtrarCodigo" layoutX="347.0" layoutY="118.0" onKeyReleased="#filtrarNombre" />
+            <TextField fx:id="filtrarCodigo" layoutX="340.0" layoutY="118.0" onKeyReleased="#filtrarNombre" />
+            <Label layoutX="284.0" layoutY="122.0" text="BUSCAR:" textFill="#faf7f7" />
          </children>
       </AnchorPane>
    </center>
