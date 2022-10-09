@@ -20,7 +20,7 @@ public interface ModelFactoryControllerService {
 
 
     //prestamo
-    boolean enviarCodigoPersona(String fecha,Estudiante estudiante);
+    boolean enviarCodigoPersona(String fecha);
 
 
 

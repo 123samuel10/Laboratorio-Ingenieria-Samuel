@@ -13,10 +13,13 @@ public class PrestamoServiceImpl implements PrestamoService {
 
 
     @Override
-    public boolean enviarCodigoPersona(String fecha,Estudiante estudiante) {
+    public boolean enviarCodigoPersona(String fecha ){
         System.out.println("entro al prestamo");
-        prestamos.add(new Prestamo(fecha,estudiante));
-        System.out.println(prestamos);
+        prestamos.add(new Prestamo(fecha));
+        for (int i=0;i<prestamos.size();i++){
+            System.out.println(prestamos.get(i).getFecha());
+        }
+
         return true;
     }
 }

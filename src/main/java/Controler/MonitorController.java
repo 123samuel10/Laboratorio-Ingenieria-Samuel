@@ -111,7 +111,7 @@ public class MonitorController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("ERROR");
-            alert.setContentText("NO SE HA CREADO EL ESTUDIANTE");
+            alert.setContentText("NO SE HA CREADO EL MONITOR");
             alert.showAndWait();
         }
         mfc.agregarMonitor(nombre, id, carrera, telefono, correo, añosAntiguedad);
@@ -137,7 +137,6 @@ public class MonitorController implements Initializable {
 
     @FXML
     void buscar(ActionEvent event) {
-
         mfc.buscarMonitor(buscarMonitor.getText());
     }
 
