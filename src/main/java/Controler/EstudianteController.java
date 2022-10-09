@@ -1,6 +1,7 @@
 package Controler;
 
 import Model.Estudiante;
+import Model.Monitor;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -10,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import service.impl.EstudianteServiceImpl;
 
@@ -39,7 +41,7 @@ public class EstudianteController implements Initializable {
     @FXML
     private TableColumn<Model.Estudiante, String> telefonoMostrar;
     @FXML
-    private TableView<Model.Estudiante> tablaEstudiante;
+    private TableView<Estudiante> tablaEstudiante;
 
     //texfield
     @FXML
@@ -53,11 +55,14 @@ public class EstudianteController implements Initializable {
     @FXML
     private TextField correoEscribir;
     private ObservableList<Estudiante> estudiantes;
+    private ObservableList<Estudiante> filtrarEstudiante;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         estudiantes = FXCollections.observableArrayList();
+        filtrarEstudiante=FXCollections.observableArrayList();
+
         this.nombreMostrar.setCellValueFactory(new PropertyValueFactory("nombre"));
         this.idMostrar.setCellValueFactory(new PropertyValueFactory("id"));
         this.carreraMostrar.setCellValueFactory(new PropertyValueFactory("carrera"));
@@ -75,6 +80,7 @@ public class EstudianteController implements Initializable {
         String carrera = null;
         String correo = null;
         String telefono = null;
+
         try {
             nombre = this.nombreEscribir.getText();
             id = this.idEscribir.getText();
@@ -86,6 +92,7 @@ public class EstudianteController implements Initializable {
                 tablaEstudiante.setItems(estudiantes);
                 tablaEstudiante.refresh();
                 refrescar();
+
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText("MENSAJE DE INFORMACION");
@@ -114,8 +121,9 @@ public class EstudianteController implements Initializable {
             alert.showAndWait();
         } else {
             // this.estudiantes.remove(estudiante);
-            //this.tablaEstudiante.refresh();
+
             mfc.eliminar(String.valueOf(estudiantes.remove(estudiante)));
+            this.tablaEstudiante.refresh();
         }
     }
 
@@ -168,16 +176,32 @@ public class EstudianteController implements Initializable {
     }
 
     @FXML
-    private TextField escribirBuscar;
+    private TextField filtrarCodigo;
+
 
     @FXML
-    void buscar(ActionEvent actionEvent) {
-        for (int i=0;i<estudiantes.size();i++){
-            mfc.buscar(escribirBuscar.getText(),estudiantes.get(i).getNombre());
+    void buscar() {
+        mfc.buscar(filtrarCodigo.getText());
+    }
+
+    @FXML
+    void filtrarNombre(KeyEvent event) {
+        String filtroCodigo=this.filtrarCodigo.getText();
+        if (filtroCodigo.isEmpty()){
+            this.tablaEstudiante.setItems(estudiantes);
+        }else {
+            this.filtrarEstudiante.clear();
+            for (Estudiante e:this.estudiantes){
+                if (e.getId().contains(filtroCodigo)){
+                    this.filtrarEstudiante.add(e);
+                }
+            }
+            this.tablaEstudiante.setItems(filtrarEstudiante);
         }
 
     }
 }
+
 
 
 

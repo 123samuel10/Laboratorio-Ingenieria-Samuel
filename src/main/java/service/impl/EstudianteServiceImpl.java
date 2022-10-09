@@ -1,7 +1,10 @@
 package service.impl;
 
+import Controler.EstudianteController;
 import Model.Estudiante;
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.input.KeyEvent;
 import service.EstudianteService;
 
 import java.util.ArrayList;
@@ -11,17 +14,17 @@ public class EstudianteServiceImpl implements EstudianteService {
 
     @Override
     public boolean agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo) {
+        System.out.println("entro");
         this.estudiantes.add(new Estudiante(nombre, id, carrera, telefono, correo));
         System.out.println(estudiantes);
         return true;
     }
+
     @Override
     public boolean eliminar(String nombre) {
         for (int i = 0; i < estudiantes.size(); i++) {
             if (estudiantes.get(i) != null && estudiantes.get(i).getNombre().equals(nombre)) {
-                System.out.println(estudiantes.get(i).getNombre() + "eliminado");
                 estudiantes.remove(estudiantes.get(i));
-
             }
 
         }
@@ -29,26 +32,25 @@ public class EstudianteServiceImpl implements EstudianteService {
     }
 
 
+
     @Override
-    public boolean buscar(String nombre,String tabla) {
+    public boolean buscar(String codigo) {
+        for (int i = 0; i < estudiantes.size(); i++) {
 
-            System.out.println(estudiantes);
-            for (int i = 0; i < estudiantes.size(); i++) {
-
-                if (tabla!=null && nombre.equals(tabla)) {
-                    System.out.println("alerta");
+                if (estudiantes != null && estudiantes.get(i).getId().equals(codigo)) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("SE HA ENCONTRADO SUS DATOS SON:");
-                    alert.setContentText("TELEFONO: "+estudiantes.get(i).getTelefono()+" "+"EMAIL: "+estudiantes.get(i).getCorreoElectronico()+" "+"CARRERA: "+estudiantes.get(i).getCarrera());
+                    alert.setContentText("NOMBRE:" + " " + estudiantes.get(i).getNombre() + " " + "TELEFONO: " + estudiantes.get(i).getTelefono() + " " + "EMAIL: " + estudiantes.get(i).getCorreoElectronico() + " " + "CARRERA: " + estudiantes.get(i).getCarrera());
                     alert.showAndWait();
                     alert.getAlertType();
                     break;
-                } else if (tabla==null){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle(" NO ENCONTRADO");
-                    alert.setContentText("NO ENCONTRADO");
-                    alert.showAndWait();
                 }
+                 else{
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("NO HAY NADA");
+                }
+
+
         }
         return true;
     }

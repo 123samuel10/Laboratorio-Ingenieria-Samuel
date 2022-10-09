@@ -1,7 +1,10 @@
 package Controler;
 
+import Model.Estudiante;
 import service.ModelFactoryControllerService;
 import service.impl.Laboratorio;
+
+import java.util.ArrayList;
 
 public class ModelFactoryController implements ModelFactoryControllerService {
 
@@ -32,9 +35,11 @@ public class ModelFactoryController implements ModelFactoryControllerService {
         return laboratorio.getEstudianteService().eliminar(nombre);
     }
 
+
+
     @Override
-    public boolean buscar(String nombre,String tabla) {
-        return laboratorio.getEstudianteService().buscar(nombre,tabla);
+    public boolean buscar(String codigo) {
+        return laboratorio.getEstudianteService().buscar(codigo);
     }
 
     //parte monitor

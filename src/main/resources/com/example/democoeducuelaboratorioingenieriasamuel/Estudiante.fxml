@@ -102,7 +102,7 @@
                   <Image url="@Imagenes/imagenEstudiante.png" />
                </image>
             </ImageView>
-            <TextField fx:id="escribirBuscar" layoutX="347.0" layoutY="118.0" />
+            <TextField fx:id="filtrarCodigo" layoutX="347.0" layoutY="118.0" onKeyReleased="#filtrarNombre" />
          </children>
       </AnchorPane>
    </center>

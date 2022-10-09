@@ -24,7 +24,7 @@
                <effect>
                   <Bloom threshold="0.45" />
                </effect></Button>
-            <Button mnemonicParsing="false" onAction="#btnIrMonitor" prefHeight="70.0" prefWidth="112.0" style="-fx-background-color: trasnparente;" text="MONITORES" textFill="#f2efef">
+            <Button mnemonicParsing="false" onAction="#btnIrMonitor" prefHeight="70.0" prefWidth="112.0" style="-fx-background-color: trasnparente;" stylesheets="@css/archivo.css" text="MONITORES" textFill="#f2efef">
                <font>
                   <Font size="14.0" />
                </font>
