@@ -122,7 +122,7 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="29.0" layoutY="48.0" text="FECHA FINAL PRESTAMO" textFill="#faf7f7" />
-            <TextField fx:id="fechaEscribir" layoutX="172.0" layoutY="44.0" />
+            <TextField fx:id="fechaFinalEscribir" layoutX="172.0" layoutY="44.0" />
             <Button layoutX="378.0" layoutY="43.0" mnemonicParsing="false" onAction="#crearPrestamo" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="CREAR PRESTAMO" textFill="#faf8f8">
                <effect>
                   <Blend />
@@ -130,10 +130,11 @@
             </Button>
             <TableView fx:id="tablaPrestamo" layoutX="1.0" layoutY="213.0" prefHeight="200.0" prefWidth="673.0">
               <columns>
-                  <TableColumn fx:id="fechaPrestamo" prefWidth="127.1999740600586" text="FECHA PRESTAMO" />
-                  <TableColumn fx:id="nombrePersona" prefWidth="106.4000244140625" text="PERSONA" />
-                <TableColumn prefWidth="145.60003662109375" text="ESTUDIANTE" />
-                <TableColumn prefWidth="99.19998168945312" text="MONITOR" />
+                  <TableColumn fx:id="fechaPrestamo" prefWidth="127.1999740600586" text="FECHA INICIAL" />
+                  <TableColumn fx:id="fechaFinalMostrar" prefWidth="135.20001220703125" text="FECHA FINAL" />
+                  <TableColumn fx:id="nombrePersona" prefWidth="135.199951171875" text="PERSONA" />
+                <TableColumn prefWidth="104.0" text="MONITOR" />
+                <TableColumn prefWidth="84.79998779296875" text="ESTUDIANTE" />
               </columns>
             </TableView>
             <Label layoutX="203.0" layoutY="115.0" text="CODIGO DE LA PERSONA A PRESTAR:" textFill="#faf7f7" />
@@ -143,6 +144,8 @@
                   <Blend />
                </effect>
             </Button>
+            <Label layoutX="57.0" layoutY="16.0" text="FECHA INICIAL" textFill="#faf7f7" />
+            <TextField fx:id="fechaEscribir" layoutX="172.0" layoutY="12.0" />
          </children>
       </AnchorPane>
    </center>

@@ -1,6 +1,7 @@
 package service.impl;
 
 
+import Controler.EstudianteController;
 import Model.Estudiante;
 import Model.Monitor;
 import Model.Prestamo;
@@ -13,11 +14,16 @@ public class PrestamoServiceImpl implements PrestamoService {
 
 
     @Override
-    public boolean enviarCodigoPersona(String fecha ){
-        System.out.println("entro al prestamo");
-        prestamos.add(new Prestamo(fecha));
+    public boolean enviarCodigoPersona(String fechaInicial,String fechaFinal, Estudiante  estudiante){
+        System.out.println("entro al prestamo"+estudiante);
+        prestamos.add(new Prestamo(fechaInicial,fechaFinal,estudiante));
         for (int i=0;i<prestamos.size();i++){
-            System.out.println(prestamos.get(i).getFecha());
+            if (prestamos!=null){
+                System.out.println(prestamos.get(i).getFechaInicial());
+                System.out.println(prestamos.get(i).getFechaFinal());
+                System.out.println(estudiante);
+            }
+
         }
 
         return true;

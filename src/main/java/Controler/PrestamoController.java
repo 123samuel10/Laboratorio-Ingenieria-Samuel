@@ -32,13 +32,19 @@ public class PrestamoController implements Initializable {
     private TextField fechaEscribir;
 
     @FXML
+    private TextField fechaFinalEscribir;
+
+    //tablas
+    @FXML
+    private TableColumn<Model.Estudiante, String> nombrePersona;
+    @FXML
     private TableColumn<Model.Prestamo, String> fechaPrestamo;
 
 
+
+
     @FXML
-    private TableColumn<Model.Estudiante, String> nombrePersona;
-
-
+    private TableColumn<Model.Prestamo,String> fechaFinalMostrar;
     @FXML
     private TableView<Prestamo> tablaPrestamo;
 
@@ -47,37 +53,44 @@ public class PrestamoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         prestamo = FXCollections.observableArrayList();
-        this.fechaPrestamo.setCellValueFactory(new PropertyValueFactory("fecha"));
+        this.fechaPrestamo.setCellValueFactory(new PropertyValueFactory("fechaInicial"));
+        this.fechaFinalMostrar.setCellValueFactory(new PropertyValueFactory("fechaFinal"));
         this.nombrePersona.setCellValueFactory(new PropertyValueFactory("estudiante"));
+
     }
 
 
-    EstudianteController estudianteController = new EstudianteController();
+
+
+    Estudiante estudiante=new Estudiante();
+
 
     @FXML
     void enviarCodigoPersona(ActionEvent event) {
         String fecha=null;
-        String estudiante=null;
+        String fechaFinal=null;
         try {
-              fecha = this.fechaEscribir.getText();
+            fecha=fechaEscribir.getText();
+            fechaFinal=fechaFinalEscribir.getText();
+            if (""!=fechaEscribir.getText()){
 
-              for (int i=0;i<prestamo.size();i++){
-                  if (prestamo.get(i)!=null && estudianteController.getIdMostrar().equals(escribirCodigoPersona.getText())){
-                      System.out.println("entro?");
-                      prestamo.add(new Prestamo(fecha));
-                      tablaPrestamo.setItems(prestamo);
-                      tablaPrestamo.refresh();
-                  }else {
-                      Alert alert=new Alert(Alert.AlertType.ERROR);
-                      alert.setTitle("siiu");
-                  }
+                    prestamo.add(new Prestamo(fecha,fechaFinal,estudiante));
+                    tablaPrestamo.setItems(prestamo);
+                    tablaPrestamo.refresh();
 
-              }
+                    mfc.enviarCodigoPersona(fecha,fechaFinal,estudiante);
+                }else {
+                Alert alert=new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("NO HAY");
+            }
+
+
         }catch (NumberFormatException e){
-            Alert alert=new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("siiu");
+            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("NO HAY DATOS");
+
         }
-        mfc.enviarCodigoPersona(fecha);
+        mfc.enviarCodigoPersona(fecha,fechaFinal,estudiante);
 
     }
 

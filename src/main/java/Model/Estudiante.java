@@ -17,6 +17,10 @@ public class Estudiante extends Persona {
         this.correoElectronico = correoElectronico;
     }
 
+    public Estudiante() {
+        super();
+    }
+
     public String getCarrera() {
         return carrera;
     }
