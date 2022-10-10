@@ -55,10 +55,12 @@ public class MonitorController implements Initializable {
     private ObservableList<Monitor> monitors;
     private ObservableList<Monitor> filtrarMonitor;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         monitors = FXCollections.observableArrayList();
         filtrarMonitor=FXCollections.observableArrayList();
+
         this.nombreMostrar.setCellValueFactory(new PropertyValueFactory("nombre"));
         this.idMostrar.setCellValueFactory(new PropertyValueFactory("id"));
         this.carreraMostrar.setCellValueFactory(new PropertyValueFactory("carrera"));
