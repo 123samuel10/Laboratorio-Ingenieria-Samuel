@@ -30,7 +30,6 @@ public class MonitorController implements Initializable {
     private TextField carreraEscribir;
     @FXML
     private TextField correodEscribir;
-
     @FXML
     private TextField idEscribir;
     @FXML
@@ -43,23 +42,14 @@ public class MonitorController implements Initializable {
     private TableView<Model.Monitor> tablaMonitor;
     @FXML
     private TableColumn<Model.Monitor, Integer> antiguedadMostrar;
-
-
     @FXML
     private TableColumn<Model.Monitor, String> carreraMostrar;
-
     @FXML
     private TableColumn<Model.Monitor, String> correoMostrar;
-
-
     @FXML
     private TableColumn<Model.Monitor, String> idMostrar;
-
-
     @FXML
     private TableColumn<Model.Monitor, String> nombreMostrar;
-
-
     @FXML
     private TableColumn<Model.Monitor, String> telefonoMostrar;
     private ObservableList<Monitor> monitors;
@@ -76,7 +66,6 @@ public class MonitorController implements Initializable {
         this.correoMostrar.setCellValueFactory(new PropertyValueFactory("correo"));
         this.antiguedadMostrar.setCellValueFactory(new PropertyValueFactory("añosCompañia"));
     }
-
     //botones
     @FXML
     void añadir(ActionEvent event) {
@@ -93,13 +82,11 @@ public class MonitorController implements Initializable {
             correo = this.correodEscribir.getText();
             telefono = this.telefonoEscribir.getText();
             añosAntiguedad = Integer.parseInt(this.antiguedadEscribir.getText());
-
             if ("" != nombreEscribir.getText()) {
                 monitors.add(new Monitor(nombre, id, carrera, telefono, correo, añosAntiguedad));
                 tablaMonitor.setItems(monitors);
                 tablaMonitor.refresh();
                 refrescar();
-
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText("MENSAJE DE INFORMACION");
@@ -116,8 +103,6 @@ public class MonitorController implements Initializable {
         }
         mfc.agregarMonitor(nombre, id, carrera, telefono, correo, añosAntiguedad);
     }
-
-
     @FXML
     void eliminar(ActionEvent event) {
         Monitor monitor = this.tablaMonitor.getSelectionModel().getSelectedItem();//selccionar
@@ -131,15 +116,12 @@ public class MonitorController implements Initializable {
             mfc.eliminarMonitor(String.valueOf(monitors.remove(monitor)));
         }
     }
-
     @FXML
     private TextField buscarMonitor;
-
     @FXML
     void buscar(ActionEvent event) {
         mfc.buscarMonitor(buscarMonitor.getText());
     }
-
     @FXML
     void seleccionar(ActionEvent event) {
         Monitor monitor = this.tablaMonitor.getSelectionModel().getSelectedItem();//selecionar
@@ -152,7 +134,6 @@ public class MonitorController implements Initializable {
             this.antiguedadEscribir.setText(String.valueOf(monitor.getAñosCompañia()));
         }
     }
-
     @FXML
     void modificar(ActionEvent event) {
         Monitor monitor = this.tablaMonitor.getSelectionModel().getSelectedItem();
@@ -182,7 +163,6 @@ public class MonitorController implements Initializable {
             }
         }
     }
-
     void refrescar() {
         nombreEscribir.setText("");
         idEscribir.setText("");
@@ -191,7 +171,6 @@ public class MonitorController implements Initializable {
         telefonoEscribir.setText("");
         antiguedadEscribir.setText("");
     }
-
     @FXML
     void filtrarMonitor(KeyEvent event) {
         String filtroCodigo=this.buscarMonitor.getText();
