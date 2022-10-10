@@ -14,14 +14,14 @@ public class PrestamoServiceImpl implements PrestamoService {
 
 
     @Override
-    public boolean enviarCodigoPersona(String fechaInicial,String fechaFinal, EstudianteController  estudiante){
+    public boolean enviarCodigoPersona(String fechaInicial,String fechaFinal, Estudiante estudiante){
         System.out.println("entro al prestamo"+estudiante);
         prestamos.add(new Prestamo(fechaInicial,fechaFinal,estudiante));
         for (int i=0;i<prestamos.size();i++){
             if (prestamos!=null) {
                 System.out.println(prestamos.get(i).getFechaInicial());
                 System.out.println(prestamos.get(i).getFechaFinal());
-                System.out.println(prestamos.get(i).getEstudiante().getNombreMostrar());
+
             }
         }
 

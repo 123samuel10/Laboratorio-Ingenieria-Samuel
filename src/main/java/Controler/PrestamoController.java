@@ -71,12 +71,14 @@ public class PrestamoController implements Initializable {
     void enviarCodigoPersona(ActionEvent event) {
         String fecha=null;
         String fechaFinal=null;
+        String estudianteM=null;
         try {
             fecha=fechaEscribir.getText();
             fechaFinal=fechaFinalEscribir.getText();
+            estudianteM= String.valueOf(this.estudianteController.getNombreMostrar());
 
                 if (""!=fechaEscribir.getText()){
-                    //prestamo.add(new Prestamo(fecha,fechaFinal,""));
+                    prestamo.add(new Prestamo(fecha,fechaFinal,));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
 
@@ -92,34 +94,6 @@ public class PrestamoController implements Initializable {
 
 
     }
-
-
-
-
-
-//        try {
-//            fecha = this.fechaEscribir.getText();
-//            for (int i = 0; i < prestamo.size(); i++) {
-//                estudiante = this.estudianteController.getNombreMostrar().getText();
-//                if (fechaEscribir.getText()!="") {
-//                    prestamo.add(new Prestamo(fecha, estudiante));
-//                    tablaPrestamo.setItems(prestamo);
-//                    tablaPrestamo.refresh();
-//                } else {
-//                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//                    alert.setTitle("holddda");
-//                }
-//            }
-//
-//        } catch (NumberFormatException e) {
-//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//            alert.setTitle("quedd");
-//        }
-
-
-
-
-
 
     @FXML
     void crearPrestamo(ActionEvent event) {
