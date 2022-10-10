@@ -18,12 +18,12 @@ public class PrestamoServiceImpl implements PrestamoService {
         System.out.println("entro al prestamo"+estudiante);
         prestamos.add(new Prestamo(fechaInicial,fechaFinal,estudiante));
         for (int i=0;i<prestamos.size();i++){
-            if (prestamos!=null){
+            if (prestamos!=null) {
                 System.out.println(prestamos.get(i).getFechaInicial());
                 System.out.println(prestamos.get(i).getFechaFinal());
                 System.out.println(estudiante);
-            }
 
+            }
         }
 
         return true;

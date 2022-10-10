@@ -62,7 +62,7 @@ public class PrestamoController implements Initializable {
 
 
 
-    Estudiante estudiante=new Estudiante();
+    EstudianteController estudiante=new EstudianteController();
 
 
     @FXML
@@ -72,25 +72,23 @@ public class PrestamoController implements Initializable {
         try {
             fecha=fechaEscribir.getText();
             fechaFinal=fechaFinalEscribir.getText();
-            if (""!=fechaEscribir.getText()){
 
-                    prestamo.add(new Prestamo(fecha,fechaFinal,estudiante));
+                if (""!=fechaEscribir.getText()){
+                    prestamo.add(new Prestamo(fecha,fechaFinal, (Estudiante) estudiante.getEstudiantes()));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
 
-                    mfc.enviarCodigoPersona(fecha,fechaFinal,estudiante);
+                    mfc.enviarCodigoPersona(fecha,fechaFinal, (Estudiante) estudiante.getEstudiantes());
                 }else {
-                Alert alert=new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("NO HAY");
-            }
-
-
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("NO HAY");
+                }
         }catch (NumberFormatException e){
             Alert alert=new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("NO HAY DATOS");
 
         }
-        mfc.enviarCodigoPersona(fecha,fechaFinal,estudiante);
+        mfc.enviarCodigoPersona(fecha,fechaFinal, (Estudiante) estudiante.getEstudiantes());
 
     }
 
