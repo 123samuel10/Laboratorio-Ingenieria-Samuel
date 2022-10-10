@@ -62,7 +62,9 @@ public class PrestamoController implements Initializable {
 
 
 
-    EstudianteController estudiante=new EstudianteController();
+    EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
+    EstudianteController estudianteController=new EstudianteController();
+    Estudiante estudiante=new Estudiante();
 
 
     @FXML
@@ -74,11 +76,10 @@ public class PrestamoController implements Initializable {
             fechaFinal=fechaFinalEscribir.getText();
 
                 if (""!=fechaEscribir.getText()){
-                    prestamo.add(new Prestamo(fecha,fechaFinal, (Estudiante) estudiante.getEstudiantes()));
+                    //prestamo.add(new Prestamo(fecha,fechaFinal,""));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
 
-                    mfc.enviarCodigoPersona(fecha,fechaFinal, (Estudiante) estudiante.getEstudiantes());
                 }else {
                     Alert alert=new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("NO HAY");
@@ -88,7 +89,7 @@ public class PrestamoController implements Initializable {
             alert.setTitle("NO HAY DATOS");
 
         }
-        mfc.enviarCodigoPersona(fecha,fechaFinal, (Estudiante) estudiante.getEstudiantes());
+
 
     }
 

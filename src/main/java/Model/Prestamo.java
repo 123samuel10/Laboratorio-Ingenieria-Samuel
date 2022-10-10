@@ -7,23 +7,23 @@ public class Prestamo {
     private String fechaInicial;
     private String fechaFinal;
 
-    private Estudiante estudiante;
+    private EstudianteController estudiante;
 
 
 
 
 
-    public Prestamo(String fechaInicial,String fechaFinal, Estudiante estudiante) {
+    public Prestamo(String fechaInicial,String fechaFinal, EstudianteController estudiante) {
         this.fechaInicial=fechaInicial;
         this.fechaFinal=fechaFinal;
         this.estudiante=estudiante;
     }
 
-    public Estudiante getEstudiante() {
+    public EstudianteController getEstudiante() {
         return estudiante;
     }
 
-    public void setEstudiante(Estudiante estudiante) {
+    public void setEstudiante(EstudianteController estudiante) {
         this.estudiante = estudiante;
     }
 
