@@ -176,6 +176,7 @@ public class MonitorController implements Initializable {
                 monitor.setCarrera(aux.getCarrera());
                 monitor.setCorreo(aux.getCorreo());
                 monitor.setTelefono(aux.getTelefono());
+                monitor.setAñosCompañia(aux.getAñosCompañia());
                 this.tablaMonitor.refresh();
                 refrescar();
             }

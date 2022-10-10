@@ -75,10 +75,10 @@ public class PrestamoController implements Initializable {
         try {
             fecha=fechaEscribir.getText();
             fechaFinal=fechaFinalEscribir.getText();
-            estudianteM= String.valueOf(this.estudianteController.getNombreMostrar());
+            estudianteM= String.valueOf(this.estudianteController.getEstudiantes());
 
                 if (""!=fechaEscribir.getText()){
-                    prestamo.add(new Prestamo(fecha,fechaFinal,));
+                    prestamo.add(new Prestamo(fecha,fechaFinal,estudiante));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
 

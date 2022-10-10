@@ -19,6 +19,13 @@ public class Prestamo {
         this.estudiante=estudiante;
     }
 
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
+
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
+    }
 
     public String getFechaFinal() {
         return fechaFinal;
