@@ -56,6 +56,13 @@ public class Prestamo {
         this.estudiante = estudiante;
     }
 
+    public Monitor getMonitor() {
+        return monitor;
+    }
+
+    public void setMonitor(Monitor monitor) {
+        this.monitor = monitor;
+    }
 }
 
 

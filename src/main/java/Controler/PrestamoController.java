@@ -64,29 +64,30 @@ public class PrestamoController implements Initializable {
 
     }
 
-    EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
-    EstudianteController estudianteController=new EstudianteController();
 
-//    public void prestamoPractica(EstudianteServiceImpl estudianteService) {
-//
-//    }
         @FXML
         void enviarCodigoPersona (ActionEvent event){
+            EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
             String fecha = null;
             String fechaFinal = null;
             String codigo = null;
             try {
+                codigo=escribirCodigoPersona.getText();
+
                 for (int i=0;i<estudianteService.getEstudiantes().size();i++){
-                    if (estudianteService.getEstudiantes().get(i)!=null && escribirCodigoPersona.equals(estudianteService.getEstudiantes().get(i).getId())){
+                    System.out.println("hola");
+                    if (estudianteService.getEstudiantes().get(i).getId().equals(codigo)){
                         fecha = fechaEscribir.getText();
                         fechaFinal = fechaFinalEscribir.getText();
-                        codigo = escribirCodigoPersona.getText();
-                        prestamo.add(new Prestamo(fecha,fechaFinal,codigo));
+                        prestamo.add(new Prestamo(fecha,fechaFinal,codigo,));
                         tablaPrestamo.setItems(prestamo);
                         tablaPrestamo.refresh();
+                    }else {
+                        Alert alert=new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("NO HAY NADA");
                     }
                 }
-                mfc.enviarCodigoPersona(fecha,fechaFinal,codigo);
+                mfc.enviarCodigoPersona(fecha,fechaFinal,codigo,);
 
             }catch (NumberFormatException e){
 
