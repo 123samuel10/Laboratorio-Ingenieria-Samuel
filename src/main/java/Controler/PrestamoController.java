@@ -65,16 +65,22 @@ public class PrestamoController implements Initializable {
     EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
     EstudianteController estudianteController=new EstudianteController();
 
-    Estudiante estudiante=new Estudiante();
+
 
 
     @FXML
     void enviarCodigoPersona(ActionEvent event) {
-        String fecha=null;
+        String  fecha=null;
         String fechaFinal=null;
-        fecha = fechaEscribir.getText();
-        fechaFinal = fechaFinalEscribir.getText();
-        mfc.enviarCodigoPersona(fecha, fechaFinal, escribirCodigoPersona.getText(), estudiante);
+
+        try {
+             fecha=fechaEscribir.getText();
+             fechaFinal=fechaFinalEscribir.getText();
+            mfc.enviarCodigoPersona(fecha, fechaFinal, escribirCodigoPersona.getText(), (EstudianteController) estudianteController.getEstudiantes());
+        }catch (NumberFormatException e){
+
+        }
+
 
 
     }
