@@ -20,10 +20,10 @@ public class PrestamoServiceImpl implements PrestamoService {
         System.out.println("entro al prestamo");
         prestamos.add(new Prestamo(fechaInicial,fechaFinal,codigo,estudiante,monitor));
         for (int i=0;i<prestamos.size();i++){
-            if (codigo.equals(estudianteController.getEstudiantes().get(i).getId())) {
+            if (codigo.equals(estudiante.getId())) {
                 System.out.println(fechaInicial);
                 System.out.println(fechaFinal);
-                System.out.println("EL NOMBRE ES:"+estudianteController.getEstudiantes().get(i).getNombre());
+                System.out.println("EL NOMBRE ES:"+estudiante.getNombre());
 
             }
         }

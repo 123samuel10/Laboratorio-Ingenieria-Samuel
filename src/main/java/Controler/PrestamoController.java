@@ -75,11 +75,13 @@ public class PrestamoController implements Initializable {
     void enviarCodigoPersona(ActionEvent event) {
         String  fecha=null;
         String fechaFinal=null;
+        String codigo=null;
 
         try {
              fecha=fechaEscribir.getText();
              fechaFinal=fechaFinalEscribir.getText();
-            mfc.enviarCodigoPersona(fecha, fechaFinal,escribirCodigoPersona.getText(),estudiante,monitor);
+             codigo=escribirCodigoPersona.getText();
+            mfc.enviarCodigoPersona(fecha, fechaFinal,codigo,estudiante,monitor);
         }catch (NumberFormatException e){
 
         }
