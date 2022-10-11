@@ -67,30 +67,30 @@ public class PrestamoController implements Initializable {
     EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
     EstudianteController estudianteController=new EstudianteController();
 
-    public void prestamoPractica(EstudianteServiceImpl estudianteService) {
-        String fecha = null;
-        String fechaFinal = null;
-        String codigo = null;
-        try {
-            for (int i=0;i<estudianteService.getEstudiantes().size();i++){
-                if (estudianteService.getEstudiantes().get(i)!=null && escribirCodigoPersona.equals(estudianteService.getEstudiantes().get(i).getId())){
-                    fecha = fechaEscribir.getText();
-                    fechaFinal = fechaFinalEscribir.getText();
-                    codigo = escribirCodigoPersona.getText();
-                    prestamo.add(new Prestamo(fecha,fechaFinal,codigo,));
-                    tablaPrestamo.setItems(prestamo);
-                    tablaPrestamo.refresh();
-                }
-            }
-            mfc.enviarCodigoPersona(fecha,fechaFinal,codigo,);
-
-        }catch (NumberFormatException e){
-
-        }
-    }
+//    public void prestamoPractica(EstudianteServiceImpl estudianteService) {
+//
+//    }
         @FXML
         void enviarCodigoPersona (ActionEvent event){
+            String fecha = null;
+            String fechaFinal = null;
+            String codigo = null;
+            try {
+                for (int i=0;i<estudianteService.getEstudiantes().size();i++){
+                    if (estudianteService.getEstudiantes().get(i)!=null && escribirCodigoPersona.equals(estudianteService.getEstudiantes().get(i).getId())){
+                        fecha = fechaEscribir.getText();
+                        fechaFinal = fechaFinalEscribir.getText();
+                        codigo = escribirCodigoPersona.getText();
+                        prestamo.add(new Prestamo(fecha,fechaFinal,codigo));
+                        tablaPrestamo.setItems(prestamo);
+                        tablaPrestamo.refresh();
+                    }
+                }
+                mfc.enviarCodigoPersona(fecha,fechaFinal,codigo);
 
+            }catch (NumberFormatException e){
+
+            }
         }
 
 

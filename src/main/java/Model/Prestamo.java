@@ -15,11 +15,12 @@ public class Prestamo {
 
 
 
-    public Prestamo(String fechaInicial,String fechaFinal, String codigo,Estudiante estudiante) {
+    public Prestamo(String fechaInicial,String fechaFinal, String codigo,Estudiante estudiante,Monitor monitor) {
         this.fechaInicial=fechaInicial;
         this.fechaFinal=fechaFinal;
         this.codigo=codigo;
         this.estudiante=estudiante;
+        this.monitor=monitor;
 
     }
 
