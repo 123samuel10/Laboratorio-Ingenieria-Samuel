@@ -79,7 +79,7 @@ public class PrestamoController implements Initializable {
                     if (estudianteService.getEstudiantes().get(i).getId().equals(codigo)){
                         fecha = fechaEscribir.getText();
                         fechaFinal = fechaFinalEscribir.getText();
-                        prestamo.add(new Prestamo(fecha,fechaFinal,codigo,));
+                        prestamo.add(new Prestamo(fecha,fechaFinal,codigo,"",""));
                         tablaPrestamo.setItems(prestamo);
                         tablaPrestamo.refresh();
                     }else {
