@@ -15,6 +15,10 @@ public class Monitor extends Persona {
         this.añosCompañia = añosCompañia;
     }
 
+    public Monitor() {
+
+    }
+
     public String getTelefono() {
         return telefono;
     }

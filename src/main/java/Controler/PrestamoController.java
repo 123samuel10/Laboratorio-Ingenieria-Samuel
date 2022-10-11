@@ -1,6 +1,7 @@
 package Controler;
 
 import Model.Estudiante;
+import Model.Monitor;
 import Model.Prestamo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -64,6 +65,8 @@ public class PrestamoController implements Initializable {
 
     EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
     EstudianteController estudianteController=new EstudianteController();
+    Estudiante estudiante=new Estudiante();
+    Monitor monitor=new Monitor();
 
 
 
@@ -76,7 +79,7 @@ public class PrestamoController implements Initializable {
         try {
              fecha=fechaEscribir.getText();
              fechaFinal=fechaFinalEscribir.getText();
-            mfc.enviarCodigoPersona(fecha, fechaFinal, escribirCodigoPersona.getText(), (EstudianteController) estudianteController.getEstudiantes());
+            mfc.enviarCodigoPersona(fecha, fechaFinal,escribirCodigoPersona.getText(),estudiante,monitor);
         }catch (NumberFormatException e){
 
         }

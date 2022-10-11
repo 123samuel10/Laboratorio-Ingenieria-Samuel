@@ -8,17 +8,19 @@ public class Prestamo {
     private String fechaFinal;
 
     private String codigo;
-    private EstudianteController estudianteController;
+    private Estudiante estudiante;
+    private Monitor monitor;
 
 
 
 
 
-    public Prestamo(String fechaInicial,String fechaFinal, String codigo,EstudianteController estudianteController) {
+    public Prestamo(String fechaInicial,String fechaFinal, String codigo,Estudiante estudiante,Monitor monitor) {
         this.fechaInicial=fechaInicial;
         this.fechaFinal=fechaFinal;
         this.codigo=codigo;
-        this.estudianteController=estudianteController;
+        this.estudiante=estudiante;
+        this.monitor=monitor;
     }
 
     public String getCodigo() {
@@ -45,12 +47,20 @@ public class Prestamo {
         this.fechaInicial = fechaInicial;
     }
 
-    public EstudianteController getEstudianteController() {
-        return estudianteController;
+    public Estudiante getEstudiante() {
+        return estudiante;
     }
 
-    public void setEstudianteController(EstudianteController estudianteController) {
-        this.estudianteController = estudianteController;
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
+    }
+
+    public Monitor getMonitor() {
+        return monitor;
+    }
+
+    public void setMonitor(Monitor monitor) {
+        this.monitor = monitor;
     }
 }
 
