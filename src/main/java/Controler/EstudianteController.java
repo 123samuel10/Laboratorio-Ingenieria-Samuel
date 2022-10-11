@@ -180,7 +180,6 @@ public class EstudianteController implements Initializable {
     @FXML
     void buscar() {
         mfc.buscar(filtrarCodigo.getText());
-
     }
 
     @FXML
@@ -200,17 +199,15 @@ public class EstudianteController implements Initializable {
 
     }
 
+    public TableView<Estudiante> getTablaEstudiante() {
+        return tablaEstudiante;
+    }
+
     public ObservableList<Estudiante> getEstudiantes() {
         return estudiantes;
     }
 
-    public TableColumn<Estudiante, String> getIdMostrar() {
-        return idMostrar;
-    }
 
-    public TableColumn<Estudiante, String> getNombreMostrar() {
-        return nombreMostrar;
-    }
 
 
 }

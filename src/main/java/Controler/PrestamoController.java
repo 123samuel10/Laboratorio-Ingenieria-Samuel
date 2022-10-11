@@ -73,18 +73,15 @@ public class PrestamoController implements Initializable {
         String fecha=null;
         String fechaFinal=null;
         String estudianteM=null;
-
-        System.out.println(estudianteService.getEstudiantes());
         try {
             fecha=fechaEscribir.getText();
             fechaFinal=fechaFinalEscribir.getText();
-
-
                 if (""!=fechaEscribir.getText()){
-                    prestamo.add(new Prestamo(fecha,fechaFinal,estudiante));
+                    prestamo.add(new Prestamo(fecha,fechaFinal, estudiante));
 
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
+                    mfc.enviarCodigoPersona(fecha,fechaFinal, (Estudiante) estudianteController.getEstudiantes());
 
                 }else {
                     Alert alert=new Alert(Alert.AlertType.ERROR);

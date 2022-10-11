@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class PrestamoServiceImpl implements PrestamoService {
     ArrayList<Prestamo>prestamos=new ArrayList<>();
 
-
+    EstudianteController estudianteController=new EstudianteController();
 
     @Override
     public boolean enviarCodigoPersona(String fechaInicial,String fechaFinal, Estudiante estudiante){
@@ -21,8 +21,7 @@ public class PrestamoServiceImpl implements PrestamoService {
         prestamos.add(new Prestamo(fechaInicial,fechaFinal,estudiante));
         for (int i=0;i<prestamos.size();i++){
             if (prestamos!=null) {
-                System.out.println(prestamos.get(i).getFechaInicial());
-                System.out.println(prestamos.get(i).getFechaFinal());
+
 
             }
         }
