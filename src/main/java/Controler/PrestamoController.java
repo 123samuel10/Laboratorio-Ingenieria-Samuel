@@ -72,26 +72,9 @@ public class PrestamoController implements Initializable {
     void enviarCodigoPersona(ActionEvent event) {
         String fecha=null;
         String fechaFinal=null;
-        String estudianteM=null;
-        try {
-            fecha=fechaEscribir.getText();
-            fechaFinal=fechaFinalEscribir.getText();
-                if (""!=fechaEscribir.getText()){
-                    prestamo.add(new Prestamo(fecha,fechaFinal, estudiante));
-
-                    tablaPrestamo.setItems(prestamo);
-                    tablaPrestamo.refresh();
-                    mfc.enviarCodigoPersona(fecha,fechaFinal, (Estudiante) estudianteController.getEstudiantes());
-
-                }else {
-                    Alert alert=new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("NO HAY");
-                }
-        }catch (NumberFormatException e){
-            Alert alert=new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("NO HAY DATOS");
-
-        }
+        fecha = fechaEscribir.getText();
+        fechaFinal = fechaFinalEscribir.getText();
+        mfc.enviarCodigoPersona(fecha, fechaFinal, escribirCodigoPersona.getText(), estudiante);
 
 
     }
