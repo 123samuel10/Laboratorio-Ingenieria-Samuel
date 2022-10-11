@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import service.EstudianteService;
 import service.impl.EstudianteServiceImpl;
 
 import java.net.URL;
@@ -63,16 +64,17 @@ public class PrestamoController implements Initializable {
 
 
 
-    EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
-    EstudianteController estudianteController=new EstudianteController();
+
     Estudiante estudiante=new Estudiante();
     Monitor monitor=new Monitor();
+    EstudianteController estudianteController=new EstudianteController();
 
 
 
 
     @FXML
     void enviarCodigoPersona(ActionEvent event) {
+
         String  fecha=null;
         String fechaFinal=null;
         String codigo=null;
@@ -81,7 +83,13 @@ public class PrestamoController implements Initializable {
              fecha=fechaEscribir.getText();
              fechaFinal=fechaFinalEscribir.getText();
              codigo=escribirCodigoPersona.getText();
-            mfc.enviarCodigoPersona(fecha, fechaFinal,codigo,estudiante,monitor);
+
+                 prestamo.add(new Prestamo(fecha,fechaFinal,codigo,estudiante,monitor));
+                 mfc.enviarCodigoPersona(fecha, fechaFinal,codigo,estudiante,monitor);
+                 tablaPrestamo.setItems(prestamo);
+                 tablaPrestamo.refresh();
+             //}
+
         }catch (NumberFormatException e){
 
         }
