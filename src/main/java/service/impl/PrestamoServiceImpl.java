@@ -16,16 +16,13 @@ public class PrestamoServiceImpl implements PrestamoService {
     EstudianteController estudianteController=new EstudianteController();
 
     @Override
-    public boolean enviarCodigoPersona(String fechaInicial,String fechaFinal, String  codigo,Estudiante estudiante,Monitor monitor){
+    public boolean enviarCodigoPersona(String fechaInicial,String fechaFinal, String  codigo,Estudiante estudiante){
         System.out.println("entro al prestamo");
-        System.out.println(estudiante.getNombre());
-        prestamos.add(new Prestamo(fechaInicial,fechaFinal,codigo,estudiante,monitor));
+        prestamos.add(new Prestamo(fechaInicial,fechaFinal,codigo,estudiante));
         for (int i=0;i<prestamos.size();i++){
             if (prestamos.get(i)!=null) {
                 System.out.println(fechaInicial);
                 System.out.println(fechaFinal);
-
-
 
             }
         }

@@ -14,9 +14,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import service.EstudianteService;
+import service.PrestamoService;
 import service.impl.EstudianteServiceImpl;
+import service.impl.PrestamoServiceImpl;
 
 import java.net.URL;
+import java.security.KeyStore;
 import java.util.ResourceBundle;
 
 public class PrestamoController implements Initializable {
@@ -61,42 +64,41 @@ public class PrestamoController implements Initializable {
 
     }
 
-
-
-
-
-    Estudiante estudiante=new Estudiante();
-    Monitor monitor=new Monitor();
+    EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
     EstudianteController estudianteController=new EstudianteController();
 
-
-
-
-    @FXML
-    void enviarCodigoPersona(ActionEvent event) {
-
-        String  fecha=null;
-        String fechaFinal=null;
-        String codigo=null;
-
+    public void prestamoPractica(EstudianteServiceImpl estudianteService) {
+        String fecha = null;
+        String fechaFinal = null;
+        String codigo = null;
         try {
-             fecha=fechaEscribir.getText();
-             fechaFinal=fechaFinalEscribir.getText();
-             codigo=escribirCodigoPersona.getText();
-
-                 prestamo.add(new Prestamo(fecha,fechaFinal,codigo,estudiante,monitor));
-                 mfc.enviarCodigoPersona(fecha, fechaFinal,codigo,estudiante,monitor);
-                 tablaPrestamo.setItems(prestamo);
-                 tablaPrestamo.refresh();
-             //}
+            for (int i=0;i<estudianteService.getEstudiantes().size();i++){
+                if (estudianteService.getEstudiantes().get(i)!=null && escribirCodigoPersona.equals(estudianteService.getEstudiantes().get(i).getId())){
+                    fecha = fechaEscribir.getText();
+                    fechaFinal = fechaFinalEscribir.getText();
+                    codigo = escribirCodigoPersona.getText();
+                    prestamo.add(new Prestamo(fecha,fechaFinal,codigo,));
+                    tablaPrestamo.setItems(prestamo);
+                    tablaPrestamo.refresh();
+                }
+            }
+            mfc.enviarCodigoPersona(fecha,fechaFinal,codigo,);
 
         }catch (NumberFormatException e){
+
+        }
+    }
+        @FXML
+        void enviarCodigoPersona (ActionEvent event){
 
         }
 
 
 
-    }
+
+
+
+
 
     @FXML
     void crearPrestamo(ActionEvent event) {
