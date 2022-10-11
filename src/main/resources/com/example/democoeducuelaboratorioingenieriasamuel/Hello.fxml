@@ -157,6 +157,11 @@
                   <Image url="@Imagenes/imagenHome.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="103.0" fitWidth="117.0" layoutX="573.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/uu.png" />
+               </image>
+            </ImageView>
          </children>
          <effect>
             <Bloom />

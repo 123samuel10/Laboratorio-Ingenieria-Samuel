@@ -64,6 +64,7 @@ public class PrestamoController implements Initializable {
 
     EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
     EstudianteController estudianteController=new EstudianteController();
+
     Estudiante estudiante=new Estudiante();
 
 
@@ -72,13 +73,16 @@ public class PrestamoController implements Initializable {
         String fecha=null;
         String fechaFinal=null;
         String estudianteM=null;
+
+        System.out.println(estudianteService.getEstudiantes());
         try {
             fecha=fechaEscribir.getText();
             fechaFinal=fechaFinalEscribir.getText();
-            estudianteM= String.valueOf(this.estudianteController.getEstudiantes());
+
 
                 if (""!=fechaEscribir.getText()){
                     prestamo.add(new Prestamo(fecha,fechaFinal,estudiante));
+
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
 
