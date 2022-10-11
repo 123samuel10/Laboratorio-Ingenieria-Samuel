@@ -63,11 +63,13 @@ public class PrestamoController implements Initializable {
         this.nombrePersona.setCellValueFactory(new PropertyValueFactory("estudiante"));
 
     }
-
+    EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
+    EstudianteController estudianteController=new EstudianteController();
+    MonitorController monitorController=new MonitorController();
 
         @FXML
         void enviarCodigoPersona (ActionEvent event){
-            EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
+
             String fecha = null;
             String fechaFinal = null;
             String codigo = null;
@@ -76,22 +78,24 @@ public class PrestamoController implements Initializable {
 
                 for (int i=0;i<estudianteService.getEstudiantes().size();i++){
                     System.out.println("hola");
-                    if (estudianteService.getEstudiantes().get(i).getId().equals(codigo)){
+                    if (estudianteService.getEstudiantes().get(i)!=null && estudianteService.getEstudiantes().get(i).getId().equals(codigo)){
                         fecha = fechaEscribir.getText();
                         fechaFinal = fechaFinalEscribir.getText();
-                        prestamo.add(new Prestamo(fecha,fechaFinal,codigo,"",""));
+                        prestamo.add(new Prestamo(fecha,fechaFinal,codigo,"","")));
                         tablaPrestamo.setItems(prestamo);
                         tablaPrestamo.refresh();
+
                     }else {
                         Alert alert=new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("NO HAY NADA");
                     }
                 }
-                mfc.enviarCodigoPersona(fecha,fechaFinal,codigo,);
+
 
             }catch (NumberFormatException e){
 
             }
+            mfc.enviarCodigoPersona(fecha,fechaFinal,codigo,"","");
         }
 
 
