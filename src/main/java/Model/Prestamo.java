@@ -15,7 +15,7 @@ public class Prestamo {
 
 
 
-    public Prestamo(String fechaInicial,String fechaFinal, String codigo,Estudiante estudiante,Monitor monitor) {
+    public Prestamo(String fechaInicial,String fechaFinal, String codigo) {
         this.fechaInicial=fechaInicial;
         this.fechaFinal=fechaFinal;
         this.codigo=codigo;
@@ -48,21 +48,7 @@ public class Prestamo {
         this.fechaInicial = fechaInicial;
     }
 
-    public Estudiante getEstudiante() {
-        return estudiante;
-    }
 
-    public void setEstudiante(Estudiante estudiante) {
-        this.estudiante = estudiante;
-    }
-
-    public Monitor getMonitor() {
-        return monitor;
-    }
-
-    public void setMonitor(Monitor monitor) {
-        this.monitor = monitor;
-    }
 }
 
 

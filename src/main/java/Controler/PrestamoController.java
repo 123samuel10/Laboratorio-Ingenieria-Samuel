@@ -20,6 +20,7 @@ import service.impl.PrestamoServiceImpl;
 
 import java.net.URL;
 import java.security.KeyStore;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class PrestamoController implements Initializable {
@@ -46,10 +47,8 @@ public class PrestamoController implements Initializable {
     private TableColumn<Model.Prestamo, String> fechaPrestamo;
 
 
-
-
     @FXML
-    private TableColumn<Model.Prestamo,String> fechaFinalMostrar;
+    private TableColumn<Model.Prestamo, String> fechaFinalMostrar;
     @FXML
     private TableView<Prestamo> tablaPrestamo;
 
@@ -63,45 +62,34 @@ public class PrestamoController implements Initializable {
         this.nombrePersona.setCellValueFactory(new PropertyValueFactory("estudiante"));
 
     }
-    EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
-    EstudianteController estudianteController=new EstudianteController();
-    MonitorController monitorController=new MonitorController();
+
+    EstudianteServiceImpl estudianteService = new EstudianteServiceImpl();
+
+    MonitorController monitorController = new MonitorController();
 
         @FXML
-        void enviarCodigoPersona (ActionEvent event){
+        void enviarCodigoPersona (ActionEvent event) {
 
             String fecha = null;
             String fechaFinal = null;
             String codigo = null;
             try {
-                codigo=escribirCodigoPersona.getText();
-
                 for (int i=0;i<estudianteService.getEstudiantes().size();i++){
-                    System.out.println("hola");
-                    if (estudianteService.getEstudiantes().get(i)!=null && estudianteService.getEstudiantes().get(i).getId().equals(codigo)){
+                    if (estudianteService.getEstudiantes().get(i)!=null && estudianteService.getEstudiantes().get(i).getId().equals(escribirCodigoPersona.getText())){
                         fecha = fechaEscribir.getText();
                         fechaFinal = fechaFinalEscribir.getText();
-                        prestamo.add(new Prestamo(fecha,fechaFinal,codigo,"","")));
+                        codigo = escribirCodigoPersona.getText();
+                        prestamo.add(new Prestamo(fecha,fechaFinal,codigo));
                         tablaPrestamo.setItems(prestamo);
                         tablaPrestamo.refresh();
-
-                    }else {
-                        Alert alert=new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("NO HAY NADA");
                     }
                 }
 
 
-            }catch (NumberFormatException e){
-
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
-            mfc.enviarCodigoPersona(fecha,fechaFinal,codigo,"","");
         }
-
-
-
-
-
 
 
 
