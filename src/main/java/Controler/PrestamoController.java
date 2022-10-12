@@ -64,17 +64,18 @@ public class PrestamoController implements Initializable {
     }
 
 
-    public Estudiante getEstudiante(String codigo,ObservableList<Estudiante>observableList){
-        for (Estudiante estudiante:observableList){
-            if (estudiante.getId().equals(codigo)){
-                return  estudiante;
-            }
-        }
-        return null;
-    }
+//    public Estudiante getEstudiante(String codigo,ObservableList<Estudiante>observableList){
+//        for (Estudiante estudiante:observableList){
+//            if (estudiante.getId().equals(codigo)){
+//                return  estudiante;
+//            }
+//        }
+//        return null;
+//    }
 
 
     EstudianteServiceImpl estudianteService = new EstudianteServiceImpl();
+
     @FXML
     void enviarCodigoPersona(ActionEvent event) {
 
@@ -90,10 +91,11 @@ public class PrestamoController implements Initializable {
                     prestamo.add(new Prestamo(fecha, fechaFinal, codigo));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
+                }else {
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("NO HAY NADA");
                 }
             }
-
-
 
         } catch (Exception e) {
             throw new RuntimeException(e);
