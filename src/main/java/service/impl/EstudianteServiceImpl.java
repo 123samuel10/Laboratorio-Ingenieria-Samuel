@@ -60,7 +60,4 @@ public class EstudianteServiceImpl implements EstudianteService {
         return estudiantes;
     }
 
-    public void setEstudiantes(ArrayList<Estudiante> estudiantes) {
-        this.estudiantes = estudiantes;
-    }
 }

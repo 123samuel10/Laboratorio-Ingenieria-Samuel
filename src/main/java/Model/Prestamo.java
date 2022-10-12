@@ -48,7 +48,21 @@ public class Prestamo {
         this.fechaInicial = fechaInicial;
     }
 
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
 
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
+    }
+
+    public Monitor getMonitor() {
+        return monitor;
+    }
+
+    public void setMonitor(Monitor monitor) {
+        this.monitor = monitor;
+    }
 }
 
 

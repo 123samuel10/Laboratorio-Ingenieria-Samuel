@@ -203,6 +203,7 @@ public class EstudianteController implements Initializable {
         return tablaEstudiante;
     }
 
+
     public ObservableList<Estudiante> getEstudiantes() {
         return estudiantes;
     }
