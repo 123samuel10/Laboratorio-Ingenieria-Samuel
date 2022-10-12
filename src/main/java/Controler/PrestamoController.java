@@ -89,6 +89,7 @@ public class PrestamoController implements Initializable {
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
+            mfc.enviarCodigoPersona(fecha,fechaFinal,codigo);
         }
 
 
