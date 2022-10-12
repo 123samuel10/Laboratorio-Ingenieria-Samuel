@@ -91,7 +91,7 @@ public class PrestamoController implements Initializable {
                     prestamo.add(new Prestamo(fecha, fechaFinal, codigo));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
-                }else {
+                }else if (estudianteService.getEstudiantes().get(i).equals(" ")){
                     Alert alert=new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("NO HAY NADA");
                 }
