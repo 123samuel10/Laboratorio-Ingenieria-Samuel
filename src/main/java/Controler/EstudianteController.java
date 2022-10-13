@@ -124,7 +124,6 @@ public class EstudianteController implements Initializable {
             this.tablaEstudiante.refresh();
         }
     }
-
     @FXML
     void seleccionar(ActionEvent event) {
         Estudiante estudiante = this.tablaEstudiante.getSelectionModel().getSelectedItem();//selecionar
@@ -136,7 +135,6 @@ public class EstudianteController implements Initializable {
             this.telefonoEscribir.setText(estudiante.getTelefono());
         }
     }
-
     @FXML
     void modificar(ActionEvent event) {
         Estudiante estudiante = this.tablaEstudiante.getSelectionModel().getSelectedItem();//selecionar
@@ -164,7 +162,6 @@ public class EstudianteController implements Initializable {
             }
         }
     }
-
     void refrescar() {
         nombreEscribir.setText("");
         idEscribir.setText("");
@@ -172,16 +169,11 @@ public class EstudianteController implements Initializable {
         carreraEscribir.setText("");
         telefonoEscribir.setText("");
     }
-
     @FXML
     private TextField filtrarCodigo;
-
-
     @FXML
     void buscar() {
-        mfc.buscar(filtrarCodigo.getText());
-    }
-
+        mfc.buscar(filtrarCodigo.getText());}
     @FXML
     void filtrarNombre(KeyEvent event) {
         String filtroCodigo = this.filtrarCodigo.getText();
@@ -196,21 +188,13 @@ public class EstudianteController implements Initializable {
             }
             this.tablaEstudiante.setItems(filtrarEstudiante);
         }
-
     }
-
     public TableView<Estudiante> getTablaEstudiante() {
         return tablaEstudiante;
     }
-
-
     public ObservableList<Estudiante> getEstudiantes() {
         return estudiantes;
     }
-
-
-
-
 }
 
 

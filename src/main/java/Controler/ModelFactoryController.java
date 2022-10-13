@@ -1,7 +1,7 @@
 package Controler;
 
 import Model.Estudiante;
-import Model.Monitor;
+import javafx.collections.ObservableList;
 import service.ModelFactoryControllerService;
 import service.impl.Laboratorio;
 
@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class ModelFactoryController implements ModelFactoryControllerService {
 
     Laboratorio laboratorio;
+
+
 
     private static class SingletonHolder {
         // El constructor de Singleton puede ser llamado desde aquí al ser protected
@@ -63,8 +65,12 @@ public class ModelFactoryController implements ModelFactoryControllerService {
 
     //prestamo
     @Override
-    public boolean enviarCodigoPersona(String fechaInicial,String fechaFinal, String codigo) {
-        return laboratorio.getPrestamoService().enviarCodigoPersona(fechaInicial,fechaFinal,codigo);
+    public boolean enviarCodigoPersona(String fechaInicial,String fechaFinal,Estudiante estudiante) {
+        return laboratorio.getPrestamoService().enviarCodigoPersona(fechaInicial,fechaFinal,estudiante);
+    }
+
+    public Laboratorio getLaboratorio() {
+        return laboratorio;
     }
 
 

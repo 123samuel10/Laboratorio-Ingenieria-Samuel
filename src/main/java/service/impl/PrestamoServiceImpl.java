@@ -6,19 +6,22 @@ import Controler.ModelFactoryController;
 import Model.Estudiante;
 import Model.Monitor;
 import Model.Prestamo;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import service.PrestamoService;
 
 import java.util.ArrayList;
 
 public class PrestamoServiceImpl implements PrestamoService {
-    ArrayList<Prestamo>prestamos=new ArrayList<>();
+    ObservableList<Prestamo>prestamos= FXCollections.observableArrayList();
 
     EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
 
     @Override
-    public boolean enviarCodigoPersona(String fechaInicial,String fechaFinal, String  codigo){
+    public boolean enviarCodigoPersona(String fechaInicial,String fechaFinal,Estudiante estudiante){
         System.out.println("entro al prestamo");
-        prestamos.add(new Prestamo(fechaInicial,fechaFinal,codigo));
+        prestamos.add(new Prestamo(fechaInicial,fechaFinal,estudiante));
+        System.out.println(estudiante.getNombre());
         for (int i=0;i<prestamos.size();i++){
             System.out.println("siu");
             if (prestamos.get(i)!=null) {
@@ -31,4 +34,5 @@ public class PrestamoServiceImpl implements PrestamoService {
 
         return true;
     }
+
 }

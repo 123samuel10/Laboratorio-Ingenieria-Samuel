@@ -46,4 +46,12 @@ public class MonitorServiceImlp implements MonitorService {
         }
         return true;
     }
+
+    public ArrayList<Monitor> getMonitors() {
+        return monitors;
+    }
+
+    public void setMonitors(ArrayList<Monitor> monitors) {
+        this.monitors = monitors;
+    }
 }

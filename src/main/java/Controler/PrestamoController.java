@@ -16,6 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import service.EstudianteService;
 import service.PrestamoService;
 import service.impl.EstudianteServiceImpl;
+import service.impl.MonitorServiceImlp;
 import service.impl.PrestamoServiceImpl;
 
 import java.net.URL;
@@ -42,7 +43,7 @@ public class PrestamoController implements Initializable {
 
     //tablas
     @FXML
-    private TableColumn<Model.Estudiante, String> nombrePersona;
+    private TableColumn<Model.Persona,String > nombrePersona;
     @FXML
     private TableColumn<Model.Prestamo, String> fechaPrestamo;
 
@@ -64,16 +65,16 @@ public class PrestamoController implements Initializable {
     }
 
 
-//    public Estudiante getEstudiante(String codigo,ObservableList<Estudiante>observableList){
-//        for (Estudiante estudiante:observableList){
-//            if (estudiante.getId().equals(codigo)){
-//                return  estudiante;
-//            }
-//        }
-//        return null;
-//    }
+    public Estudiante getEstudiante(String codigo,ObservableList<Estudiante>observableList){
+        for (Estudiante estudiante:observableList){
+            if (estudiante.getId().equals(codigo)){
+                return  estudiante;
 
 
+            }
+        }
+        return null;
+    }
     EstudianteServiceImpl estudianteService = new EstudianteServiceImpl();
 
     @FXML
@@ -82,30 +83,34 @@ public class PrestamoController implements Initializable {
         String fecha = null;
         String fechaFinal = null;
         String codigo = escribirCodigoPersona.getText();
-
         try {
-            for (int i = 0; i < estudianteService.getEstudiantes().size(); i++) {
-                if (estudianteService.getEstudiantes().get(i)!=null && estudianteService.getEstudiantes().get(i).getId().equals(codigo)) {
-                    fecha = fechaEscribir.getText();
-                    fechaFinal = fechaFinalEscribir.getText();
-                    prestamo.add(new Prestamo(fecha, fechaFinal, codigo));
+            fecha=fechaEscribir.getText();
+            fechaFinal=fechaFinalEscribir.getText();
+
+            for (int i = 0; i <estudianteService.getEstudiantes().size(); i++) {
+                System.out.println("holaaaaaaaa");
+                if (estudianteService.getEstudiantes().get(i)!=null&& estudianteService.getEstudiantes().get(i).getId().equals(codigo)) {
+                    System.out.println(estudianteService.getEstudiantes().get(i).getNombre());
+                    prestamo.add(new Prestamo(fecha, fechaFinal,estudianteService.getEstudiantes().get(i)));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
-                }else if (estudianteService.getEstudiantes().get(i).equals(" ")){
+                }else {
                     Alert alert=new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("NO HAY NADA");
                 }
+                mfc.enviarCodigoPersona(fecha, fechaFinal,estudianteService.getEstudiantes().get(i));
             }
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        mfc.enviarCodigoPersona(fecha, fechaFinal, codigo);
+
+
     }
-
-
     @FXML
     void crearPrestamo(ActionEvent event) {
+
+
 
     }
 

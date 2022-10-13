@@ -2,6 +2,8 @@ package Model;
 
 import Controler.EstudianteController;
 
+import java.util.ArrayList;
+
 public class Prestamo {
 
     private String fechaInicial;
@@ -15,13 +17,16 @@ public class Prestamo {
 
 
 
-    public Prestamo(String fechaInicial,String fechaFinal, String codigo) {
+    public Prestamo(String fechaInicial,String fechaFinal,Estudiante estudiante) {
         this.fechaInicial=fechaInicial;
         this.fechaFinal=fechaFinal;
-        this.codigo=codigo;
+
         this.estudiante=estudiante;
         this.monitor=monitor;
 
+    }
+
+    public Prestamo(String fecha, String fechaFinal, String codigo, ArrayList<Estudiante> estudiantes) {
     }
 
     public String getCodigo() {
