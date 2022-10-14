@@ -35,6 +35,11 @@ public class PrestamoServiceImpl implements PrestamoService {
                 System.out.println("entroooooooooooooooooooooooooooooooooooooo");
                 contador++;
                 System.out.println("la cantidad de prestamos realizado por esas persona es: "+" "+prestamos.size());
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("INFORMACION");
+                alert.setContentText("la cantidad de prestamos realizado por esa persona son "+" "+prestamos.size()+" "+"prestamos");
+                alert.showAndWait();
+                alert.getAlertType();
 
 
             }
