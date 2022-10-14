@@ -1,6 +1,7 @@
 package Controler;
 
 import Model.Estudiante;
+import Model.Monitor;
 import javafx.collections.ObservableList;
 import service.ModelFactoryControllerService;
 import service.impl.Laboratorio;
@@ -65,8 +66,8 @@ public class ModelFactoryController implements ModelFactoryControllerService {
 
     //prestamo
     @Override
-    public boolean enviarCodigoPersona(String fechaInicial,String fechaFinal,Estudiante estudiante) {
-        return laboratorio.getPrestamoService().enviarCodigoPersona(fechaInicial,fechaFinal,estudiante);
+    public boolean enviarCodigoPersona(String fechaInicial, String fechaFinal, Estudiante estudiante, Monitor monitor) {
+        return laboratorio.getPrestamoService().enviarCodigoPersona(fechaInicial,fechaFinal,estudiante, monitor);
     }
 
     public Laboratorio getLaboratorio() {

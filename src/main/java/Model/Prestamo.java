@@ -17,10 +17,9 @@ public class Prestamo {
 
 
 
-    public Prestamo(String fechaInicial,String fechaFinal,Estudiante estudiante) {
+    public Prestamo(String fechaInicial,String fechaFinal,Estudiante estudiante,Monitor monitor) {
         this.fechaInicial=fechaInicial;
         this.fechaFinal=fechaFinal;
-
         this.estudiante=estudiante;
         this.monitor=monitor;
 

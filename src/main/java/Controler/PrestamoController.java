@@ -21,6 +21,7 @@ import service.impl.PrestamoServiceImpl;
 
 import java.net.URL;
 import java.security.KeyStore;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -47,7 +48,6 @@ public class PrestamoController implements Initializable {
     @FXML
     private TableColumn<Model.Prestamo, String> fechaPrestamo;
 
-
     @FXML
     private TableColumn<Model.Prestamo, String> fechaFinalMostrar;
     @FXML
@@ -64,19 +64,25 @@ public class PrestamoController implements Initializable {
 
     }
 
-
-    public Estudiante getEstudiante(String codigo,ObservableList<Estudiante>observableList){
-        for (Estudiante estudiante:observableList){
-            if (estudiante.getId().equals(codigo)){
-                return  estudiante;
+    ArrayList<Estudiante>estudiantes;
 
 
-            }
-        }
-        return null;
-    }
-    EstudianteServiceImpl estudianteService = new EstudianteServiceImpl();
-    EstudianteController estudianteController=new EstudianteController();
+//    public PrestamoController(ArrayList<Estudiante> estudiantes){
+//        this.estudiantes = estudiantes;
+//    }
+
+//    public Estudiante getEstudiante(String codigo,ObservableList<Estudiante>observableList){
+//        for (Estudiante estudiante:observableList){
+//            if (estudiante.getId().equals(codigo)){
+//                return  estudiante;
+//
+//
+//            }
+//        }
+//        return null;
+//    }
+    MonitorServiceImlp monitorService=new MonitorServiceImlp();
+    EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
 
 
     @FXML
@@ -86,21 +92,23 @@ public class PrestamoController implements Initializable {
         String fechaFinal = null;
         String codigo = escribirCodigoPersona.getText();
         try {
+            System.out.println(this.estudiantes+"-------");
             fecha=fechaEscribir.getText();
             fechaFinal=fechaFinalEscribir.getText();
-
-            for (int i = 0; i <estudianteService.getEstudiantes().size(); i++) {
+            for (int i = 0; i <this.estudianteService.getEstudiantes().size(); i++) {
                 System.out.println("holaaaaaaaa");
-                if (estudianteService.getEstudiantes().get(i) == null && estudianteService.getEstudiantes().get(i).getId().equals(codigo)) {
+
+                if (this.estudiantes.get(i) != null && estudianteService.getEstudiantes().get(i).getId().equals(codigo)) {
                     System.out.println(estudianteService.getEstudiantes().get(i).getNombre());
-                    prestamo.add(new Prestamo(fecha, fechaFinal, estudianteService.getEstudiantes().get(i)));
+                    prestamo.add(new Prestamo(fecha, fechaFinal, estudianteService.getEstudiantes().get(i),monitorService.getMonitors().get(i)));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("NO HAY NADA");
                 }
-                mfc.enviarCodigoPersona(fecha, fechaFinal, estudianteService.getEstudiantes().get(i));
+
+                mfc.enviarCodigoPersona(fecha, fechaFinal, estudianteService.getEstudiantes().get(i),monitorService.getMonitors().get(i));
 
             }
         } catch (Exception e) {
@@ -109,14 +117,13 @@ public class PrestamoController implements Initializable {
 
 
     }
+
     @FXML
     void crearPrestamo(ActionEvent event) {
 
 
+
     }
-
-
-
 
 
 }

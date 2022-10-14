@@ -7,7 +7,7 @@ import service.EstudianteService;
 import java.util.ArrayList;
 
 public class EstudianteServiceImpl implements EstudianteService {
-    ArrayList<Estudiante> estudiantes = new ArrayList<>();
+    public ArrayList<Estudiante> estudiantes = new ArrayList<>();
 
     @Override
     public boolean agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo) {
@@ -27,8 +27,6 @@ public class EstudianteServiceImpl implements EstudianteService {
         }
         return true;
     }
-
-
 
 
     @Override
@@ -53,7 +51,8 @@ public class EstudianteServiceImpl implements EstudianteService {
     }
 
     public ArrayList<Estudiante> getEstudiantes() {
-        return estudiantes;
+        System.out.println("-------Estudiantes----"+this.estudiantes);
+        return this.estudiantes;
     }
 
 
