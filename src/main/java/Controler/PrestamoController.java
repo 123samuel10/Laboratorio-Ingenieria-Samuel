@@ -24,6 +24,7 @@ import service.impl.EstudianteServiceImpl;
 import service.impl.MonitorServiceImlp;
 import service.impl.PrestamoServiceImpl;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.security.KeyStore;
@@ -181,9 +182,13 @@ public class PrestamoController implements Initializable {
     @FXML
     void btnCantidadPrestamoMonitores(ActionEvent event) {
         mfc.cantidadPrestamosRealizadoMonitor(escribirMonitor.getText());
-
     }
 
+
+    @FXML
+    void estudianteConMasPrestamos(ActionEvent event) {
+        mfc.estudianteConMaPrestamos();
+    }
 
 
 }

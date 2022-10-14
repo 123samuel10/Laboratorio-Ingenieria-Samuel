@@ -40,10 +40,21 @@ public class PrestamoServiceImpl implements PrestamoService {
                 alert.setContentText("la cantidad de prestamos realizado por esa persona son "+" "+prestamos.size()+" "+"prestamos");
                 alert.showAndWait();
                 alert.getAlertType();
-
-
             }
         }
         return true;
     }
+
+    @Override
+    public boolean estudianteConMaPrestamos() {
+        for (int i=0;i<prestamos.size();i++){
+            if (prestamos.get(i)!=null && prestamos.get(i).getPerfil().equals("Estudiante")&& prestamos.get(i).getNombre().equals(prestamos.get(i).getNombre())){
+                System.out.println(prestamos.size());
+                break;
+            }
+        }
+        return true;
+    }
+
+
 }
