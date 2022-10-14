@@ -51,6 +51,8 @@ public class EstudianteController implements Initializable {
     private TableView<Estudiante> tablaEstudiante;
 
     //texfield
+
+
     @FXML
     private TextField telefonoEscribir;
     @FXML

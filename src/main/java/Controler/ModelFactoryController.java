@@ -1,12 +1,7 @@
 package Controler;
 
-import Model.Estudiante;
-import Model.Monitor;
-import javafx.collections.ObservableList;
 import service.ModelFactoryControllerService;
 import service.impl.Laboratorio;
-
-import java.util.ArrayList;
 
 public class ModelFactoryController implements ModelFactoryControllerService {
 
@@ -70,7 +65,11 @@ public class ModelFactoryController implements ModelFactoryControllerService {
         return laboratorio.getPrestamoService().enviarCodigoPersona(fechaInicial,fechaFinal,nombre,perfil,id);
     }
 
+    @Override
+    public boolean cantidadPrestamosRealizadoMonitor(String nombre) {
+        return laboratorio.getPrestamoService().cantidadPrestamosRealizadoMonitor(nombre);
 
+    }
 
 
 }

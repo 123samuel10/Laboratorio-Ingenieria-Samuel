@@ -1,12 +1,5 @@
 package service;
 
-import Controler.EstudianteController;
-import Model.Estudiante;
-import Model.Monitor;
-import javafx.collections.ObservableList;
-
-import java.util.ArrayList;
-
 public interface ModelFactoryControllerService {
     //estudiante
     boolean agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo,String perfil);
@@ -23,6 +16,7 @@ public interface ModelFactoryControllerService {
 
     //prestamo
     boolean enviarCodigoPersona(String fechaInicial,String fechaFinal,String nombre,String perfil,String id);
+    boolean cantidadPrestamosRealizadoMonitor(String nombre);
 
 
 

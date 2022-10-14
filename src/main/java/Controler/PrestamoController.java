@@ -16,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import service.EstudianteService;
 import service.PrestamoService;
@@ -64,6 +65,7 @@ public class PrestamoController implements Initializable {
     private TableView<Prestamo> tablaPrestamo;
 
     private ObservableList<Prestamo> prestamo;
+    private ObservableList<Prestamo>filtrarCodigo;
 
     private EstudianteServiceImpl estudianteService;
 
@@ -71,6 +73,7 @@ public class PrestamoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         prestamo = FXCollections.observableArrayList();
+        filtrarCodigo=FXCollections.observableArrayList();
         this.fechaPrestamo.setCellValueFactory(new PropertyValueFactory("fechaInicial"));
         this.fechaFinalMostrar.setCellValueFactory(new PropertyValueFactory("fechaFinal"));
         this.nombrePersona.setCellValueFactory(new PropertyValueFactory("nombre"));
@@ -109,9 +112,7 @@ public class PrestamoController implements Initializable {
         this.monitorService = monitorService;
     }
 
-
     MonitorServiceImlp monitorService=new MonitorServiceImlp();
-
 
     @FXML
     void enviarCodigoPersona(ActionEvent event) {
@@ -126,43 +127,29 @@ public class PrestamoController implements Initializable {
             for (int i = 0; i < this.estudianteService.getEstudiantes().size(); i++) {
                 if (estudianteService.getEstudiantes().get(i).getId().equals(codigo)) {
                     System.out.println(estudianteService.getEstudiantes().get(i).getNombre());
-                    prestamo.add(new Prestamo(
-                            fecha, fechaFinal, this.estudianteService.getEstudiantes().get(i).getId(),
-                            this.estudianteService.getEstudiantes().get(i).getNombre(),
-                            this.estudianteService.getEstudiantes().get(i).getPerfil()));
+                    prestamo.add(new Prestamo(fecha, fechaFinal, this.estudianteService.getEstudiantes().get(i).getId(), this.estudianteService.getEstudiantes().get(i).getNombre(), this.estudianteService.getEstudiantes().get(i).getPerfil()));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("NO HAY NADA");
                 }
-
-                mfc.enviarCodigoPersona(fecha, fechaFinal,this.estudianteService.getEstudiantes().get(i).getId(),
-                        this.estudianteService.getEstudiantes().get(i).getNombre(),
-                        this.estudianteService.getEstudiantes().get(i).getPerfil());
-
+                mfc.enviarCodigoPersona(fecha, fechaFinal,this.estudianteService.getEstudiantes().get(i).getId(), this.estudianteService.getEstudiantes().get(i).getNombre(), this.estudianteService.getEstudiantes().get(i).getPerfil());
             }
             for (int i = 0; i < this.monitorService.getMonitors().size(); i++) {
                 if (monitorService.getMonitors().get(i).getId().equals(codigo)) {
                     System.out.println(monitorService.getMonitors().get(i).getNombre());
-                    prestamo.add(new Prestamo(
-                            fecha, fechaFinal, this.monitorService.getMonitors().get(i).getId(),
-                            this.monitorService.getMonitors().get(i).getNombre(),
-                            this.monitorService.getMonitors().get(i).getPerfil()));
+                    prestamo.add(new Prestamo(fecha, fechaFinal, this.monitorService.getMonitors().get(i).getId(), this.monitorService.getMonitors().get(i).getNombre(), this.monitorService.getMonitors().get(i).getPerfil()));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("NO HAY NADA");
                 }
-
-                mfc.enviarCodigoPersona(fecha, fechaFinal,this.monitorService.getMonitors().get(i).getId(),
-                        this.monitorService.getMonitors().get(i).getNombre(),
-                        this.monitorService.getMonitors().get(i).getPerfil());
-
+                mfc.enviarCodigoPersona(fecha, fechaFinal,this.monitorService.getMonitors().get(i).getId(), this.monitorService.getMonitors().get(i).getNombre(), this.monitorService.getMonitors().get(i).getPerfil());
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (NumberFormatException e) {
+
         }
 
 
@@ -171,10 +158,32 @@ public class PrestamoController implements Initializable {
     @FXML
     void crearPrestamo(ActionEvent event) {
 
-
-
+    }
+    @FXML
+    private TextField idFiltrarCodigo;
+    @FXML
+    void filtrarCodigo(KeyEvent event) {
+        String filtroCodigo = this.idFiltrarCodigo.getText();
+        if (filtroCodigo.isEmpty()) {
+            this.tablaPrestamo.setItems(prestamo);
+        } else {
+            this.filtrarCodigo.clear();
+            for (Prestamo p : this.prestamo) {
+                if (p.getId().contains(filtroCodigo)) {
+                    this.filtrarCodigo.add(p);
+                }
+            }
+            this.tablaPrestamo.setItems(filtrarCodigo);
+        }
+    }
+    @FXML
+    private TextField escribirMonitor;
+    @FXML
+    void btnCantidadPrestamoMonitores(ActionEvent event) {
+        mfc.cantidadPrestamosRealizadoMonitor(escribirMonitor.getText());
 
     }
+
 
 
 }

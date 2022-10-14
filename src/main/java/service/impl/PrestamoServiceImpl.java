@@ -1,13 +1,8 @@
 package service.impl;
 
 
-import Controler.EstudianteController;
-import Controler.ModelFactoryController;
-import Model.Estudiante;
-import Model.Monitor;
 import Model.Prestamo;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import service.PrestamoService;
 
 import java.util.ArrayList;
@@ -25,6 +20,8 @@ public class PrestamoServiceImpl implements PrestamoService {
             if (prestamos.get(i)!=null) {
                 System.out.println(fechaInicial);
                 System.out.println(fechaFinal);
+                System.out.println(prestamos.get(i).getNombre());
+                System.out.println(id);
 
             }
 
@@ -34,4 +31,17 @@ public class PrestamoServiceImpl implements PrestamoService {
         return true;
     }
 
+    int contador=0;
+    @Override
+    public boolean cantidadPrestamosRealizadoMonitor(String nombre) {
+        for (int i = 0; i < prestamos.size(); i++) {
+            if (prestamos.get(i)!=null && prestamos.get(i).getNombre().equals(nombre)) {
+                System.out.println("entroooooooooooooooooooooooooooooooooooooo");
+                contador++;
+                System.out.println("la cantidad de prestamos realizado por esas persona es: "+" "+contador);
+            }
+        }
+
+        return true;
+    }
 }
