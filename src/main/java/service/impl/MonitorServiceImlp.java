@@ -11,10 +11,10 @@ public class MonitorServiceImlp implements MonitorService {
 
 
     @Override
-    public boolean agregarMonitor(String nombre, String id, String carrera, String telefono, String correo, int añosCompañia) {
+    public boolean agregarMonitor(String nombre, String id, String carrera, String telefono, String correo, int añosCompañia,String perfil) {
         System.out.println("entro");
-        this.monitors.add(new Monitor(nombre, id, carrera, telefono, correo, añosCompañia));
-        System.out.println(monitors);
+        this.monitors.add(new Monitor(nombre, id, carrera, telefono, correo, añosCompañia,perfil));
+
         return true;
     }
 
@@ -51,7 +51,5 @@ public class MonitorServiceImlp implements MonitorService {
         return monitors;
     }
 
-    public void setMonitors(ArrayList<Monitor> monitors) {
-        this.monitors = monitors;
-    }
+
 }

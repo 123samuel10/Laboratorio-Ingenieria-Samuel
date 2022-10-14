@@ -15,13 +15,11 @@ import java.util.ArrayList;
 public class PrestamoServiceImpl implements PrestamoService {
     ArrayList<Prestamo>prestamos=new ArrayList<>();
 
-    EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
-
     @Override
-    public boolean enviarCodigoPersona(String fechaInicial,String fechaFinal,Estudiante estudiante,Monitor monitor){
+    public boolean enviarCodigoPersona(String fechaInicial,String fechaFinal,String nombre,String perfil,String id){
         System.out.println("entro al prestamo");
-        prestamos.add(new Prestamo(fechaInicial,fechaFinal,estudiante,monitor));
-        System.out.println(estudiante.getNombre());
+        prestamos.add(new Prestamo(fechaInicial,fechaFinal,nombre,perfil,id));
+
         for (int i=0;i<prestamos.size();i++){
             System.out.println("siu");
             if (prestamos.get(i)!=null) {

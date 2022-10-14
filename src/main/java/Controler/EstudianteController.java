@@ -2,20 +2,27 @@ package Controler;
 
 import Model.Estudiante;
 import Model.Monitor;
+import com.example.democoeducuelaboratorioingenieriasamuel.HelloApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import service.impl.EstudianteServiceImpl;
+import service.impl.MonitorServiceImlp;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -57,6 +64,10 @@ public class EstudianteController implements Initializable {
     private ObservableList<Estudiante> estudiantes;
     private ObservableList<Estudiante> filtrarEstudiante;
 
+    private EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
+
+    private MonitorServiceImlp monitorServiceImlp;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -69,11 +80,37 @@ public class EstudianteController implements Initializable {
         this.telefonoMostrar.setCellValueFactory(new PropertyValueFactory("telefono"));
         this.correoMostrar.setCellValueFactory(new PropertyValueFactory("correoElectronico"));
 
-
     }
 
+    void initData(EstudianteServiceImpl estudianteService, MonitorServiceImlp monitorService) {
+        this.estudianteService = estudianteService;
+        this.monitorServiceImlp = monitorService;
+    }
+    @FXML
+    void btnPrestamo(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Prestamo.fxml"));
+        Stage stage3 = new Stage();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage3.setScene(scene);
+        PrestamoController controller = fxmlLoader.getController();
+        controller.initData(this.estudianteService, this.monitorServiceImlp);
+        fxmlLoader.setController(controller);
+        stage3.show();
+    }
+
+    @FXML
+    void btnMonitor(ActionEvent event) throws IOException { {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Monitor.fxml"));
+        Stage stage3 = new Stage();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage3.setScene(scene);
+        MonitorController controller = fxmlLoader.getController();
+        controller.initData(this.estudianteService, this.monitorServiceImlp);
+        fxmlLoader.setController(controller);
+        stage3.show();
+    }
+    }
     //botones
-    EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
     @FXML
     void añadir(ActionEvent event) {
         String nombre = null;
@@ -81,14 +118,17 @@ public class EstudianteController implements Initializable {
         String carrera = null;
         String correo = null;
         String telefono = null;
+        String perfil = null;
         try {
             nombre = this.nombreEscribir.getText();
             id = this.idEscribir.getText();
             carrera = this.carreraEscribir.getText();
             correo = this.correoEscribir.getText();
             telefono = this.telefonoEscribir.getText();
+            perfil = "Estudiante";
+            this.estudianteService.agregarEstudiante(nombre,id,carrera,telefono,correo,perfil);
             if ("" != nombreEscribir.getText()) {
-                estudiantes.add(new Estudiante(nombre, id, carrera, telefono, correo));
+                estudiantes.add(new Estudiante(nombre, id, carrera, telefono, correo, perfil));
                 tablaEstudiante.setItems(estudiantes);
                 tablaEstudiante.refresh();
                 refrescar();
@@ -107,7 +147,7 @@ public class EstudianteController implements Initializable {
             alert.setContentText("NO SE HA CREADO EL ESTUDIANTE");
             alert.showAndWait();
         }
-        mfc.agregarEstudiante(nombre, id, carrera, telefono, correo);
+        mfc.agregarEstudiante(nombre, id, carrera, telefono, correo,perfil);
 
     }
 
@@ -153,7 +193,8 @@ public class EstudianteController implements Initializable {
             String carrera = this.carreraEscribir.getText();
             String correo = this.correoEscribir.getText();
             String telefono = this.telefonoEscribir.getText();
-            Estudiante aux = new Estudiante(nombre, id, carrera, telefono, correo);
+            String perfil = "Estudiante";
+            Estudiante aux = new Estudiante(nombre, id, carrera, telefono, correo, perfil);
             if (!this.estudiantes.contains(aux)) {//si no contiene el aux
                 estudiante.setNombre(aux.getNombre());
                 estudiante.setId(aux.getId());

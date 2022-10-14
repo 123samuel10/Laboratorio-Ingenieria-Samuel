@@ -30,8 +30,8 @@ public class ModelFactoryController implements ModelFactoryControllerService {
     }
 
     @Override
-    public boolean agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo) {
-        return laboratorio.getEstudianteService().agregarEstudiante(nombre,id,carrera,telefono,correo);
+    public boolean agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo,String perfil) {
+        return laboratorio.getEstudianteService().agregarEstudiante(nombre,id,carrera,telefono,correo,perfil);
 
     }
 
@@ -50,8 +50,8 @@ public class ModelFactoryController implements ModelFactoryControllerService {
     //parte monitor
 
     @Override
-    public boolean agregarMonitor(String nombre, String id, String carrera, String telefono, String correo, int añosCompañia) {
-        return laboratorio.getMonitorService().agregarMonitor(nombre,id,carrera,telefono,correo,añosCompañia);
+    public boolean agregarMonitor(String nombre, String id, String carrera, String telefono, String correo, int añosCompañia,String perfil) {
+        return laboratorio.getMonitorService().agregarMonitor(nombre,id,carrera,telefono,correo,añosCompañia,perfil);
     }
 
     @Override
@@ -66,13 +66,11 @@ public class ModelFactoryController implements ModelFactoryControllerService {
 
     //prestamo
     @Override
-    public boolean enviarCodigoPersona(String fechaInicial, String fechaFinal, Estudiante estudiante, Monitor monitor) {
-        return laboratorio.getPrestamoService().enviarCodigoPersona(fechaInicial,fechaFinal,estudiante, monitor);
+    public boolean enviarCodigoPersona(String fechaInicial, String fechaFinal,String nombre,String perfil,String id) {
+        return laboratorio.getPrestamoService().enviarCodigoPersona(fechaInicial,fechaFinal,nombre,perfil,id);
     }
 
-    public Laboratorio getLaboratorio() {
-        return laboratorio;
-    }
+
 
 
 }

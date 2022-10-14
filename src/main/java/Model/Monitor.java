@@ -5,14 +5,14 @@ public class Monitor extends Persona {
     private String telefono;
     private String correo;
     private int añosCompañia;
-
-
-    public Monitor(String nombre, String id, String carrera, String telefono, String correo, int añosCompañia) {
+    private String perfil;
+    public Monitor(String nombre, String id, String carrera, String telefono, String correo, int añosCompañia, String perfil) {
         super(nombre, id);
         this.carrera = carrera;
         this.telefono = telefono;
         this.correo = correo;
         this.añosCompañia = añosCompañia;
+        this.perfil=perfil;
     }
 
     public Monitor() {
@@ -49,5 +49,13 @@ public class Monitor extends Persona {
 
     public void setAñosCompañia(int añosCompañia) {
         this.añosCompañia = añosCompañia;
+    }
+
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
     }
 }

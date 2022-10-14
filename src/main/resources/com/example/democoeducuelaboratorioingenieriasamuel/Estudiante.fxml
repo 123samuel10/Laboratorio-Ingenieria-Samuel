@@ -44,7 +44,7 @@
                      </stops>
                   </LinearGradient>
                </textFill></Button>
-            <Button mnemonicParsing="false" prefHeight="86.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="MONITORES">
+            <Button mnemonicParsing="false" onAction="#btnMonitor" prefHeight="86.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="MONITORES">
                <font>
                   <Font size="14.0" />
                </font>
@@ -90,7 +90,7 @@
                      </stops>
                   </LinearGradient>
                </textFill></Button>
-            <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="123.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="PRESTAMO">
+            <Button mnemonicParsing="false" onAction="#btnPrestamo" prefHeight="87.0" prefWidth="123.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="PRESTAMO">
                <font>
                   <Font size="14.0" />
                </font>
@@ -147,10 +147,10 @@
             <TableView fx:id="tablaEstudiante" layoutX="2.0" layoutY="252.0" prefHeight="338.0" prefWidth="676.0">
               <columns>
                 <TableColumn fx:id="nombreMostrar" prefWidth="167.19997715950012" text="NOMBRE:" />
-                <TableColumn fx:id="idMostrar" prefWidth="123.19999694824219" text="ID:" />
-                  <TableColumn fx:id="carreraMostrar" prefWidth="132.80001831054688" text="CARRERA" />
-                  <TableColumn fx:id="correoMostrar" minWidth="0.0" prefWidth="132.7999267578125" text="CORREO" />
-                  <TableColumn fx:id="telefonoMostrar" prefWidth="127.20013427734375" text="TELEFONO" />
+                <TableColumn fx:id="idMostrar" prefWidth="80.79998779296875" text="ID:" />
+                  <TableColumn fx:id="carreraMostrar" prefWidth="87.99998474121094" text="CARRERA" />
+                  <TableColumn fx:id="correoMostrar" minWidth="0.0" prefWidth="131.199951171875" text="CORREO" />
+                  <TableColumn fx:id="telefonoMostrar" prefWidth="120.7999267578125" text="TELEFONO" />
               </columns>
             </TableView>
             <Button fx:id="modificarBTN" layoutX="402.0" layoutY="163.0" mnemonicParsing="false" onAction="#modificar" prefHeight="49.0" prefWidth="122.0" style="-fx-background-color: #212528;" text="MODIFICAR" textFill="#faf8f8">

@@ -8,24 +8,42 @@ public class Prestamo {
 
     private String fechaInicial;
     private String fechaFinal;
-
     private String codigo;
-    private Estudiante estudiante;
-    private Monitor monitor;
+    private String id;
+    private String nombre;
+    private String perfil;
 
-
-
-
-
-    public Prestamo(String fechaInicial,String fechaFinal,Estudiante estudiante,Monitor monitor) {
+    public Prestamo(String fechaInicial,String fechaFinal,String id, String nombre, String perfil) {
         this.fechaInicial=fechaInicial;
         this.fechaFinal=fechaFinal;
-        this.estudiante=estudiante;
-        this.monitor=monitor;
+        this.id = id;
+        this.nombre = nombre;
+        this.perfil = perfil;
 
     }
 
-    public Prestamo(String fecha, String fechaFinal, String codigo, ArrayList<Estudiante> estudiantes) {
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
     }
 
     public String getCodigo() {
@@ -52,21 +70,6 @@ public class Prestamo {
         this.fechaInicial = fechaInicial;
     }
 
-    public Estudiante getEstudiante() {
-        return estudiante;
-    }
-
-    public void setEstudiante(Estudiante estudiante) {
-        this.estudiante = estudiante;
-    }
-
-    public Monitor getMonitor() {
-        return monitor;
-    }
-
-    public void setMonitor(Monitor monitor) {
-        this.monitor = monitor;
-    }
 }
 
 

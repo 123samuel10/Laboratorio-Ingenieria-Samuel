@@ -69,7 +69,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="83.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="ESTUDIANTES">
+            <Button mnemonicParsing="false" onAction="#btnEstudiantes" prefHeight="83.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="ESTUDIANTES">
                <font>
                   <Font size="14.0" />
                </font>
@@ -93,7 +93,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="81.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="PRESTAMO">
+            <Button mnemonicParsing="false" onAction="#btnPrestamo" prefHeight="81.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="PRESTAMO">
                <font>
                   <Font size="14.0" />
                </font>

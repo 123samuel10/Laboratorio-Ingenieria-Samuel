@@ -7,13 +7,13 @@ import service.EstudianteService;
 import java.util.ArrayList;
 
 public class EstudianteServiceImpl implements EstudianteService {
-    public ArrayList<Estudiante> estudiantes = new ArrayList<>();
+    private ArrayList<Estudiante> estudiantes = new ArrayList<>();
 
     @Override
-    public boolean agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo) {
-        System.out.println("entro");
-        this.estudiantes.add(new Estudiante(nombre, id, carrera, telefono, correo));
-        System.out.println(estudiantes);
+    public boolean agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo, String perfil) {
+        System.out.println("***************************");
+        this.estudiantes.add(new Estudiante(nombre, id, carrera, telefono, correo, perfil));
+        System.out.println(this.estudiantes.get(0).getNombre());
         return true;
     }
 
@@ -51,7 +51,6 @@ public class EstudianteServiceImpl implements EstudianteService {
     }
 
     public ArrayList<Estudiante> getEstudiantes() {
-        System.out.println("-------Estudiantes----"+this.estudiantes);
         return this.estudiantes;
     }
 

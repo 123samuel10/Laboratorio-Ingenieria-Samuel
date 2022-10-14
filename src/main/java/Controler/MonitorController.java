@@ -2,18 +2,26 @@ package Controler;
 
 import Model.Estudiante;
 import Model.Monitor;
+import com.example.democoeducuelaboratorioingenieriasamuel.HelloApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
+import service.MonitorService;
+import service.impl.EstudianteServiceImpl;
+import service.impl.MonitorServiceImlp;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -55,6 +63,10 @@ public class MonitorController implements Initializable {
     private ObservableList<Monitor> monitors;
     private ObservableList<Monitor> filtrarMonitor;
 
+    private MonitorServiceImlp monitorServiceImlp=new MonitorServiceImlp();
+
+    private EstudianteServiceImpl estudianteService;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -68,6 +80,36 @@ public class MonitorController implements Initializable {
         this.correoMostrar.setCellValueFactory(new PropertyValueFactory("correo"));
         this.antiguedadMostrar.setCellValueFactory(new PropertyValueFactory("añosCompañia"));
     }
+
+    void initData(EstudianteServiceImpl estudianteService, MonitorServiceImlp monitorService) {
+        this.estudianteService = estudianteService;
+        this.monitorServiceImlp = monitorService;
+    }
+
+
+    @FXML
+    void btnEstudiantes(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Estudiante.fxml"));
+        Stage stage3 = new Stage();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage3.setScene(scene);
+        EstudianteController controller = fxmlLoader.getController();
+        controller.initData(this.estudianteService, this.monitorServiceImlp);
+        fxmlLoader.setController(controller);
+        stage3.show();
+    }
+
+    @FXML
+    void btnPrestamo(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Prestamo.fxml"));
+        Stage stage3 = new Stage();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage3.setScene(scene);
+        PrestamoController controller = fxmlLoader.getController();
+        controller.initData(this.estudianteService, this.monitorServiceImlp);
+        fxmlLoader.setController(controller);
+        stage3.show();
+    }
     //botones
     @FXML
     void añadir(ActionEvent event) {
@@ -76,7 +118,9 @@ public class MonitorController implements Initializable {
         String carrera = null;
         String correo = null;
         String telefono = null;
+        String perfil=null;
         int añosAntiguedad = 0;
+
         try {
             nombre = this.nombreEscribir.getText();
             id = this.idEscribir.getText();
@@ -84,8 +128,10 @@ public class MonitorController implements Initializable {
             correo = this.correodEscribir.getText();
             telefono = this.telefonoEscribir.getText();
             añosAntiguedad = Integer.parseInt(this.antiguedadEscribir.getText());
+            perfil="Monitor";
+           this.monitorServiceImlp.agregarMonitor(nombre,id,carrera,correo,telefono,añosAntiguedad,perfil);
             if ("" != nombreEscribir.getText()) {
-                monitors.add(new Monitor(nombre, id, carrera, telefono, correo, añosAntiguedad));
+                monitors.add(new Monitor(nombre, id, carrera, telefono, correo, añosAntiguedad,perfil));
                 tablaMonitor.setItems(monitors);
                 tablaMonitor.refresh();
                 refrescar();
@@ -103,7 +149,7 @@ public class MonitorController implements Initializable {
             alert.setContentText("NO SE HA CREADO EL MONITOR");
             alert.showAndWait();
         }
-        mfc.agregarMonitor(nombre, id, carrera, telefono, correo, añosAntiguedad);
+        mfc.agregarMonitor(nombre, id, carrera, telefono, correo, añosAntiguedad,perfil);
     }
     @FXML
     void eliminar(ActionEvent event) {
@@ -152,7 +198,8 @@ public class MonitorController implements Initializable {
             String correo = this.correodEscribir.getText();
             String telefono = this.telefonoEscribir.getText();
             int añosAntiguedad = Integer.parseInt(this.antiguedadEscribir.getText());
-            Monitor aux = new Monitor(nombre, id, carrera, telefono, correo, añosAntiguedad);
+            String  perfil="Monitor";
+            Monitor aux = new Monitor(nombre, id, carrera, telefono, correo, añosAntiguedad,perfil);
             if (!this.monitors.contains(aux)) {//si no contiene el aux
                 monitor.setNombre(aux.getNombre());
                 monitor.setId(aux.getId());

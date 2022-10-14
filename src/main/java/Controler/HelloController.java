@@ -46,7 +46,6 @@ public class HelloController implements Initializable{
         Stage stage1 = new Stage();
         stage1.setScene(scene);
         stage1.show();
-
     }
 
     @FXML
@@ -69,8 +68,6 @@ public class HelloController implements Initializable{
         Stage stage3 = new Stage();
         stage3.setScene(scene);
         stage3.show();
-
-
     }
 
 

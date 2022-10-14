@@ -5,7 +5,7 @@ import Model.Estudiante;
 import java.util.ArrayList;
 
 public interface EstudianteService {
-    boolean agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo);
+    boolean agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo,String perfil);
 
     boolean buscar(String nombre);
 

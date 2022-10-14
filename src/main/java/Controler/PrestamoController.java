@@ -3,22 +3,27 @@ package Controler;
 import Model.Estudiante;
 import Model.Monitor;
 import Model.Prestamo;
+import com.example.democoeducuelaboratorioingenieriasamuel.HelloApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import service.EstudianteService;
 import service.PrestamoService;
 import service.impl.EstudianteServiceImpl;
 import service.impl.MonitorServiceImlp;
 import service.impl.PrestamoServiceImpl;
 
+import java.io.IOException;
 import java.net.URL;
 import java.security.KeyStore;
 import java.util.ArrayList;
@@ -51,44 +56,80 @@ public class PrestamoController implements Initializable {
     @FXML
     private TableColumn<Model.Prestamo, String> fechaFinalMostrar;
     @FXML
+    private TableColumn<Model.Estudiante, String> mostrarPerfil;
+
+    @FXML
+    private TableColumn<?, ?> mostrarID;
+    @FXML
     private TableView<Prestamo> tablaPrestamo;
 
     private ObservableList<Prestamo> prestamo;
+
+    private EstudianteServiceImpl estudianteService;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         prestamo = FXCollections.observableArrayList();
         this.fechaPrestamo.setCellValueFactory(new PropertyValueFactory("fechaInicial"));
         this.fechaFinalMostrar.setCellValueFactory(new PropertyValueFactory("fechaFinal"));
-        this.nombrePersona.setCellValueFactory(new PropertyValueFactory("estudiante"));
+        this.nombrePersona.setCellValueFactory(new PropertyValueFactory("nombre"));
+        this.mostrarPerfil.setCellValueFactory(new PropertyValueFactory("perfil"));
+        this.mostrarID.setCellValueFactory(new PropertyValueFactory("id"));
 
     }
 
-    ArrayList<Estudiante>estudiantes;
+    @FXML
+    void btnEstudiantes(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Estudiante.fxml"));
+        Stage stage3 = new Stage();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage3.setScene(scene);
+        EstudianteController controller = fxmlLoader.getController();
+        controller.initData(this.estudianteService, this.monitorService);
+        fxmlLoader.setController(controller);
+        stage3.show();
+    }
 
+    @FXML
+    void btnMonitor(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Monitor.fxml"));
+        Stage stage3 = new Stage();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage3.setScene(scene);
+        MonitorController controller = fxmlLoader.getController();
+        controller.initData(this.estudianteService, this.monitorService);
+        fxmlLoader.setController(controller);
+        stage3.show();
 
+    }
+
+    void initData(EstudianteServiceImpl estudianteService, MonitorServiceImlp monitorService) {
+        this.estudianteService = estudianteService;
+        this.monitorService = monitorService;
+    }
 
 
     MonitorServiceImlp monitorService=new MonitorServiceImlp();
-    EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
 
 
     @FXML
     void enviarCodigoPersona(ActionEvent event) {
-
         String fecha = null;
         String fechaFinal = null;
         String codigo = escribirCodigoPersona.getText();
         try {
-            System.out.println(this.estudiantes+"-------");
             fecha=fechaEscribir.getText();
             fechaFinal=fechaFinalEscribir.getText();
-            for (int i = 0; i <this.estudianteService.getEstudiantes().size(); i++) {
-                System.out.println("holaaaaaaaa");
-
-                if (this.estudiantes.get(i) != null && estudianteService.getEstudiantes().get(i).getId().equals(codigo)) {
+            System.out.println("#########");
+            System.out.println(this.estudianteService.getEstudiantes().size());
+            for (int i = 0; i < this.estudianteService.getEstudiantes().size(); i++) {
+                if (estudianteService.getEstudiantes().get(i).getId().equals(codigo)) {
                     System.out.println(estudianteService.getEstudiantes().get(i).getNombre());
-                    prestamo.add(new Prestamo(fecha, fechaFinal, estudianteService.getEstudiantes().get(i),monitorService.getMonitors().get(i)));
+                    prestamo.add(new Prestamo(
+                            fecha, fechaFinal, this.estudianteService.getEstudiantes().get(i).getId(),
+                            this.estudianteService.getEstudiantes().get(i).getNombre(),
+                            this.estudianteService.getEstudiantes().get(i).getPerfil()));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
                 } else {
@@ -96,7 +137,28 @@ public class PrestamoController implements Initializable {
                     alert.setTitle("NO HAY NADA");
                 }
 
-                mfc.enviarCodigoPersona(fecha, fechaFinal, estudianteService.getEstudiantes().get(i),monitorService.getMonitors().get(i));
+                mfc.enviarCodigoPersona(fecha, fechaFinal,this.estudianteService.getEstudiantes().get(i).getId(),
+                        this.estudianteService.getEstudiantes().get(i).getNombre(),
+                        this.estudianteService.getEstudiantes().get(i).getPerfil());
+
+            }
+            for (int i = 0; i < this.monitorService.getMonitors().size(); i++) {
+                if (monitorService.getMonitors().get(i).getId().equals(codigo)) {
+                    System.out.println(monitorService.getMonitors().get(i).getNombre());
+                    prestamo.add(new Prestamo(
+                            fecha, fechaFinal, this.monitorService.getMonitors().get(i).getId(),
+                            this.monitorService.getMonitors().get(i).getNombre(),
+                            this.monitorService.getMonitors().get(i).getPerfil()));
+                    tablaPrestamo.setItems(prestamo);
+                    tablaPrestamo.refresh();
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("NO HAY NADA");
+                }
+
+                mfc.enviarCodigoPersona(fecha, fechaFinal,this.monitorService.getMonitors().get(i).getId(),
+                        this.monitorService.getMonitors().get(i).getNombre(),
+                        this.monitorService.getMonitors().get(i).getPerfil());
 
             }
         } catch (Exception e) {

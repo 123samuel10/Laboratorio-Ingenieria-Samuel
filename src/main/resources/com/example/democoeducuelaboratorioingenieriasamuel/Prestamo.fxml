@@ -43,7 +43,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="86.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="MONITORES">
+            <Button mnemonicParsing="false" onAction="#btnMonitor" prefHeight="86.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="MONITORES">
                <font>
                   <Font size="14.0" />
                </font>
@@ -67,7 +67,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="ESTUDIANTES">
+            <Button mnemonicParsing="false" onAction="#btnEstudiantes" prefHeight="87.0" prefWidth="112.0" style="-fx-background-color: transparente; -fx-border-color: #D8EFF4;" text="ESTUDIANTES">
                <font>
                   <Font size="14.0" />
                </font>
@@ -133,8 +133,8 @@
                   <TableColumn fx:id="fechaPrestamo" prefWidth="127.1999740600586" text="FECHA INICIAL" />
                   <TableColumn fx:id="fechaFinalMostrar" prefWidth="135.20001220703125" text="FECHA FINAL" />
                   <TableColumn fx:id="nombrePersona" prefWidth="135.199951171875" text="PERSONA" />
-                <TableColumn prefWidth="104.0" text="MONITOR" />
-                <TableColumn prefWidth="84.79998779296875" text="ESTUDIANTE" />
+                <TableColumn fx:id="mostrarPerfil" prefWidth="104.0" text="PERFIL" />
+                  <TableColumn fx:id="mostrarID" prefWidth="75.0" text="ID" />
               </columns>
             </TableView>
             <Label layoutX="203.0" layoutY="115.0" text="CODIGO DE LA PERSONA A PRESTAR:" textFill="#faf7f7" />
