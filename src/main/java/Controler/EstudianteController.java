@@ -73,6 +73,7 @@ public class EstudianteController implements Initializable {
     }
 
     //botones
+    EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
     @FXML
     void añadir(ActionEvent event) {
         String nombre = null;
@@ -98,6 +99,7 @@ public class EstudianteController implements Initializable {
                 alert.setContentText("Es necesario llenar los campos");
                 alert.showAndWait();
             }
+
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
@@ -106,6 +108,7 @@ public class EstudianteController implements Initializable {
             alert.showAndWait();
         }
         mfc.agregarEstudiante(nombre, id, carrera, telefono, correo);
+
     }
 
     @FXML

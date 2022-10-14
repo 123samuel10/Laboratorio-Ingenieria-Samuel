@@ -77,6 +77,7 @@ public class PrestamoController implements Initializable {
     }
     EstudianteServiceImpl estudianteService = new EstudianteServiceImpl();
 
+
     @FXML
     void enviarCodigoPersona(ActionEvent event) {
 
@@ -89,7 +90,7 @@ public class PrestamoController implements Initializable {
 
             for (int i = 0; i <estudianteService.getEstudiantes().size(); i++) {
                 System.out.println("holaaaaaaaa");
-                if (estudianteService.getEstudiantes().get(i)!=null&& estudianteService.getEstudiantes().get(i).getId().equals(codigo)) {
+                if (estudianteService.getEstudiantes().get(i)!=null && estudianteService.getEstudiantes().get(i).getId().equals(codigo)) {
                     System.out.println(estudianteService.getEstudiantes().get(i).getNombre());
                     prestamo.add(new Prestamo(fecha, fechaFinal,estudianteService.getEstudiantes().get(i)));
                     tablaPrestamo.setItems(prestamo);
@@ -110,9 +111,11 @@ public class PrestamoController implements Initializable {
     @FXML
     void crearPrestamo(ActionEvent event) {
 
+        }
 
 
-    }
+
+
 
 }
 
