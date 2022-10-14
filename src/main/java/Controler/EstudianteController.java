@@ -198,6 +198,8 @@ public class EstudianteController implements Initializable {
     public ObservableList<Estudiante> getEstudiantes() {
         return estudiantes;
     }
+
+
 }
 
 

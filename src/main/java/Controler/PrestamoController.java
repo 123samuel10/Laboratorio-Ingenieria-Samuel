@@ -76,6 +76,7 @@ public class PrestamoController implements Initializable {
         return null;
     }
     EstudianteServiceImpl estudianteService = new EstudianteServiceImpl();
+    EstudianteController estudianteController=new EstudianteController();
 
 
     @FXML
@@ -90,18 +91,18 @@ public class PrestamoController implements Initializable {
 
             for (int i = 0; i <estudianteService.getEstudiantes().size(); i++) {
                 System.out.println("holaaaaaaaa");
-                if (estudianteService.getEstudiantes().get(i)!=null && estudianteService.getEstudiantes().get(i).getId().equals(codigo)) {
+                if (estudianteService.getEstudiantes().get(i) == null && estudianteService.getEstudiantes().get(i).getId().equals(codigo)) {
                     System.out.println(estudianteService.getEstudiantes().get(i).getNombre());
-                    prestamo.add(new Prestamo(fecha, fechaFinal,estudianteService.getEstudiantes().get(i)));
+                    prestamo.add(new Prestamo(fecha, fechaFinal, estudianteService.getEstudiantes().get(i)));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
-                }else {
-                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("NO HAY NADA");
                 }
-                mfc.enviarCodigoPersona(fecha, fechaFinal,estudianteService.getEstudiantes().get(i));
-            }
+                mfc.enviarCodigoPersona(fecha, fechaFinal, estudianteService.getEstudiantes().get(i));
 
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -111,7 +112,8 @@ public class PrestamoController implements Initializable {
     @FXML
     void crearPrestamo(ActionEvent event) {
 
-        }
+
+    }
 
 
 
