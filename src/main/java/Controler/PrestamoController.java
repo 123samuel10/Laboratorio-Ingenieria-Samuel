@@ -67,9 +67,6 @@ public class PrestamoController implements Initializable {
     ArrayList<Estudiante>estudiantes;
 
 
-//    public PrestamoController(ArrayList<Estudiante> estudiantes){
-//        this.estudiantes = estudiantes;
-//    }
 
 
     MonitorServiceImlp monitorService=new MonitorServiceImlp();
@@ -111,6 +108,7 @@ public class PrestamoController implements Initializable {
 
     @FXML
     void crearPrestamo(ActionEvent event) {
+
 
 
 
