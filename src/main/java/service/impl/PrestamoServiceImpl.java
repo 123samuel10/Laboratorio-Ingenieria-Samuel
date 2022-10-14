@@ -22,15 +22,11 @@ public class PrestamoServiceImpl implements PrestamoService {
                 System.out.println(fechaFinal);
                 System.out.println(prestamos.get(i).getNombre());
                 System.out.println(id);
-
             }
-
         }
-
 
         return true;
     }
-
     int contador=0;
     @Override
     public boolean cantidadPrestamosRealizadoMonitor(String nombre) {
@@ -38,10 +34,11 @@ public class PrestamoServiceImpl implements PrestamoService {
             if (prestamos.get(i)!=null && prestamos.get(i).getNombre().equals(nombre)) {
                 System.out.println("entroooooooooooooooooooooooooooooooooooooo");
                 contador++;
-                System.out.println("la cantidad de prestamos realizado por esas persona es: "+" "+contador);
+                System.out.println("la cantidad de prestamos realizado por esas persona es: "+" "+prestamos.size());
+
+
             }
         }
-
         return true;
     }
 }
