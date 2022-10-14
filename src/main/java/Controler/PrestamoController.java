@@ -71,16 +71,7 @@ public class PrestamoController implements Initializable {
 //        this.estudiantes = estudiantes;
 //    }
 
-//    public Estudiante getEstudiante(String codigo,ObservableList<Estudiante>observableList){
-//        for (Estudiante estudiante:observableList){
-//            if (estudiante.getId().equals(codigo)){
-//                return  estudiante;
-//
-//
-//            }
-//        }
-//        return null;
-//    }
+
     MonitorServiceImlp monitorService=new MonitorServiceImlp();
     EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
 
