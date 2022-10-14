@@ -16,6 +16,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import service.impl.EstudianteServiceImpl;
+import service.impl.MonitorServiceImlp;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,26 +39,36 @@ public class HelloController implements Initializable{
     void btnIrHome(ActionEvent event) {
 
     }
+    private EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
+
+    private MonitorServiceImlp monitorServiceImlp=new MonitorServiceImlp();
+
+    void initData(EstudianteServiceImpl estudianteService, MonitorServiceImlp monitorService) {
+        this.estudianteService = estudianteService;
+        this.monitorServiceImlp = monitorService;
+    }
     @FXML
     void btnIrEstudiante(ActionEvent event) throws IOException {
-
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Estudiante.fxml"));
-        Parent root=fxmlLoader.load();
-        Scene scene = new Scene(root);
-        Stage stage1 = new Stage();
-        stage1.setScene(scene);
-        stage1.show();
+        Stage stage3 = new Stage();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage3.setScene(scene);
+        EstudianteController controller = fxmlLoader.getController();
+        controller.initData(this.estudianteService, this.monitorServiceImlp);
+        fxmlLoader.setController(controller);
+        stage3.show();
     }
 
     @FXML
     void btnIrMonitor(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Monitor.fxml"));
-
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root);
-        Stage stage2 = new Stage();
-        stage2.setScene(scene);
-        stage2.show();
+        Stage stage3 = new Stage();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage3.setScene(scene);
+        MonitorController controller = fxmlLoader.getController();
+        controller.initData(this.estudianteService, this.monitorServiceImlp);
+        fxmlLoader.setController(controller);
+        stage3.show();
 
     }
 
