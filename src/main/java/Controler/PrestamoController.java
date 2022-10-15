@@ -29,6 +29,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.security.KeyStore;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -114,6 +115,7 @@ public class PrestamoController implements Initializable {
     }
 
     MonitorServiceImlp monitorService=new MonitorServiceImlp();
+    Date date=new Date();
 
     @FXML
     void enviarCodigoPersona(ActionEvent event) {
@@ -121,7 +123,7 @@ public class PrestamoController implements Initializable {
         String fechaFinal = null;
         String codigo = escribirCodigoPersona.getText();
 
-            fecha=fechaEscribir.getText();
+            fecha= "DIA: "+date.getDate();
             fechaFinal=fechaFinalEscribir.getText();
             System.out.println("#########");
             System.out.println(this.estudianteService.getEstudiantes().size());
@@ -144,7 +146,7 @@ public class PrestamoController implements Initializable {
                 }
                 mfc.enviarCodigoPersona(fecha, fechaFinal,this.monitorService.getMonitors().get(i).getId(), this.monitorService.getMonitors().get(i).getNombre(), this.monitorService.getMonitors().get(i).getPerfil());
             }
-
+            mfc.calcular(fechaFinalEscribir.getText());
     }
 
     @FXML
@@ -168,7 +170,8 @@ public class PrestamoController implements Initializable {
     private TextField escribirMonitor;
     @FXML
     void btnCantidadPrestamoMonitores(ActionEvent event) {
-        mfc.cantidadPrestamosRealizadoMonitor(escribirMonitor.getText());
+
+        mfc.cantidadPrestamosRealizadoMonitor();
     }
 
 

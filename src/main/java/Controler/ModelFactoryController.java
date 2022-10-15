@@ -1,5 +1,7 @@
 package Controler;
 
+import Model.Prestamo;
+import javafx.scene.control.TableColumn;
 import service.ModelFactoryControllerService;
 import service.impl.Laboratorio;
 
@@ -65,9 +67,13 @@ public class ModelFactoryController implements ModelFactoryControllerService {
         return laboratorio.getPrestamoService().enviarCodigoPersona(fechaInicial,fechaFinal,nombre,perfil,id);
     }
 
+
+
+
+
     @Override
-    public boolean cantidadPrestamosRealizadoMonitor(String nombre) {
-        return laboratorio.getPrestamoService().cantidadPrestamosRealizadoMonitor(nombre);
+    public boolean cantidadPrestamosRealizadoMonitor() {
+        return laboratorio.getPrestamoService().cantidadPrestamosRealizadoMonitor();
 
     }
 
@@ -75,5 +81,11 @@ public class ModelFactoryController implements ModelFactoryControllerService {
     public boolean estudianteConMaPrestamos() {
         return laboratorio.getPrestamoService().estudianteConMaPrestamos();
     }
+
+    @Override
+    public void calcular(String fechaFinal) {
+        laboratorio.getPrestamoService().calcular(fechaFinal);
+    }
+
 
 }

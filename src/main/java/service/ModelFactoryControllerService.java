@@ -1,5 +1,8 @@
 package service;
 
+import Model.Prestamo;
+import javafx.scene.control.TableColumn;
+
 public interface ModelFactoryControllerService {
     //estudiante
     boolean agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo,String perfil);
@@ -16,8 +19,9 @@ public interface ModelFactoryControllerService {
 
     //prestamo
     boolean enviarCodigoPersona(String fechaInicial,String fechaFinal,String nombre,String perfil,String id);
-    boolean cantidadPrestamosRealizadoMonitor(String nombre);
+    boolean cantidadPrestamosRealizadoMonitor();
     boolean estudianteConMaPrestamos();
+    void calcular(String fechaFinal);
 
 
 

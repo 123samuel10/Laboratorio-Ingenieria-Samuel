@@ -1,5 +1,6 @@
 package service.impl;
 
+import Model.Estudiante;
 import Model.Monitor;
 import javafx.scene.control.Alert;
 import service.MonitorService;
@@ -14,6 +15,8 @@ public class MonitorServiceImlp implements MonitorService {
     public boolean agregarMonitor(String nombre, String id, String carrera, String telefono, String correo, int añosCompañia,String perfil) {
         System.out.println("entro");
         this.monitors.add(new Monitor(nombre, id, carrera, telefono, correo, añosCompañia,perfil));
+        System.out.println("***************************");
+
 
         return true;
     }
