@@ -76,5 +76,4 @@ public class ModelFactoryController implements ModelFactoryControllerService {
         return laboratorio.getPrestamoService().estudianteConMaPrestamos();
     }
 
-
 }

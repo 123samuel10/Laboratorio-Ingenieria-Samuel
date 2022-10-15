@@ -120,7 +120,7 @@ public class PrestamoController implements Initializable {
         String fecha = null;
         String fechaFinal = null;
         String codigo = escribirCodigoPersona.getText();
-        try {
+
             fecha=fechaEscribir.getText();
             fechaFinal=fechaFinalEscribir.getText();
             System.out.println("#########");
@@ -132,9 +132,6 @@ public class PrestamoController implements Initializable {
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
                     refrescar();
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("NO HAY NADA");
                 }
                 mfc.enviarCodigoPersona(fecha, fechaFinal,this.estudianteService.getEstudiantes().get(i).getId(), this.estudianteService.getEstudiantes().get(i).getNombre(), this.estudianteService.getEstudiantes().get(i).getPerfil());
             }
@@ -144,23 +141,12 @@ public class PrestamoController implements Initializable {
                     prestamo.add(new Prestamo(fecha, fechaFinal, this.monitorService.getMonitors().get(i).getId(), this.monitorService.getMonitors().get(i).getNombre(), this.monitorService.getMonitors().get(i).getPerfil()));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("NO HAY NADA");
                 }
                 mfc.enviarCodigoPersona(fecha, fechaFinal,this.monitorService.getMonitors().get(i).getId(), this.monitorService.getMonitors().get(i).getNombre(), this.monitorService.getMonitors().get(i).getPerfil());
             }
-        } catch (NumberFormatException e) {
-
-        }
-
 
     }
 
-    @FXML
-    void crearPrestamo(ActionEvent event) {
-
-    }
     @FXML
     private TextField idFiltrarCodigo;
     @FXML

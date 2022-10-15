@@ -21,20 +21,16 @@ import javafx.stage.Stage;
 import service.impl.EstudianteServiceImpl;
 import service.impl.MonitorServiceImlp;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
-
 public class EstudianteController implements Initializable {
 
     ModelFactoryController mfc = ModelFactoryController.getInstance();
 
-    public void btnPadre(ActionEvent actionEvent) {
-    }
-
+    public void btnPadre(ActionEvent actionEvent) {}
     //tabla y columnas
     @FXML
     private TableColumn<Model.Estudiante, String> nombreMostrar;
@@ -51,8 +47,6 @@ public class EstudianteController implements Initializable {
     private TableView<Estudiante> tablaEstudiante;
 
     //texfield
-
-
     @FXML
     private TextField telefonoEscribir;
     @FXML
@@ -66,7 +60,7 @@ public class EstudianteController implements Initializable {
     private ObservableList<Estudiante> estudiantes;
     private ObservableList<Estudiante> filtrarEstudiante;
 
-    private EstudianteServiceImpl estudianteService=new EstudianteServiceImpl();
+    private EstudianteServiceImpl estudianteService = new EstudianteServiceImpl();
 
     private MonitorServiceImlp monitorServiceImlp;
 
@@ -88,6 +82,7 @@ public class EstudianteController implements Initializable {
         this.estudianteService = estudianteService;
         this.monitorServiceImlp = monitorService;
     }
+
     @FXML
     void btnPrestamo(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Prestamo.fxml"));
@@ -101,17 +96,19 @@ public class EstudianteController implements Initializable {
     }
 
     @FXML
-    void btnMonitor(ActionEvent event) throws IOException { {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Monitor.fxml"));
-        Stage stage3 = new Stage();
-        Scene scene = new Scene(fxmlLoader.load());
-        stage3.setScene(scene);
-        MonitorController controller = fxmlLoader.getController();
-        controller.initData(this.estudianteService, this.monitorServiceImlp);
-        fxmlLoader.setController(controller);
-        stage3.show();
+    void btnMonitor(ActionEvent event) throws IOException {
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Monitor.fxml"));
+            Stage stage3 = new Stage();
+            Scene scene = new Scene(fxmlLoader.load());
+            stage3.setScene(scene);
+            MonitorController controller = fxmlLoader.getController();
+            controller.initData(this.estudianteService, this.monitorServiceImlp);
+            fxmlLoader.setController(controller);
+            stage3.show();
+        }
     }
-    }
+
     //botones
     @FXML
     void añadir(ActionEvent event) {
@@ -128,7 +125,7 @@ public class EstudianteController implements Initializable {
             correo = this.correoEscribir.getText();
             telefono = this.telefonoEscribir.getText();
             perfil = "Estudiante";
-            this.estudianteService.agregarEstudiante(nombre,id,carrera,telefono,correo,perfil);
+            this.estudianteService.agregarEstudiante(nombre, id, carrera, telefono, correo, perfil);
             if ("" != nombreEscribir.getText()) {
                 estudiantes.add(new Estudiante(nombre, id, carrera, telefono, correo, perfil));
                 tablaEstudiante.setItems(estudiantes);
@@ -149,7 +146,7 @@ public class EstudianteController implements Initializable {
             alert.setContentText("NO SE HA CREADO EL ESTUDIANTE");
             alert.showAndWait();
         }
-        mfc.agregarEstudiante(nombre, id, carrera, telefono, correo,perfil);
+        mfc.agregarEstudiante(nombre, id, carrera, telefono, correo, perfil);
 
     }
 
@@ -208,6 +205,7 @@ public class EstudianteController implements Initializable {
             }
         }
     }
+
     void refrescar() {
         nombreEscribir.setText("");
         idEscribir.setText("");
@@ -215,11 +213,15 @@ public class EstudianteController implements Initializable {
         carreraEscribir.setText("");
         telefonoEscribir.setText("");
     }
+
     @FXML
     private TextField filtrarCodigo;
+
     @FXML
     void buscar() {
-        mfc.buscar(filtrarCodigo.getText());}
+        mfc.buscar(filtrarCodigo.getText());
+    }
+
     @FXML
     void filtrarNombre(KeyEvent event) {
         String filtroCodigo = this.filtrarCodigo.getText();
@@ -235,9 +237,11 @@ public class EstudianteController implements Initializable {
             this.tablaEstudiante.setItems(filtrarEstudiante);
         }
     }
+
     public TableView<Estudiante> getTablaEstudiante() {
         return tablaEstudiante;
     }
+
     public ObservableList<Estudiante> getEstudiantes() {
         return estudiantes;
     }

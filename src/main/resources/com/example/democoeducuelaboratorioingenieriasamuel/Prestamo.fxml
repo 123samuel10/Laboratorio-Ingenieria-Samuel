@@ -125,11 +125,6 @@
          <children>
             <Label layoutX="29.0" layoutY="48.0" text="FECHA FINAL PRESTAMO" textFill="#faf7f7" />
             <TextField fx:id="fechaFinalEscribir" layoutX="172.0" layoutY="44.0" />
-            <Button layoutX="398.0" layoutY="18.0" mnemonicParsing="false" onAction="#crearPrestamo" prefHeight="52.0" prefWidth="128.0" style="-fx-background-color: #212528;" text="CREAR PRESTAMO" textFill="#faf8f8">
-               <effect>
-                  <Blend />
-               </effect>
-            </Button>
             <TableView fx:id="tablaPrestamo" layoutX="1.0" layoutY="213.0" prefHeight="200.0" prefWidth="673.0">
               <columns>
                   <TableColumn fx:id="fechaPrestamo" prefWidth="127.1999740600586" text="FECHA INICIAL" />
