@@ -27,13 +27,10 @@ public class PrestamoServiceImpl implements PrestamoService {
 
         return true;
     }
-    int contador=0;
     @Override
     public boolean cantidadPrestamosRealizadoMonitor(String nombre) {
         for (int i = 0; i < prestamos.size(); i++) {
             if (prestamos.get(i)!=null && prestamos.get(i).getNombre().equals(nombre)) {
-                System.out.println("entroooooooooooooooooooooooooooooooooooooo");
-                contador++;
                 System.out.println("la cantidad de prestamos realizado por esas persona es: "+" "+prestamos.size());
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("INFORMACION");
@@ -50,6 +47,11 @@ public class PrestamoServiceImpl implements PrestamoService {
         for (int i=0;i<prestamos.size();i++){
             if (prestamos.get(i)!=null && prestamos.get(i).getPerfil().equals("Estudiante")&& prestamos.get(i).getNombre().equals(prestamos.get(i).getNombre())){
                 System.out.println(prestamos.size());
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("INFORMACION");
+                alert.setContentText("Estudiante con mas prestamos es: "+prestamos.get(i).getNombre());
+                alert.showAndWait();
+                alert.getAlertType();
                 break;
             }
         }

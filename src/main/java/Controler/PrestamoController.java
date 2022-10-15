@@ -131,6 +131,7 @@ public class PrestamoController implements Initializable {
                     prestamo.add(new Prestamo(fecha, fechaFinal, this.estudianteService.getEstudiantes().get(i).getId(), this.estudianteService.getEstudiantes().get(i).getNombre(), this.estudianteService.getEstudiantes().get(i).getPerfil()));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
+                    refrescar();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("NO HAY NADA");
@@ -188,6 +189,11 @@ public class PrestamoController implements Initializable {
     @FXML
     void estudianteConMasPrestamos(ActionEvent event) {
         mfc.estudianteConMaPrestamos();
+    }
+    void refrescar() {
+       fechaEscribir.setText("");
+       fechaFinalEscribir.setText("");
+       escribirCodigoPersona.setText("");
     }
 
 
