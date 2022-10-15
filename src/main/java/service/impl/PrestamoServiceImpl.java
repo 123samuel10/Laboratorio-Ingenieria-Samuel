@@ -1,6 +1,7 @@
 package service.impl;
 
 
+import Controler.PrestamoController;
 import Model.Prestamo;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
@@ -15,9 +16,9 @@ public class PrestamoServiceImpl implements PrestamoService {
     int precio=1000;
 
     @Override
-    public boolean enviarCodigoPersona(String fechaInicial, String fechaFinal, String nombre, String perfil, String id) {
+    public boolean enviarCodigoPersona(String fechaInicial, String fechaFinal,String id,String nombre, String perfil) {
         System.out.println("entro al prestamo");
-        prestamos.add(new Prestamo(fechaInicial, fechaFinal, nombre, perfil, id));
+        prestamos.add(new Prestamo(fechaInicial, fechaFinal,id, nombre, perfil));
         return true;
     }
 

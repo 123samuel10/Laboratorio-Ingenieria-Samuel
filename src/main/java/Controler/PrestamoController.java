@@ -115,6 +115,7 @@ public class PrestamoController implements Initializable {
     }
 
     MonitorServiceImlp monitorService=new MonitorServiceImlp();
+
     Date date=new Date();
 
     @FXML
@@ -125,7 +126,6 @@ public class PrestamoController implements Initializable {
 
             fecha= "DIA: "+date.getDate();
             fechaFinal=fechaFinalEscribir.getText();
-            System.out.println("#########");
             System.out.println(this.estudianteService.getEstudiantes().size());
             for (int i = 0; i < this.estudianteService.getEstudiantes().size(); i++) {
                 if (estudianteService.getEstudiantes().get(i).getId().equals(codigo)) {
@@ -133,7 +133,7 @@ public class PrestamoController implements Initializable {
                     prestamo.add(new Prestamo(fecha, fechaFinal, this.estudianteService.getEstudiantes().get(i).getId(), this.estudianteService.getEstudiantes().get(i).getNombre(), this.estudianteService.getEstudiantes().get(i).getPerfil()));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
-                    refrescar();
+
                 }
                 mfc.enviarCodigoPersona(fecha, fechaFinal,this.estudianteService.getEstudiantes().get(i).getId(), this.estudianteService.getEstudiantes().get(i).getNombre(), this.estudianteService.getEstudiantes().get(i).getPerfil());
             }
@@ -166,11 +166,9 @@ public class PrestamoController implements Initializable {
             this.tablaPrestamo.setItems(filtrarCodigo);
         }
     }
-    @FXML
-    private TextField escribirMonitor;
+
     @FXML
     void btnCantidadPrestamoMonitores(ActionEvent event) {
-
         mfc.cantidadPrestamosRealizadoMonitor();
     }
 
@@ -178,11 +176,6 @@ public class PrestamoController implements Initializable {
     @FXML
     void estudianteConMasPrestamos(ActionEvent event) {
         mfc.estudianteConMaPrestamos();
-    }
-    void refrescar() {
-       fechaEscribir.setText("");
-       fechaFinalEscribir.setText("");
-       escribirCodigoPersona.setText("");
     }
 
 
