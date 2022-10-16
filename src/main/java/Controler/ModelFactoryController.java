@@ -1,14 +1,16 @@
 package Controler;
 
+import Model.Monitor;
 import Model.Prestamo;
 import javafx.scene.control.TableColumn;
 import service.ModelFactoryControllerService;
 import service.impl.Laboratorio;
 
+import java.util.ArrayList;
+
 public class ModelFactoryController implements ModelFactoryControllerService {
 
     Laboratorio laboratorio;
-
 
 
     private static class SingletonHolder {
@@ -72,8 +74,8 @@ public class ModelFactoryController implements ModelFactoryControllerService {
 
 
     @Override
-    public boolean cantidadPrestamosRealizadoMonitor() {
-        return laboratorio.getPrestamoService().cantidadPrestamosRealizadoMonitor();
+    public boolean cantidadPrestamosRealizadoMonitor(int size) {
+        return laboratorio.getPrestamoService().cantidadPrestamosRealizadoMonitor(size);
 
     }
 

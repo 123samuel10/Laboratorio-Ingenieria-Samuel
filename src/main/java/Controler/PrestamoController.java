@@ -166,19 +166,14 @@ public class PrestamoController implements Initializable {
             this.tablaPrestamo.setItems(filtrarCodigo);
         }
     }
-
     @FXML
     void btnCantidadPrestamoMonitores(ActionEvent event) {
-        mfc.cantidadPrestamosRealizadoMonitor();
+        mfc.cantidadPrestamosRealizadoMonitor(monitorService.getMonitors().size());
     }
-
-
     @FXML
     void estudianteConMasPrestamos(ActionEvent event) {
         mfc.estudianteConMaPrestamos();
     }
-
-
 }
 
 

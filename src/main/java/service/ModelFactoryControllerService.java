@@ -1,7 +1,10 @@
 package service;
 
+import Model.Monitor;
 import Model.Prestamo;
 import javafx.scene.control.TableColumn;
+
+import java.util.ArrayList;
 
 public interface ModelFactoryControllerService {
     //estudiante
@@ -19,7 +22,7 @@ public interface ModelFactoryControllerService {
 
     //prestamo
     boolean enviarCodigoPersona(String fechaInicial,String fechaFinal,String id,String nombre,String perfil);
-    boolean cantidadPrestamosRealizadoMonitor();
+    boolean cantidadPrestamosRealizadoMonitor(int size);
     boolean estudianteConMaPrestamos();
     void calcular(String fechaFinal);
 

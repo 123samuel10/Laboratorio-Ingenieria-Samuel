@@ -2,6 +2,7 @@ package service.impl;
 
 
 import Controler.PrestamoController;
+import Model.Monitor;
 import Model.Prestamo;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
@@ -22,20 +23,22 @@ public class PrestamoServiceImpl implements PrestamoService {
         return true;
     }
 
-
     @Override
-    public boolean cantidadPrestamosRealizadoMonitor() {
+    public boolean cantidadPrestamosRealizadoMonitor(int size) {
 
         for (int i = 1; i < prestamos.size(); i++) {
             if (prestamos.get(i) != null && prestamos.get(i).getPerfil().equals("Monitor")) {
-                System.out.println(prestamos.size()-1);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("INFORMACION");
+                alert.setContentText("PRESTAMOS"+" "+size);
+                alert.showAndWait();
+                alert.getAlertType();
                 break;
             }
 
         }
         return true;
     }
-
     @Override
     public boolean estudianteConMaPrestamos() {
         for (int i = 0; i < prestamos.size(); i++) {
