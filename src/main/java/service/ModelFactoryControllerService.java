@@ -11,7 +11,6 @@ public interface ModelFactoryControllerService {
     boolean agregarEstudiante(String nombre, String id, String carrera, String telefono, String correo,String perfil);
     boolean eliminar(String nombre);
 
-
     boolean buscar(String codigo);
 
     //monitor
