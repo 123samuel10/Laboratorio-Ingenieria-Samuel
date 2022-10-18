@@ -133,7 +133,6 @@ public class PrestamoController implements Initializable {
                     prestamo.add(new Prestamo(fecha, fechaFinal, this.estudianteService.getEstudiantes().get(i).getId(), this.estudianteService.getEstudiantes().get(i).getNombre(), this.estudianteService.getEstudiantes().get(i).getPerfil()));
                     tablaPrestamo.setItems(prestamo);
                     tablaPrestamo.refresh();
-
                 }
                 mfc.enviarCodigoPersona(fecha, fechaFinal,this.estudianteService.getEstudiantes().get(i).getId(), this.estudianteService.getEstudiantes().get(i).getNombre(), this.estudianteService.getEstudiantes().get(i).getPerfil());
             }
