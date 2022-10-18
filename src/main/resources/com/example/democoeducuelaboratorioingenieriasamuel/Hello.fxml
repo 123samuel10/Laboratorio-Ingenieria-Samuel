@@ -127,7 +127,7 @@
       </VBox>
    </left>
    <center>
-      <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CDDCE8; -fx-border-width: 2;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CDDCE8; -fx-border-width: 2;" stylesheets="@css/archivo.css" BorderPane.alignment="CENTER">
          <children>
             <Text fx:id="tituloPrincipal" layoutX="229.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOME" textAlignment="RIGHT">
                <font>
