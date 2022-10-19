@@ -161,7 +161,6 @@ public class EstudianteController implements Initializable {
             alert.showAndWait();
         } else {
             // this.estudiantes.remove(estudiante);
-
             mfc.eliminar(String.valueOf(estudiantes.remove(estudiante)));
             this.tablaEstudiante.refresh();
         }
