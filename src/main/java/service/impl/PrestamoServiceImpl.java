@@ -39,6 +39,8 @@ public class PrestamoServiceImpl implements PrestamoService {
         }
         return true;
     }
+
+
     @Override
     public boolean estudianteConMaPrestamos() {
         for (int i = 0; i < prestamos.size(); i++) {

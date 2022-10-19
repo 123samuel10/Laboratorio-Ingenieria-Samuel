@@ -22,6 +22,7 @@ public interface ModelFactoryControllerService {
     //prestamo
     boolean enviarCodigoPersona(String fechaInicial,String fechaFinal,String id,String nombre,String perfil);
     boolean cantidadPrestamosRealizadoMonitor(int size);
+
     boolean estudianteConMaPrestamos();
     void calcular(String fechaFinal);
 

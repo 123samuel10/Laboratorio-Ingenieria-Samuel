@@ -168,7 +168,10 @@ public class PrestamoController implements Initializable {
     @FXML
     void btnCantidadPrestamoMonitores(ActionEvent event) {
         mfc.cantidadPrestamosRealizadoMonitor(monitorService.getMonitors().size());
+
     }
+
+
     @FXML
     void estudianteConMasPrestamos(ActionEvent event) {
         mfc.estudianteConMaPrestamos();

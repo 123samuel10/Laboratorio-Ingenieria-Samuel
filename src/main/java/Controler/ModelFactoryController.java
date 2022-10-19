@@ -79,6 +79,8 @@ public class ModelFactoryController implements ModelFactoryControllerService {
 
     }
 
+
+
     @Override
     public boolean estudianteConMaPrestamos() {
         return laboratorio.getPrestamoService().estudianteConMaPrestamos();
